@@ -25,3 +25,9 @@ featured:
     summary: "Find links to the Archdiocese, vocations, Catholic Charities, Oklahoma Catholic, and available parish social media."
     action_text: "View Links"
     action_url: "/catholic-links/"
+
+  - title: "Traveling? Find Mass Times"
+    eyebrow: "Mass While Away"
+    summary: "Use MassTimes.org to find Catholic Mass, Confession, and Adoration times when traveling."
+    action_text: "Find Mass Times"
+    action_url: "https://masstimes.org/"

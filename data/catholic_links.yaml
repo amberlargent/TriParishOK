@@ -36,3 +36,25 @@ groups:
       - name: "St. Ann Religious Education"
         url: "https://www.facebook.com/groups/351252334958189"
         description: "Facebook group for St. Ann religious education updates and community communication."
+
+  - title: "Helpful Parish Resources"
+    links:
+      - name: "Traveling? Find Mass Times"
+        url: "https://masstimes.org/"
+        description: "Find Catholic Mass, Confession, and Adoration times while traveling."
+
+      - name: "Safe Environment & Reporting Abuse"
+        url: "https://archokc.org/safe-environment"
+        description: "Safe Environment information from the Archdiocese of Oklahoma City."
+
+      - name: "Becoming Catholic / OCIA"
+        url: "/becoming-catholic/"
+        description: "Learn about becoming Catholic and the path into full communion with the Church."
+
+      - name: "Faith Formation"
+        url: "/faith-formation/"
+        description: "Find information about Catholic formation for children, families, and adults."
+
+      - name: "Tri-Parish History"
+        url: "/our-parishes/"
+        description: "Learn more about St. Ann, Our Lady of Perpetual Help, and Mother of Sorrows."
