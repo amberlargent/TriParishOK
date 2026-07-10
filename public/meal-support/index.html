@@ -15,22 +15,18 @@
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <header class="site-header-clean">
-  <div class="utility-bar-clean">
-    <nav class="utility-nav-clean" aria-label="Quick links">
-      <a href="/bulletins/">Bulletin</a>
-      <a href="/giving/">Online Giving</a>
-      <a href="/contact/">Contact</a>
-      <a class="utility-nav-highlight-clean" href="/mass-confession/">Locations & Mass Times</a>
-    </nav>
-  </div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <div class="header-main-clean">
-    <a class="brand-clean" href="/">
-      <span class="brand-title-clean">Tri-Parish Catholic Community</span>
-      <span class="brand-subtitle-clean">St. Ann • Our Lady of Perpetual Help • Mother of Sorrows</span>
+    <a class="brand-clean" href="/" aria-label="Tri-Parish Catholic Community home">
+      <span>Tri-Parish Catholic Community</span>
+      <small>
+        <span class="brand-subtitle-desktop">St. Ann • Our Lady of Perpetual Help • Mother of Sorrows</span>
+        <span class="brand-subtitle-mobile">Three parishes • one Catholic community</span>
+      </small>
     </a>
 
-    <nav class="main-nav-clean" aria-label="Main navigation">
+    <nav class="main-nav-clean desktop-nav-clean" aria-label="Main navigation">
       <a href="/mass-confession/">Worship</a>
       <a href="/new-here/">New Here?</a>
       <a href="/sacraments/">Sacraments</a>
@@ -38,7 +34,40 @@
       <a href="/parish-life/">Parish Life</a>
       <a href="/catholic-links/">Resources</a>
     </nav>
+
+    <details class="mobile-menu-clean">
+      <summary aria-label="Open navigation menu">
+        <span class="mobile-menu-icon" aria-hidden="true"></span>
+        <span>Menu</span>
+      </summary>
+
+      <nav class="mobile-nav-clean" aria-label="Mobile navigation">
+        <a href="/mass-confession/">Worship / Mass & Confession</a>
+        <a href="/new-here/">New Here?</a>
+        <a href="/sacraments/">Sacraments</a>
+        <a href="/faith-formation/">Faith Formation</a>
+        <a href="/parish-life/">Parish Life</a>
+        <a href="/catholic-links/">Catholic Resources</a>
+        <a href="/our-parishes/">Our Parishes</a>
+        <a href="/bulletins/">Bulletin</a>
+        <a href="/giving/">Giving Options</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </details>
   </div>
+
+  <nav class="mobile-quick-links" aria-label="Quick links">
+    <a href="/mass-confession/">Mass Times</a>
+    <a href="/bulletins/">Bulletin</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+
+  <nav class="utility-nav-clean desktop-utility-clean" aria-label="Quick links">
+    <a href="/bulletins/">Bulletin</a>
+    <a href="/giving/">Giving Options</a>
+    <a href="/contact/">Contact</a>
+    <a href="/mass-confession/">Locations & Mass Times</a>
+  </nav>
 </header>
 
   <main id="main-content">
@@ -180,7 +209,7 @@
         <ul class="footer-links">
           <li><a href="/mass-confession/">Mass & Confession</a></li>
           <li><a href="/bulletins/">Bulletin</a></li>
-          <li><a href="/giving/">Online Giving</a></li>
+          <li><a href="/giving/">Giving Options</a></li>
           <li><a href="/contact/">Contact the Office</a>
           <a href="/photo-privacy-notice/">Photo & Privacy Notice</a>
           <a href="/image-credits/">Image Credits</a></li>
