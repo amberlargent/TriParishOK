@@ -10,6 +10,15 @@
   </div>
 </section>
 
+<section class="section page-image-feature-section">
+  <figure class="page-image-feature">
+    {{ with hugo.Data.site_images.devotional.monstrance_adoration }}
+      <img src="{{ .src }}" alt="{{ .alt }}">
+      <figcaption>{{ .caption }}. {{ .credit }}.</figcaption>
+    {{ end }}
+  </figure>
+</section>
+
 <section class="section">
   <div class="source-note">
     <strong>Schedule note:</strong> {{ hugo.Data.schedule.source_note }}

@@ -22,8 +22,8 @@
     {{ if $location.image }}
       <img class="parish-photo" src="{{ $location.image }}" alt="{{ $location.image_alt }}">
     {{ else }}
-      <div class="image-placeholder">
-        <p>Parish photo coming soon</p>
+      <div class="parish-image-fallback">
+        <p>{{ .name }}</p>
       </div>
     {{ end }}
 

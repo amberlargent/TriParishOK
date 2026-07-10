@@ -31,7 +31,7 @@
         <h3>{{ .name }}</h3>
         <p>{{ .description }}</p>
         <a class="button button-secondary" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
-          Visit Website
+          {{ if .title }}Visit {{ .title }}{{ else if .name }}Visit {{ .name }}{{ else }}Visit this resource{{ end }}
         </a>
       </article>
     {{ end }}

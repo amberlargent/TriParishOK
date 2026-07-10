@@ -1,5 +1,5 @@
 ---
-title: "Online Giving"
+title: "Giving Options"
 layout: "giving"
 ---
 

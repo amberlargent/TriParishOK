@@ -10,6 +10,31 @@
   </div>
 </section>
 
+<section class="section sacrament-image-band-section">
+  <div class="sacrament-image-band">
+    <figure>
+      {{ with hugo.Data.site_images.sacraments.baptism }}
+        <img src="{{ .src }}" alt="{{ .alt }}">
+        <figcaption>{{ .caption }}. {{ .credit }}.</figcaption>
+      {{ end }}
+    </figure>
+
+    <figure>
+      {{ with hugo.Data.site_images.devotional.sacred_heart_statue }}
+        <img src="{{ .src }}" alt="{{ .alt }}">
+        <figcaption>Confession and mercy. {{ .credit }}.</figcaption>
+      {{ end }}
+    </figure>
+
+    <figure>
+      {{ with hugo.Data.site_images.sacraments.eucharist }}
+        <img src="{{ .src }}" alt="{{ .alt }}">
+        <figcaption>{{ .caption }}. {{ .credit }}.</figcaption>
+      {{ end }}
+    </figure>
+  </div>
+</section>
+
 <section class="section two-column">
   <article class="card sacrament-feature-card">
     <p class="eyebrow">Start Here</p>
@@ -61,7 +86,7 @@
     <p class="eyebrow">Important</p>
     <h2>Parish preparation details may vary.</h2>
     <p>
-      Sacramental preparation, paperwork, sponsor requirements, records, and scheduling should be confirmed directly with the parish office.
+      Sacramental preparation, paperwork, sponsor requirements, records, and scheduling are confirmed directly with the parish office.
     </p>
     <p>
       For urgent sacramental needs, especially danger of death, please contact the parish office as soon as possible.

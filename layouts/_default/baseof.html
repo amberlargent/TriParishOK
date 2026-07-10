@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {{ if site.Params.noindex }}
+    <meta name="robots" content="noindex, nofollow">
+  {{ end }}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
@@ -15,7 +18,7 @@
   <div class="utility-bar-clean">
     <nav class="utility-nav-clean" aria-label="Quick links">
       <a href="/bulletins/">Bulletin</a>
-      <a href="/giving/">Online Giving</a>
+      <a href="/giving/">Giving Options</a>
       <a href="/contact/">Contact</a>
       <a class="utility-nav-highlight-clean" href="/mass-confession/">Locations & Mass Times</a>
     </nav>
@@ -74,9 +77,10 @@
         <ul class="footer-links">
           <li><a href="/mass-confession/">Mass & Confession</a></li>
           <li><a href="/bulletins/">Bulletin</a></li>
-          <li><a href="/giving/">Online Giving</a></li>
+          <li><a href="/giving/">Giving Options</a></li>
           <li><a href="/contact/">Contact the Office</a>
-          <a href="/photo-privacy-notice/">Photo & Privacy Notice</a></li>
+          <a href="/photo-privacy-notice/">Photo & Privacy Notice</a>
+          <a href="/image-credits/">Image Credits</a></li>
         </ul>
       </section>
     </div>

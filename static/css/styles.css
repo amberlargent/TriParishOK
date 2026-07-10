@@ -400,7 +400,7 @@ img {
 }
 
 /* Parish cards */
-.image-placeholder {
+.parish-image-fallback {
   min-height: 180px;
   border-radius: 0.75rem;
   background: var(--ivory);
@@ -1072,7 +1072,7 @@ img {
   flex-direction: column;
 }
 
-.parish-page-card .image-placeholder {
+.parish-page-card .parish-image-fallback {
   min-height: 190px;
 }
 
@@ -3825,5 +3825,252 @@ img {
 
   .hero p {
     white-space: normal;
+  }
+}
+
+/* Supporting sacred images */
+.page-image-feature-section {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.page-image-feature {
+  margin: 0;
+  max-width: 1200px;
+}
+
+.page-image-feature img {
+  display: block;
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  background: var(--ivory);
+}
+
+.page-image-feature figcaption,
+.sacrament-image-band figcaption {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-style: italic;
+}
+
+.sacrament-image-band-section {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.sacrament-image-band {
+  display: grid;
+  gap: 1rem;
+}
+
+.sacrament-image-band figure {
+  margin: 0;
+}
+
+.sacrament-image-band img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  max-height: 260px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  background: var(--ivory);
+}
+
+/* Better crops for vertical images */
+.page-image-feature img[src*="mary-statue"],
+.page-image-feature img[src*="sacred-heart"],
+.page-image-feature img[src*="monstrance"] {
+  object-position: center 42%;
+}
+
+.sacrament-image-band img[src*="eucharist"] {
+  object-position: center 45%;
+}
+
+@media (min-width: 760px) {
+  .sacrament-image-band {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 759px) {
+  .page-image-feature img {
+    max-height: 280px;
+  }
+}
+
+/* New Here pew image */
+.new-here-pew-section {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.new-here-pew-section .page-image-feature img {
+  max-height: 320px;
+  object-position: center 55%;
+}
+
+/* New Here pew image */
+.new-here-pew-section {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.new-here-pew-section .page-image-feature img {
+  max-height: 320px;
+  object-position: center 55%;
+}
+
+/* New Here pew image */
+.new-here-pew-section {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.new-here-pew-section .page-image-feature {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.new-here-pew-section .page-image-feature img {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  object-position: center 55%;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+}
+
+.new-here-pew-section figcaption {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-style: italic;
+}
+
+/* New Here contained image card */
+.new-here-image-card-section {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.new-here-image-card-grid {
+  display: grid;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.new-here-image-card {
+  margin: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.new-here-image-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  object-position: center 24%;
+}
+
+.new-here-image-card figcaption {
+  padding: 0.65rem 0.85rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-style: italic;
+}
+
+.new-here-guidance-card {
+  display: flex;
+  flex-direction: column;
+  border-left: 10px solid var(--gold);
+  background: linear-gradient(180deg, var(--gold-tint), var(--white) 45%);
+}
+
+.new-here-guidance-card .button {
+  margin-top: auto;
+  width: fit-content;
+}
+
+@media (min-width: 760px) {
+  .new-here-image-card-grid {
+    grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  }
+}
+
+@media (max-width: 759px) {
+  .new-here-image-card img {
+    min-height: 240px;
+  }
+
+  .new-here-guidance-card .button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Sacraments page: Baptism, Confession, Eucharist image band */
+@media (min-width: 760px) {
+  .sacrament-image-band {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Important This Week: callout badges */
+.important-week-section .important-week-grid {
+  display: grid !important;
+  gap: 1rem !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+.important-week-section .important-week-card {
+  border-left: 8px solid var(--maroon) !important;
+  padding-top: 1.35rem !important;
+}
+
+.important-week-section .important-week-date {
+  display: inline-block !important;
+  width: fit-content !important;
+  margin: 0 0 0.85rem 0 !important;
+  padding: 0.38rem 0.7rem !important;
+  border-radius: 999px !important;
+  background: var(--gold-tint) !important;
+  border: 1px solid var(--gold) !important;
+  color: var(--maroon) !important;
+  font-size: 0.78rem !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+}
+
+.important-week-section .important-week-card h3 {
+  margin-top: 0 !important;
+}
+
+@media (min-width: 860px) {
+  .important-week-section .important-week-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 }

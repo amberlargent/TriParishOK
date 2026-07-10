@@ -10,6 +10,15 @@
   </div>
 </section>
 
+<section class="section page-image-feature-section">
+  <figure class="page-image-feature">
+    {{ with hugo.Data.site_images.devotional.rosary_bible }}
+      <img src="{{ .src }}" alt="{{ .alt }}">
+      <figcaption>{{ .caption }}. {{ .credit }}.</figcaption>
+    {{ end }}
+  </figure>
+</section>
+
 <section class="section two-column">
   <article class="card faith-feature-card">
     <p class="eyebrow">Formation Begins at Mass</p>
@@ -26,7 +35,7 @@
     <h2>Contact the parish office.</h2>
     <p>
       Class schedules, registration details, sacramental preparation timelines,
-      and parish-specific requirements should be confirmed with the parish office.
+      and parish-specific requirements are confirmed through the parish office.
     </p>
     <a class="button button-secondary" href="/contact/">Contact Us</a>
   </article>
@@ -81,7 +90,7 @@
     <article class="card info-card">
       <h3>Prepare for the Sacraments.</h3>
       <p>
-        Sacramental preparation should include parish formation, family prayer, and faithful participation in Mass.
+        Sacramental preparation includes parish formation, family prayer, and faithful participation in Mass.
       </p>
     </article>
 
@@ -100,7 +109,7 @@
     <h2>Registration and schedules</h2>
     <p>
       Current class times, registration forms, safe environment requirements, and sacramental preparation details
-      should be confirmed directly with the parish office.
+      are confirmed directly with the parish office.
     </p>
     <a class="button button-primary" href="/contact/">Contact the Parish Office</a>
   </article>

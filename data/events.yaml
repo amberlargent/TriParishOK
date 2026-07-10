@@ -3,8 +3,8 @@ intro:
   summary: "Find parish events, Holy Day schedules, ministry updates, and community announcements."
 
 calendar:
-  title: "Parish calendar coming soon"
-  summary: "A parish calendar can be added here after the office chooses the official calendar source and approval workflow."
+  title: "Current parish notices"
+  summary: "For now, current parish notices and schedule changes are shared through the weekly bulletin and the Important This Week section."
   note: "Until then, the weekly bulletin is the source of truth for current parish events and schedule changes."
 
 featured:

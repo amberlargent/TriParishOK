@@ -5,7 +5,7 @@ intro:
 sacraments:
   - name: "Baptism"
     eyebrow: "New Life in Christ"
-    summary: "Baptism is the first Sacrament and the doorway into the Christian life. Parents seeking Baptism for a child should contact the parish office for preparation and scheduling."
+    summary: "Baptism is the first Sacrament and the doorway into the Christian life. Parents seeking Baptism for a child contact the parish office for preparation and scheduling."
     action_text: "Contact the Parish Office"
     action_url: "/contact/"
 
@@ -35,7 +35,7 @@ sacraments:
 
   - name: "Marriage"
     eyebrow: "Holy Matrimony"
-    summary: "Catholic marriage is a covenant ordered toward the good of the spouses and the welcoming of children. Couples should contact the parish before setting a wedding date or making final plans."
+    summary: "Catholic marriage is a covenant ordered toward the good of the spouses and the welcoming of children. Couples contact the parish before setting a wedding date or making final plans."
     action_text: "Contact the Parish Office"
     action_url: "/contact/"
 

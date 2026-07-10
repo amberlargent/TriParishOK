@@ -1,0 +1,21 @@
+enabled: true
+heading: "Important This Week"
+intro: "Key items from the current bulletin are listed here for quick reading on phones and screen readers."
+items:
+  - title: "Special Sunday Mass with Archbishop Coakley"
+    date: "Sunday, August 2"
+    description: "The current bulletin notes a special Mass with Archbishop Coakley and only one Sunday Mass that day. Please check the bulletin for the full details before traveling."
+    link_text: "Read the current bulletin"
+    link_url: "/bulletins/current-bulletin.pdf"
+
+  - title: "Religious Education volunteers needed"
+    date: "Current need"
+    description: "The parish is seeking volunteers to help with Religious Education. Contact the parish office to learn where help is needed."
+    link_text: "Contact the parish office"
+    link_url: "/contact/"
+
+  - title: "Lawn-care volunteers needed at OLPH"
+    date: "Current need"
+    description: "Our Lady of Perpetual Help needs help with lawn care. Parishioners who can assist can contact the parish office."
+    link_text: "Contact the parish office"
+    link_url: "/contact/"

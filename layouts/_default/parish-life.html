@@ -77,7 +77,7 @@
           <p>{{ .address_line_2 }}</p>
         </div>
 
-        <a class="button button-secondary" href="/our-parishes/{{ .slug }}/">View Parish</a>
+        <a class="button button-secondary" href="/our-parishes/{{ .slug }}/">View {{ .short_name | default .name }} details</a>
       </article>
     {{ end }}
   </div>

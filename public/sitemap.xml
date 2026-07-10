@@ -20,6 +20,8 @@
   </url><url>
     <loc>http://localhost:1313/</loc>
   </url><url>
+    <loc>http://localhost:1313/image-credits/</loc>
+  </url><url>
     <loc>http://localhost:1313/mass-confession/</loc>
   </url><url>
     <loc>http://localhost:1313/meal-support/</loc>

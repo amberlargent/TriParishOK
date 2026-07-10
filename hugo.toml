@@ -3,4 +3,5 @@ locale = "en-US"
 title = "Tri-Parish Catholic Community"
 
 [params]
+  noindex = true
   description = "The Catholic parishes of St. Ann, Our Lady of Perpetual Help, and Mother of Sorrows."

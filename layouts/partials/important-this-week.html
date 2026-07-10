@@ -1,0 +1,24 @@
+{{ with hugo.Data.important_this_week }}
+  {{ if .enabled }}
+    <section class="section important-week-section" aria-labelledby="important-this-week-heading">
+      <div class="section-heading">
+        <p class="eyebrow">Parish Notices</p>
+        <h2 id="important-this-week-heading">{{ .heading }}</h2>
+        {{ with .intro }}<p>{{ . }}</p>{{ end }}
+      </div>
+
+      <div class="important-week-grid">
+        {{ range .items }}
+          <article class="card important-week-card">
+            {{ with .date }}<p class="important-week-date">{{ . }}</p>{{ end }}
+            <h3>{{ .title }}</h3>
+            <p>{{ .description }}</p>
+            {{ if and .link_text .link_url }}
+              <a class="text-link" href="{{ .link_url }}">{{ .link_text }}</a>
+            {{ end }}
+          </article>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+{{ end }}

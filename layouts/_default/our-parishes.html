@@ -32,7 +32,7 @@
           </div>
 
           <div class="card-actions">
-            <a class="button button-primary" href="/our-parishes/{{ .slug }}/">View Parish</a>
+            <a class="button button-primary" href="/our-parishes/{{ .slug }}/">View {{ .short_name | default .name }} details</a>
             <a class="button button-secondary" href="{{ .map_url }}" target="_blank" rel="noopener noreferrer">Directions</a>
           </div>
         </div>

@@ -12,7 +12,7 @@ If you do not wish to be photographed or recorded, please contact the parish off
 
 ## Photos of Children
 
-The parish takes special care with photos of minors. Close-up photos, identifying information, or featured photos of children should only be used with appropriate parent or guardian permission and in keeping with parish and Archdiocesan policies.
+The parish takes special care with photos of minors. Close-up photos, identifying information, or featured photos of children are used with appropriate parent or guardian permission and in keeping with parish and Archdiocesan policies.
 
 ## Private Situations
 

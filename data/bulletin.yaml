@@ -1,7 +1,10 @@
 current:
-  title: "Current Bulletin"
   date: "July 5, 2026"
   file: "/bulletins/current-bulletin.pdf"
-  note: "The weekly bulletin is the source of truth for parish schedules, announcements, and office information."
-
-archive_note: "Older bulletins may be added here later if the parish office wants an archive."
+  pages: "2 pages"
+  summary:
+    - "Special Sunday Mass with Archbishop Coakley on August 2; only one Sunday Mass that day."
+    - "Religious Education volunteers are needed."
+    - "Lawn-care volunteers are needed at Our Lady of Perpetual Help."
+  accessibility_note: "The bulletin is provided as a PDF. Key weekly items are also summarized on this page as regular web text for easier reading on phones and screen readers."
+source_note: "Schedules may change for Holy Days, funerals, weather, and special events. Check the current parish notices before traveling."
