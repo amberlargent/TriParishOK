@@ -131,6 +131,13 @@
 				<description></description>
 			</item>
 			<item>
+				<title>Photo &amp; Privacy Notice</title>
+				<link>http://localhost:1313/photo-privacy-notice/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/photo-privacy-notice/</guid>
+				<description>&lt;h1 id=&#34;photo--privacy-notice&#34;&gt;Photo &amp;amp; Privacy Notice&lt;/h1&gt;&#xA;&lt;p&gt;The Catholic parishes of St. Ann, Our Lady of Perpetual Help, and Mother of Sorrows may photograph or record parish liturgies, parish events, and community gatherings for parish communication, historical, and evangelization purposes.&lt;/p&gt;&#xA;&lt;p&gt;Attendance at public or parish community events may constitute implied consent for photographs or video to be used in parish publications, websites, social media, bulletin materials, and related communications.&lt;/p&gt;&#xA;&lt;p&gt;If you do not wish to be photographed or recorded, please contact the parish office.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>St. Ann</title>
 				<link>http://localhost:1313/our-parishes/st-ann-backup/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

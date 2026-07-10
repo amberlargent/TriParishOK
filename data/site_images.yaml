@@ -1,0 +1,43 @@
+devotional:
+  mary_statue:
+    src: "/images/devotional/mary-statue.jpg"
+    alt: "Statue of the Blessed Virgin Mary in prayer"
+    caption: "Statue of the Blessed Virgin Mary"
+    credit: "Photo by JKalina on Unsplash"
+    source_url: "https://unsplash.com/photos/statue-of-mary-praying-in-a-niche-m1HlpPYDqvA"
+
+  rosary_bible:
+    src: "/images/devotional/rosary-bible.jpg"
+    alt: "Rosary resting on an open Bible"
+    caption: "Rosary resting on Scripture"
+    credit: "Photo by Lennon Caranzo on Unsplash"
+    source_url: "https://unsplash.com/photos/silver-cross-pendant-necklace-on-book-page-xv4MlLRt6sw"
+
+  monstrance_adoration:
+    src: "/images/devotional/monstrance-adoration.jpg"
+    alt: "Monstrance on an altar during Eucharistic adoration"
+    caption: "Eucharistic Adoration"
+    credit: "Photo by Thays Orrico on Unsplash"
+    source_url: "https://unsplash.com/photos/a-group-of-people-sitting-in-a-dark-room-lPit52EuiXQ"
+
+  sacred_heart_statue:
+    src: "/images/devotional/sacred-heart-statue.jpg"
+    alt: "Sacred Heart of Jesus statue in a church"
+    caption: "Sacred Heart of Jesus"
+    credit: "Photo by Saint John's Seminary on Unsplash"
+    source_url: "https://unsplash.com/photos/a-statue-of-jesus-in-a-church-setting-Ww38gjbjgto"
+
+sacraments:
+  baptism:
+    src: "/images/sacraments/baptism.jpg"
+    alt: "A baby being anointed during Baptism"
+    caption: "Baptism"
+    credit: "Photo by Julia Michelle on Unsplash"
+    source_url: "https://unsplash.com/photos/a-baby-is-being-fed-a-glass-of-wine-FCr7829S7tE"
+
+  eucharist:
+    src: "/images/sacraments/eucharist.jpg"
+    alt: "Priest holding the Eucharist above a chalice"
+    caption: "The Holy Eucharist"
+    credit: "Photo by Thays Orrico on Unsplash"
+    source_url: "https://unsplash.com/photos/a-close-up-of-a-person-holding-a-bowl-rYvS1C615rA"
