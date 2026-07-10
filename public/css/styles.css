@@ -2444,3 +2444,1386 @@ img {
     text-align: center;
   }
 }
+
+/* Header nav cleanup */
+.header-inner {
+  align-items: flex-start;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.85rem 1.35rem;
+  max-width: 720px;
+}
+
+.main-nav a {
+  white-space: nowrap;
+}
+
+@media (min-width: 980px) {
+  .main-nav {
+    row-gap: 0.65rem;
+  }
+}
+
+@media (max-width: 979px) {
+  .main-nav {
+    justify-content: flex-start;
+    max-width: none;
+  }
+}
+
+/* Resources page cleanup */
+.compact-page-header {
+  padding-bottom: 3.5rem;
+}
+
+.resource-jump-section {
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.resource-jump-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.resource-jump-list a {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--navy);
+  font-weight: 900;
+  padding: 0.55rem 0.8rem;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.resource-jump-list a:hover,
+.resource-jump-list a:focus-visible {
+  background: var(--gold);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+}
+
+.compact-section-heading {
+  margin-bottom: 1rem;
+}
+
+.catholic-links-section {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.resources-note-card {
+  min-height: auto;
+}
+
+.resources-note-card .button {
+  margin-top: 1rem;
+}
+
+/* Header correction: restore clean brand-left / nav-right layout */
+.header-inner {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto;
+  grid-template-areas:
+    "brand nav"
+    "parishes parishes";
+  align-items: center;
+  gap: 1.25rem 2rem;
+}
+
+.site-brand,
+.brand,
+.site-title {
+  grid-area: brand;
+  text-align: left;
+}
+
+.main-nav {
+  grid-area: nav;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.85rem 1.35rem;
+  max-width: none;
+  text-align: right;
+}
+
+.main-nav a {
+  white-space: nowrap;
+}
+
+.parish-selector,
+.parish-select-wrap,
+.parish-select-section {
+  grid-area: parishes;
+}
+
+/* Keep parish selector from crowding the main nav */
+.parish-selector {
+  margin-top: 0.75rem;
+}
+
+/* Tablet/mobile: stack cleanly instead of forcing awkward rows */
+@media (max-width: 979px) {
+  .header-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "nav"
+      "parishes";
+  }
+
+  .site-brand,
+  .brand,
+  .site-title {
+    text-align: left;
+  }
+
+  .main-nav {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+/* Clean rebuilt header */
+.tp-header {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.tp-utility-wrap {
+  background: rgba(0, 0, 0, 0.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tp-utility-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.7rem 1rem;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.tp-utility-nav a {
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  text-decoration: none;
+  font-weight: 800;
+  line-height: 1;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.tp-utility-nav a:hover,
+.tp-utility-nav a:focus-visible {
+  background: var(--white);
+  color: var(--navy);
+  transform: translateY(-1px);
+}
+
+.tp-utility-nav .tp-utility-highlight {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--navy);
+}
+
+.tp-header-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 1.6rem;
+}
+
+.tp-main-row {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto;
+  gap: 1.25rem 2rem;
+  align-items: center;
+}
+
+.tp-brand {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.tp-brand-title {
+  display: block;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.tp-brand-subtitle {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  opacity: 0.94;
+}
+
+.tp-main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.85rem 1.25rem;
+}
+
+.tp-main-nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 900;
+  line-height: 1.2;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.tp-main-nav a:hover,
+.tp-main-nav a:focus-visible {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+  transform: translateY(-1px);
+}
+
+.tp-parish-row {
+  margin-top: 1.35rem;
+}
+
+.tp-parish-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: baseline;
+  margin-bottom: 0.7rem;
+}
+
+.tp-parish-heading a {
+  color: var(--gold);
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.tp-parish-heading a:hover,
+.tp-parish-heading a:focus-visible {
+  text-decoration: underline;
+}
+
+.tp-parish-heading span {
+  color: var(--white);
+  font-weight: 700;
+  opacity: 0.92;
+}
+
+.tp-parish-grid {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.tp-parish-card {
+  display: block;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-left: 6px solid var(--parish-color);
+  border-radius: 0.8rem;
+  color: var(--white);
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.tp-parish-card.parish-mos {
+  border-left-color: var(--gold);
+}
+
+.tp-parish-card strong {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.1;
+}
+
+.tp-parish-card span {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.tp-parish-card:hover,
+.tp-parish-card:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+}
+
+@media (min-width: 900px) {
+  .tp-parish-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 899px) {
+  .tp-main-row {
+    grid-template-columns: 1fr;
+  }
+
+  .tp-main-nav,
+  .tp-utility-nav {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .tp-utility-nav a,
+  .tp-main-nav a {
+    font-size: 0.92rem;
+  }
+
+  .tp-header-wrap {
+    padding-bottom: 1.25rem;
+  }
+}
+
+/* Final header tightening */
+.tp-header-wrap {
+  padding-top: 1.1rem;
+  padding-bottom: 1.15rem;
+}
+
+.tp-main-row {
+  grid-template-columns: minmax(390px, 0.85fr) minmax(0, 1.15fr);
+  gap: 1.25rem 2rem;
+}
+
+.tp-brand-title {
+  max-width: none;
+  font-size: clamp(1.35rem, 1.7vw, 1.7rem);
+}
+
+.tp-brand-subtitle {
+  max-width: 34rem;
+}
+
+.tp-main-nav {
+  gap: 0.75rem 1.1rem;
+}
+
+.tp-main-nav a {
+  font-size: 0.98rem;
+}
+
+.tp-parish-row {
+  margin-top: 1.1rem;
+}
+
+.tp-parish-card {
+  padding: 0.7rem 0.9rem;
+}
+
+.tp-parish-card strong {
+  font-size: 0.98rem;
+}
+
+.tp-parish-card span {
+  font-size: 0.86rem;
+}
+
+/* Reduce the big empty space between header and homepage hero */
+.hero {
+  padding-top: 3.25rem;
+}
+
+@media (max-width: 899px) {
+  .tp-main-row {
+    grid-template-columns: 1fr;
+  }
+
+  .tp-brand-title {
+    white-space: normal;
+  }
+
+  .hero {
+    padding-top: 2.5rem;
+  }
+}
+
+/* Final simple header: no parish selector in global header */
+.tp-header {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.tp-utility-wrap {
+  background: rgba(0, 0, 0, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tp-utility-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.55rem 1rem;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tp-utility-nav a {
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 0.42rem 0.72rem;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.tp-utility-nav .tp-utility-highlight {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--navy);
+}
+
+.tp-header-simple {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) auto;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.tp-brand {
+  color: var(--white);
+  text-decoration: none;
+  min-width: 0;
+}
+
+.tp-brand-title {
+  display: block;
+  color: var(--white);
+  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+.tp-brand-subtitle {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 700;
+  opacity: 0.92;
+}
+
+.tp-main-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.tp-main-nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.96rem;
+  font-weight: 900;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+
+.tp-main-nav a:hover,
+.tp-main-nav a:focus-visible {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* Hide old parish selector classes if any old header CSS still tries to show them */
+.tp-parish-row,
+.parish-selector,
+.parish-select-wrap,
+.parish-select-section {
+  display: none;
+}
+
+/* Pull hero closer now that the header is simpler */
+.hero {
+  padding-top: 3rem;
+}
+
+@media (max-width: 980px) {
+  .tp-header-simple {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .tp-main-nav,
+  .tp-utility-nav {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .tp-utility-nav a,
+  .tp-main-nav a {
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    padding-top: 2.25rem;
+  }
+}
+
+/* Homepage hero word-wrap cleanup */
+.hero-content,
+.hero .container,
+.hero-inner {
+  max-width: 1100px;
+}
+
+.hero h1 {
+  max-width: 980px;
+  font-size: clamp(3.2rem, 6vw, 5.75rem);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.hero p,
+.hero .hero-copy {
+  max-width: 780px;
+}
+
+/* Keep the simplified header from forcing ugly nav wraps */
+.tp-header-simple {
+  grid-template-columns: minmax(360px, 0.75fr) minmax(0, 1.25fr);
+}
+
+.tp-main-nav {
+  justify-content: flex-end;
+  gap: 0.75rem 0.95rem;
+}
+
+.tp-main-nav a {
+  font-size: 0.94rem;
+}
+
+@media (max-width: 980px) {
+  .tp-header-simple {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    max-width: 760px;
+    font-size: clamp(2.7rem, 9vw, 4.5rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: clamp(2.35rem, 11vw, 3.35rem);
+  }
+}
+
+/* Homepage hero word-wrap cleanup */
+.hero-content,
+.hero .container,
+.hero-inner {
+  max-width: 1100px;
+}
+
+.hero h1 {
+  max-width: 980px;
+  font-size: clamp(3.2rem, 6vw, 5.75rem);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.hero p,
+.hero .hero-copy {
+  max-width: 780px;
+}
+
+/* Keep the simplified header from forcing ugly nav wraps */
+.tp-header-simple {
+  grid-template-columns: minmax(360px, 0.75fr) minmax(0, 1.25fr);
+}
+
+.tp-main-nav {
+  justify-content: flex-end;
+  gap: 0.75rem 0.95rem;
+}
+
+.tp-main-nav a {
+  font-size: 0.94rem;
+}
+
+@media (max-width: 980px) {
+  .tp-header-simple {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    max-width: 760px;
+    font-size: clamp(2.7rem, 9vw, 4.5rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: clamp(2.35rem, 11vw, 3.35rem);
+  }
+}
+
+/* Homepage: New Here section */
+.home-new-here-section {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.home-new-here-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.home-new-here-feature {
+  border-left: 10px solid var(--maroon);
+  background: linear-gradient(180deg, var(--st-ann-tint), var(--white) 48%);
+}
+
+.home-new-here-feature h2 {
+  margin-top: 0;
+}
+
+.home-start-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.home-start-card {
+  display: flex;
+  align-items: center;
+  min-height: 5rem;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-left: 8px solid var(--gold);
+  border-radius: 0.95rem;
+  color: var(--navy);
+  font-weight: 900;
+  padding: 1rem;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.home-start-card:hover,
+.home-start-card:focus-visible {
+  border-left-color: var(--maroon);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-1px);
+}
+
+/* Homepage parish cards with church photos */
+.home-parish-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.home-parish-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.home-parish-photo {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 160px;
+  object-fit: cover;
+  display: block;
+  background: var(--ivory);
+}
+
+.home-parish-card.parish-st-ann .home-parish-photo {
+  border-left: 8px solid var(--maroon);
+}
+
+.home-parish-card.parish-olph .home-parish-photo {
+  border-left: 8px solid var(--navy);
+}
+
+.home-parish-card.parish-mos .home-parish-photo {
+  border-left: 8px solid var(--gold);
+}
+
+.home-parish-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.home-parish-content h3 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.05;
+}
+
+.home-parish-content .eyebrow {
+  margin: 0;
+}
+
+.home-parish-content .parish-address-box {
+  margin: 0;
+  padding: 0.8rem;
+}
+
+.home-parish-content .card-actions {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: auto;
+}
+
+.home-parish-content .button {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.home-bottom-section .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-bottom-section .card .button {
+  margin-top: auto;
+  width: fit-content;
+}
+
+@media (min-width: 760px) {
+  .home-new-here-layout {
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    align-items: stretch;
+  }
+
+  .home-start-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .home-parish-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 759px) {
+  .home-bottom-section .card .button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Homepage cleanup pass */
+.hero {
+  padding-top: 2.4rem;
+  padding-bottom: 3rem;
+}
+
+.hero h1 {
+  max-width: 860px;
+  font-size: clamp(2.9rem, 5.3vw, 5.05rem);
+  line-height: 1.03;
+  text-wrap: balance;
+}
+
+.hero p {
+  max-width: 760px;
+}
+
+/* New Here should feel like a real section, not loose buttons */
+.home-new-here-layout {
+  align-items: stretch;
+}
+
+.home-new-here-feature {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-new-here-feature .button {
+  margin-top: auto;
+  width: fit-content;
+}
+
+.home-start-grid {
+  align-content: stretch;
+}
+
+.home-start-card {
+  min-height: 4.4rem;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.98rem;
+  line-height: 1.15;
+  padding: 0.85rem;
+}
+
+/* Make weekend Mass cards less tall and more balanced */
+.schedule-card-grid .schedule-card {
+  min-height: auto;
+}
+
+.schedule-card h3 {
+  margin-bottom: 0.45rem;
+}
+
+/* Homepage parish cards: tighter and more even */
+.home-parish-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-parish-photo {
+  max-height: 135px;
+}
+
+.home-parish-content {
+  flex: 1;
+}
+
+.home-parish-content h3 {
+  min-height: 3.2rem;
+  display: flex;
+  align-items: flex-start;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+}
+
+.home-parish-content .parish-address-box {
+  min-height: 5.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-parish-content .card-actions {
+  margin-top: auto;
+}
+
+/* Bottom homepage cards should align better */
+.home-bottom-section > .card {
+  min-height: 280px;
+}
+
+/* On wider screens, make New Here breathe better */
+@media (min-width: 900px) {
+  .home-new-here-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 0.8fr);
+  }
+}
+
+/* On medium screens, avoid weird cramped quick-card text */
+@media (min-width: 760px) and (max-width: 899px) {
+  .home-new-here-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .home-start-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Mobile homepage cleanup */
+@media (max-width: 759px) {
+  .hero h1 {
+    font-size: clamp(2.3rem, 10vw, 3.2rem);
+  }
+
+  .home-new-here-feature .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .home-parish-content h3,
+  .home-parish-content .parish-address-box {
+    min-height: auto;
+  }
+
+  .home-bottom-section > .card {
+    min-height: auto;
+  }
+}
+
+/* Homepage Mass times: compact, clear, balanced */
+.home-mass-section .schedule-card-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  align-items: stretch;
+}
+
+.home-mass-section .schedule-card {
+  min-height: auto !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.15rem 1.2rem;
+}
+
+.home-mass-section .schedule-day {
+  margin: 0 0 0.25rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-mass-section .schedule-card h3 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  line-height: 1;
+}
+
+.home-mass-section .schedule-card p {
+  margin: 0;
+}
+
+.home-mass-section .schedule-card p:not(.schedule-day):not(.muted) {
+  margin-top: 0.35rem;
+  color: var(--navy);
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.home-mass-section .schedule-card .muted {
+  margin-top: 0.1rem;
+  font-size: 0.95rem;
+}
+
+.home-mass-section .source-note {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 760px) {
+  .home-mass-section .schedule-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 759px) {
+  .home-mass-section .schedule-card h3 {
+    font-size: 2.25rem;
+  }
+}
+
+/* Stable stacked header */
+.tp-header {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.tp-utility-wrap {
+  background: rgba(0, 0, 0, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tp-utility-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.55rem 1rem;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tp-utility-nav a {
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 0.42rem 0.72rem;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.tp-utility-nav .tp-utility-highlight {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--navy);
+}
+
+.tp-header-stacked {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1rem 1.05rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.tp-brand {
+  color: var(--white);
+  text-decoration: none;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.tp-brand-title {
+  display: block;
+  color: var(--white);
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+.tp-brand-subtitle {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--white);
+  font-size: 0.92rem;
+  font-weight: 700;
+  opacity: 0.92;
+}
+
+.tp-main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.55rem 1.1rem;
+}
+
+.tp-main-nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.96rem;
+  font-weight: 900;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+
+.tp-main-nav a:hover,
+.tp-main-nav a:focus-visible {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* Keep old parish selector pieces hidden if earlier CSS still exists */
+.tp-parish-row,
+.parish-selector,
+.parish-select-wrap,
+.parish-select-section {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .tp-utility-nav {
+    justify-content: flex-start;
+  }
+
+  .tp-main-nav {
+    gap: 0.55rem 0.85rem;
+  }
+
+  .tp-main-nav a,
+  .tp-utility-nav a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Clean final header using isolated class names */
+.site-header-clean {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.utility-bar-clean {
+  background: rgba(0, 0, 0, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.utility-nav-clean {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.55rem 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.utility-nav-clean a {
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 0.42rem 0.75rem;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.utility-nav-highlight-clean {
+  background: var(--gold);
+  border-color: var(--gold) !important;
+  color: var(--navy) !important;
+}
+
+.header-main-clean {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.95rem 1rem;
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) auto;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.brand-clean {
+  color: var(--white);
+  text-decoration: none;
+  min-width: 0;
+}
+
+.brand-title-clean {
+  display: block;
+  color: var(--white);
+  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  font-weight: 900;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.brand-subtitle-clean {
+  display: block;
+  margin-top: 0.28rem;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 700;
+  opacity: 0.92;
+}
+
+.main-nav-clean {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.95rem;
+  flex-wrap: nowrap;
+}
+
+.main-nav-clean a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 900;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+
+.main-nav-clean a:hover,
+.main-nav-clean a:focus-visible {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+@media (max-width: 1050px) {
+  .header-main-clean {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .main-nav-clean {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .utility-nav-clean {
+    justify-content: flex-start;
+  }
+
+  .brand-title-clean {
+    white-space: normal;
+  }
+
+  .main-nav-clean a,
+  .utility-nav-clean a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Prevent parish names from splitting awkwardly */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Homepage Mass cards rebuilt */
+.home-mass-section {
+  padding-top: 3.25rem;
+  padding-bottom: 3.5rem;
+}
+
+.home-mass-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0 1.25rem;
+}
+
+.home-mass-card {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-left: 10px solid var(--parish-color);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.home-mass-card.parish-mos {
+  border-left-color: var(--gold);
+}
+
+.home-mass-day {
+  margin: 0 0 0.5rem;
+  color: var(--maroon);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-mass-card.parish-olph .home-mass-day,
+.home-mass-card.parish-mos .home-mass-day {
+  color: var(--navy);
+}
+
+.home-mass-time {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(2.3rem, 4vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.home-mass-parish {
+  margin: 0.65rem 0 0;
+  color: var(--navy);
+  font-size: 1.05rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.home-mass-city {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.home-mass-note {
+  margin-top: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.home-mass-button {
+  width: fit-content;
+}
+
+@media (min-width: 760px) {
+  .home-mass-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-mass-card {
+    min-height: 190px;
+  }
+}
+
+@media (max-width: 759px) {
+  .home-mass-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Fix homepage hero subline wrapping */
+.hero p {
+  max-width: 1100px !important;
+}
+
+@media (min-width: 1000px) {
+  .hero p {
+    white-space: nowrap;
+  }
+}
+
+/* Fix homepage Mass section alignment */
+.home-mass-section {
+  padding: 3.25rem 1rem 3.5rem !important;
+}
+
+.home-mass-section .section-heading,
+.home-mass-grid,
+.home-mass-note,
+.home-mass-button {
+  max-width: 1200px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.home-mass-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1rem !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.home-mass-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 180px;
+  box-sizing: border-box;
+}
+
+.home-mass-button {
+  display: flex;
+  width: fit-content;
+  margin-top: 1rem !important;
+}
+
+/* Keep Mass cards sane on smaller screens */
+@media (max-width: 899px) {
+  .home-mass-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .home-mass-card {
+    min-height: auto;
+  }
+
+  .home-mass-button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero p {
+    white-space: normal;
+  }
+}

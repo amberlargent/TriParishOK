@@ -1,18 +1,26 @@
 {{ define "main" }}
 
-<section class="page-header">
+<section class="page-header compact-page-header">
   <div>
-    <p class="eyebrow">Catholic Links</p>
+    <p class="eyebrow">Resources</p>
     <h1>Helpful Catholic resources</h1>
     <p class="page-intro">
-      Find trusted Catholic resources from the Archdiocese of Oklahoma City, local Catholic ministries, vocations, charity, and parish social media.
+      Trusted Catholic links for Church teaching, local Catholic life, prayer, family faith, vocations, service, and parish social media.
     </p>
   </div>
 </section>
 
+<section class="section resource-jump-section">
+  <nav class="resource-jump-list" aria-label="Resource categories">
+    {{ range hugo.Data.catholic_links.groups }}
+      <a href="#{{ anchorize .title }}">{{ .title }}</a>
+    {{ end }}
+  </nav>
+</section>
+
 {{ range hugo.Data.catholic_links.groups }}
-<section class="section catholic-links-section">
-  <div class="section-heading">
+<section class="section catholic-links-section" id="{{ anchorize .title }}">
+  <div class="section-heading compact-section-heading">
     <p class="eyebrow">Resources</p>
     <h2>{{ .title }}</h2>
   </div>
@@ -32,7 +40,7 @@
 {{ end }}
 
 <section class="section">
-  <article class="card before-you-go-card">
+  <article class="card before-you-go-card resources-note-card">
     <p class="eyebrow">Note</p>
     <h2>External websites</h2>
     <p>
