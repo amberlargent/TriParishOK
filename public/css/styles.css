@@ -1472,3 +1472,21 @@ img {
     min-height: 220px;
   }
 }
+
+/* Becoming Catholic page */
+.before-you-go-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.before-you-go-card .button {
+  margin-top: auto;
+  width: fit-content;
+}
+
+@media (max-width: 759px) {
+  .before-you-go-card .button {
+    width: 100%;
+    text-align: center;
+  }
+}
