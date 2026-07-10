@@ -1,61 +1,29 @@
 {{ define "main" }}
 
 <section class="hero">
-  <div class="hero-content">
+  <div class="hero-inner">
     <p class="eyebrow">Welcome</p>
     <h1 class="hero-heading">
       <span class="hero-title-desktop">Worship with us across our tri-parish Catholic community.</span>
       <span class="hero-title-mobile">Worship with us.</span>
     </h1>
     <p>
-      One Catholic community serving <span class="nowrap">St. Ann</span>, <span class="nowrap">Our Lady of Perpetual Help</span>, and <span class="nowrap">Mother of Sorrows</span>.
+      One Catholic community serving St. Ann, Our Lady of Perpetual Help,
+      and Mother of Sorrows.
     </p>
 
-    <div class="hero-actions">
+    <div class="hero-actions button-row">
       <a class="button button-primary" href="/mass-confession/">View Mass Times</a>
-      <a class="button button-secondary" href="/bulletins/">Read the Bulletin</a>
-      <a class="button button-secondary" href="/contact/">Contact the Office</a>
+      <a class="button button-secondary button-plan-visit" href="/new-here/">Plan Your First Visit</a>
     </div>
   </div>
 </section>
 
-<section class="section home-new-here-section">
-  <div class="home-new-here-layout">
-    <article class="card home-new-here-feature">
-      <p class="eyebrow">New Here?</p>
-      <h2>Start with Mass. We’ll help with the rest.</h2>
-      <p>
-        Whether you are visiting, returning to the Church, new to the area, or curious about becoming Catholic,
-        you are welcome here.
-      </p>
-      <a class="button button-primary" href="/new-here/">Plan Your First Visit</a>
-    </article>
-
-    <div class="home-start-grid">
-      <a class="home-start-card" href="/mass-confession/">
-        <span>Visit for Mass</span>
-      </a>
-
-      <a class="home-start-card" href="/becoming-catholic/">
-        <span>Become Catholic</span>
-      </a>
-
-      <a class="home-start-card" href="/sacraments/">
-        <span>Need a Sacrament</span>
-      </a>
-
-      <a class="home-start-card" href="/faith-formation/">
-        <span>Family Registration</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section section-light home-mass-section">
+<section class="section section-light home-mass-section" aria-labelledby="weekend-mass-heading">
   <div class="section-heading">
-    <p class="eyebrow">Worship With Us</p>
-    <h2>Weekend Mass at a glance</h2>
-    <p>Find the next Sunday Mass across our three parish communities.</p>
+    <p class="eyebrow">Worship with Us</p>
+    <h2 id="weekend-mass-heading">Weekend Mass at a glance</h2>
+    <p>Find the regular weekend Mass times across our three parish communities.</p>
   </div>
 
   <div class="home-mass-grid">
@@ -69,69 +37,129 @@
     {{ end }}
   </div>
 
-  <div class="source-note home-mass-note">
-    {{ hugo.Data.schedule.source_note }}
-  </div>
+  <p class="source-note home-mass-note">
+    Schedules may change for Holy Days, funerals, weather, and special events.
+    Check the current parish notices before traveling.
+  </p>
 
-  <a class="button button-primary home-mass-button" href="/mass-confession/">See Full Mass, Confession & Adoration Schedule</a>
+  <a class="button button-primary home-mass-button" href="/mass-confession/">
+    See Full Mass, Confession & Adoration Schedule
+  </a>
 </section>
 
 {{ partial "important-this-week.html" . }}
 
-<section class="section home-parishes-section">
-  <div class="section-heading">
-    <p class="eyebrow">Our Parishes</p>
-    <h2>Three parishes. One Catholic community.</h2>
-  </div>
+<section class="section home-bulletin-section" aria-labelledby="current-bulletin-heading">
+  <div class="home-bulletin-card">
+    <div>
+      <p class="eyebrow">Bulletin</p>
+      <h2 id="current-bulletin-heading">Current parish bulletin</h2>
+      {{ with hugo.Data.bulletin.current }}
+        <p>
+          The bulletin includes parish notices, schedule changes, events, prayer intentions,
+          and ministry needs.
+        </p>
 
-  <div class="home-parish-grid">
-    {{ range hugo.Data.locations }}
-      <article class="card home-parish-card {{ .parish_class }}">
-        {{ if .image }}
-          <img class="home-parish-photo" src="{{ .image }}" alt="{{ .image_alt }}">
+        {{ with .summary }}
+          <ul class="bulletin-summary-list">
+            {{ range . }}
+              <li>{{ . }}</li>
+            {{ end }}
+          </ul>
         {{ end }}
 
-        <div class="home-parish-content">
-          <p class="eyebrow">{{ .city }}</p>
-          <h3>{{ .name }}</h3>
+        <a class="button button-primary" href="{{ .file }}">
+          Read the {{ .date }} bulletin — PDF{{ with .pages }}, {{ . }}{{ end }}
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
 
-          <div class="parish-address-box">
-            <strong>{{ .address }}</strong>
-            <p>{{ .address_line_2 }}</p>
-          </div>
+<section class="section section-light home-parishes-section" aria-labelledby="home-parishes-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Our Parishes</p>
+    <h2 id="home-parishes-heading">Three parishes. One Catholic community.</h2>
+    <p>Find locations, regular Mass times, parish history, and directions.</p>
+  </div>
 
-          <div class="card-actions">
-            <a class="button button-primary" href="/our-parishes/{{ .slug }}/">Explore {{ .short_name }}</a>
-            <a class="button button-secondary" href="{{ .map_url }}" target="_blank" rel="noopener noreferrer">Get Directions</a>
+  {{ $locations := hugo.Data.locations }}
+
+  <div class="home-parish-grid">
+    {{ range $slug := slice "mother-of-sorrows" "st-ann" "olph" }}
+      {{ range where $locations "slug" $slug }}
+        {{ $parish := . }}
+        <article class="card parish-card parish-{{ .slug }} {{ .parish_class }}">
+          {{ with .image }}
+            <img class="parish-card-photo-compact" src="{{ . }}" alt="{{ $parish.image_alt }}">
+          {{ end }}
+          <div class="parish-card-body">
+            <p class="eyebrow">{{ .city }}</p>
+            <h3>{{ .name }}</h3>
+            <p>{{ .address }}</p>
+            <div class="button-row">
+              <a class="button button-secondary" href="/our-parishes/{{ .slug }}/">
+                Explore {{ .short_name | default .name }}
+              </a>
+              <a class="button button-primary" href="{{ .map_url }}">
+                Get Directions
+              </a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      {{ end }}
     {{ end }}
   </div>
 </section>
 
-<section class="section two-column home-bottom-section">
-  <article class="card bulletin-feature-card">
-    <div class="card-title-row">
-      <div>
-        <p class="eyebrow">Bulletin</p>
-        <h2>Read this week’s bulletin</h2>
-      </div>
-      <p class="date-chip">{{ hugo.Data.bulletin.current.date }}</p>
-    </div>
+<section class="section home-start-section" aria-labelledby="start-here-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Start Here</p>
+    <h2 id="start-here-heading">New, returning, or ready for the next step?</h2>
+    <p>Choose the path that fits where you are right now.</p>
+  </div>
 
-    <p>Stay current on parish announcements, schedules, events, and ministry needs.</p>
-    <a class="button button-primary" href="{{ hugo.Data.bulletin.current.file }}">View Current Bulletin</a>
-  </article>
+  <div class="home-start-grid">
+    <article class="card home-start-card">
+      <p class="eyebrow">New Here?</p>
+      <h3>Start with Mass.</h3>
+      <p>
+        Visiting, new to the area, or unsure what to expect? You are welcome
+        to come, pray, listen, and learn.
+      </p>
+      <a class="button button-primary" href="/new-here/">Plan Your First Visit</a>
+    </article>
 
-  <article class="card">
-    <p class="eyebrow">Parish Care</p>
-    <h2>Meal Support Ministry</h2>
-    <p>
-      Request support, nominate someone in need, or volunteer to help with meals and practical care.
-    </p>
-    <a class="button button-secondary" href="/meal-support/">Read about Meal Support Ministry</a>
-  </article>
+    <article class="card home-start-card">
+      <p class="eyebrow">Returning Catholic</p>
+      <h3>Welcome home.</h3>
+      <p>
+        If you have been away from the Church, the parish can help you take
+        the next faithful step with peace and clarity.
+      </p>
+      <a class="button button-secondary" href="/new-here/">Returning to Church</a>
+    </article>
+
+    <article class="card home-start-card">
+      <p class="eyebrow">Becoming Catholic</p>
+      <h3>Interested in the Catholic faith?</h3>
+      <p>
+        Adults who want to learn about the Catholic faith can ask about OCIA
+        and preparation for the Sacraments.
+      </p>
+      <a class="button button-secondary" href="/becoming-catholic/">Becoming Catholic</a>
+    </article>
+
+    <article class="card home-start-card">
+      <p class="eyebrow">Families</p>
+      <h3>Faith Formation information</h3>
+      <p>
+        Learn about Religious Education, sacramental preparation, and next
+        steps for children and families.
+      </p>
+      <a class="button button-secondary" href="/faith-formation/">Faith Formation Information</a>
+    </article>
+  </div>
 </section>
 
 {{ end }}

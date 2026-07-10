@@ -9,12 +9,29 @@
 
       <div class="important-week-grid">
         {{ range .items }}
+          {{ $item := . }}
           <article class="card important-week-card">
-            {{ with .date }}<p class="important-week-date">{{ . }}</p>{{ end }}
-            <h3>{{ .title }}</h3>
-            <p>{{ .description }}</p>
-            {{ if and .link_text .link_url }}
-              <a class="text-link" href="{{ .link_url }}">{{ .link_text }}</a>
+            <header class="important-week-card-header">
+              {{ with $item.label }}
+                <span class="important-week-label important-week-label-{{ $item.label_class | default "neutral" }}">{{ . }}</span>
+              {{ end }}
+
+              {{ if $item.context }}
+                {{ if $item.context_parish_class }}
+                  <span class="parish-pill {{ $item.context_parish_class }}">{{ $item.context }}</span>
+                {{ else }}
+                  <span class="important-week-context">{{ $item.context }}</span>
+                {{ end }}
+              {{ end }}
+            </header>
+
+            <div class="important-week-card-body">
+              <h3>{{ $item.title }}</h3>
+              <p>{{ $item.description }}</p>
+            </div>
+
+            {{ if and $item.link_text $item.link_url }}
+              <a class="text-link important-week-link" href="{{ $item.link_url }}">{{ $item.link_text }}</a>
             {{ end }}
           </article>
         {{ end }}

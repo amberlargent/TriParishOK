@@ -1,0 +1,633 @@
+/* =========================================================
+   Homepage System
+   Clean homepage/header/card treatment.
+
+   Rules:
+   - Non-parish cards are neutral.
+   - "Current Need" is highlighted with neutral notice styling.
+   - Parish references use parish-colored pills.
+   - Parish-specific cards and Mass cards are color-coded.
+   Parish colors:
+   - Mother of Sorrows: Gold
+   - St. Ann: Burgundy
+   - OLPH: Navy
+   ========================================================= */
+
+/* ---------- Header ---------- */
+
+.site-header-minimal {
+  background: var(--navy);
+  color: var(--white);
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+
+.header-shell-minimal {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.brand-minimal {
+  color: var(--white);
+  text-decoration: none;
+  display: grid;
+  line-height: 1;
+}
+
+.brand-main-minimal,
+.brand-sub-minimal {
+  font-family: var(--font-heading);
+  font-weight: 850;
+}
+
+.brand-main-minimal {
+  font-size: 1.05rem;
+}
+
+.brand-sub-minimal {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.9);
+}
+
+.brand-minimal small {
+  margin-top: 0.2rem;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.68);
+  font-weight: 700;
+}
+
+.header-actions-minimal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.header-action,
+.site-menu-minimal summary {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.48rem 0.78rem;
+  border-radius: 999px;
+  font-weight: 850;
+  font-size: 0.86rem;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header-action-gold {
+  background: var(--gold);
+  color: var(--navy);
+  border: 1px solid var(--gold);
+}
+
+.header-action-light {
+  background: var(--white);
+  color: var(--navy);
+  border: 1px solid var(--white);
+}
+
+.header-action-outline,
+.site-menu-minimal summary {
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.32);
+  background: rgba(255,255,255,0.055);
+}
+
+.site-menu-minimal {
+  position: relative;
+}
+
+.site-menu-minimal summary {
+  list-style: none;
+}
+
+.site-menu-minimal summary::-webkit-details-marker {
+  display: none;
+}
+
+.menu-lines-minimal,
+.menu-lines-minimal::before,
+.menu-lines-minimal::after {
+  display: block;
+  width: 17px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 999px;
+  content: "";
+}
+
+.menu-lines-minimal {
+  position: relative;
+}
+
+.menu-lines-minimal::before {
+  position: absolute;
+  top: -6px;
+  left: 0;
+}
+
+.menu-lines-minimal::after {
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+
+.menu-panel-minimal {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.55rem);
+  width: min(88vw, 360px);
+  z-index: 100;
+  padding: 0.65rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  gap: 0.25rem;
+}
+
+.menu-panel-minimal a {
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 850;
+  padding: 0.72rem 0.85rem;
+  border-radius: 0.75rem;
+}
+
+.menu-panel-minimal a:hover,
+.menu-panel-minimal a:focus {
+  background: var(--gold-tint);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 3rem 1rem 3.25rem !important;
+}
+
+.hero-inner {
+  max-width: 1040px !important;
+  margin: 0 auto !important;
+}
+
+.hero-title-desktop {
+  display: none !important;
+}
+
+.hero-title-mobile {
+  display: inline !important;
+}
+
+.hero h1,
+.hero-heading {
+  max-width: 620px !important;
+  font-size: clamp(3.4rem, 4.4vw, 4.15rem) !important;
+  line-height: 1 !important;
+  letter-spacing: -0.03em !important;
+  margin-bottom: 1rem !important;
+}
+
+.hero p {
+  max-width: 720px !important;
+  font-size: 1.08rem !important;
+  line-height: 1.55 !important;
+}
+
+.hero-actions,
+.hero .button-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.75rem !important;
+  margin-top: 1.35rem !important;
+}
+
+.hero .button {
+  min-height: 44px !important;
+  padding: 0.62rem 1.1rem !important;
+  font-size: 0.95rem !important;
+}
+
+/* ---------- Neutral cards ---------- */
+
+.important-week-card,
+.home-start-card,
+.home-bulletin-card > div {
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 1rem !important;
+  box-shadow: var(--shadow-soft) !important;
+  color: var(--navy) !important;
+}
+
+/* ---------- Schedule note: neutral callout ---------- */
+
+.home-mass-note {
+  max-width: 1200px !important;
+  margin: 1rem auto 1.15rem !important;
+  padding: 0.9rem 1rem !important;
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0.9rem !important;
+  box-shadow: var(--shadow-soft) !important;
+  color: var(--navy) !important;
+  font-weight: 600 !important;
+}
+
+.home-mass-note::before {
+  content: "Schedule note";
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- Important This Week: neutral boxes ---------- */
+
+.important-week-section {
+  background: var(--ivory) !important;
+}
+
+.important-week-grid {
+  display: grid !important;
+  gap: 1rem !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  align-items: stretch !important;
+}
+
+.important-week-card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem !important;
+  padding: 1.35rem !important;
+  border-top: none !important;
+  border-left: none !important;
+}
+
+.important-week-card-header {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.45rem !important;
+  align-items: center !important;
+}
+
+.important-week-label,
+.important-week-context,
+.parish-pill {
+  display: inline-flex !important;
+  width: fit-content !important;
+  margin: 0 !important;
+  padding: 0.3rem 0.58rem !important;
+  border-radius: 999px !important;
+  font-size: 0.68rem !important;
+  font-weight: 850 !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.052em !important;
+  white-space: nowrap !important;
+}
+
+.important-week-label,
+.important-week-context {
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--muted) !important;
+}
+
+.important-week-label-need {
+  background: #edf3ee !important;
+  border-color: #c9d7cc !important;
+  color: #33483a !important;
+}
+
+.important-week-card-body h3 {
+  margin: 0 0 0.65rem !important;
+  font-size: 1.15rem !important;
+  line-height: 1.25 !important;
+  color: var(--navy) !important;
+}
+
+.important-week-card-body p {
+  margin: 0 !important;
+}
+
+.important-week-link {
+  margin-top: auto !important;
+}
+
+/* ---------- Parish pills inside neutral boxes ---------- */
+
+.parish-pill-st-ann {
+  background: rgba(139, 30, 46, 0.08) !important;
+  border: 1px solid rgba(139, 30, 46, 0.35) !important;
+  color: var(--maroon) !important;
+}
+
+.parish-pill-olph {
+  background: rgba(13, 35, 58, 0.07) !important;
+  border: 1px solid rgba(13, 35, 58, 0.28) !important;
+  color: var(--navy) !important;
+}
+
+.parish-pill-mother-of-sorrows {
+  background: var(--gold-tint) !important;
+  border: 1px solid var(--gold) !important;
+  color: var(--navy) !important;
+}
+
+/* ---------- Mass cards: parish color-coded ---------- */
+
+.home-mass-card.mother-of-sorrows,
+.home-mass-card.parish-mother-of-sorrows,
+.home-mass-card.apache {
+  border-left-color: var(--gold) !important;
+}
+
+.home-mass-card.st-ann,
+.home-mass-card.parish-st-ann,
+.home-mass-card.elgin {
+  border-left-color: var(--maroon) !important;
+}
+
+.home-mass-card.olph,
+.home-mass-card.parish-olph,
+.home-mass-card.sterling {
+  border-left-color: var(--navy) !important;
+}
+
+/* ---------- Parish cards: parish color-coded ---------- */
+
+.home-parish-grid .parish-card {
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  border-top: 8px solid var(--gold) !important;
+  border-left: 1px solid var(--border) !important;
+  border-radius: 1rem !important;
+  box-shadow: var(--shadow-soft) !important;
+  overflow: hidden !important;
+}
+
+.home-parish-grid .parish-card.mother-of-sorrows,
+.home-parish-grid .parish-card.parish-mother-of-sorrows,
+.home-parish-grid .parish-card.apache {
+  border-top-color: var(--gold) !important;
+}
+
+.home-parish-grid .parish-card.st-ann,
+.home-parish-grid .parish-card.parish-st-ann,
+.home-parish-grid .parish-card.elgin {
+  border-top-color: var(--maroon) !important;
+}
+
+.home-parish-grid .parish-card.olph,
+.home-parish-grid .parish-card.parish-olph,
+.home-parish-grid .parish-card.sterling {
+  border-top-color: var(--navy) !important;
+}
+
+.home-parish-grid .parish-card .eyebrow {
+  display: inline-flex !important;
+  width: fit-content !important;
+  margin: 0 0 0.35rem !important;
+  padding: 0.3rem 0.58rem !important;
+  border-radius: 999px !important;
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--muted) !important;
+  font-size: 0.68rem !important;
+  font-weight: 850 !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.052em !important;
+}
+
+.home-parish-grid .parish-card.mother-of-sorrows .eyebrow,
+.home-parish-grid .parish-card.parish-mother-of-sorrows .eyebrow,
+.home-parish-grid .parish-card.apache .eyebrow {
+  background: var(--gold-tint) !important;
+  border-color: var(--gold) !important;
+  color: var(--navy) !important;
+}
+
+.home-parish-grid .parish-card.st-ann .eyebrow,
+.home-parish-grid .parish-card.parish-st-ann .eyebrow,
+.home-parish-grid .parish-card.elgin .eyebrow {
+  background: rgba(139, 30, 46, 0.08) !important;
+  border-color: rgba(139, 30, 46, 0.28) !important;
+  color: var(--maroon) !important;
+}
+
+.home-parish-grid .parish-card.olph .eyebrow,
+.home-parish-grid .parish-card.parish-olph .eyebrow,
+.home-parish-grid .parish-card.sterling .eyebrow {
+  background: rgba(13, 35, 58, 0.07) !important;
+  border-color: rgba(13, 35, 58, 0.25) !important;
+  color: var(--navy) !important;
+}
+
+/* ---------- Start Here: neutral, not parish-coded ---------- */
+
+.home-start-card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+  padding: 1.35rem !important;
+  border-top: none !important;
+  border-left: none !important;
+}
+
+.home-start-card .eyebrow {
+  display: inline-flex !important;
+  width: fit-content !important;
+  margin: 0 0 0.2rem !important;
+  padding: 0.3rem 0.58rem !important;
+  border-radius: 999px !important;
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--muted) !important;
+  font-size: 0.68rem !important;
+  font-weight: 850 !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.052em !important;
+}
+
+.home-start-card h3 {
+  margin: 0 !important;
+  font-size: 1.15rem !important;
+  line-height: 1.25 !important;
+}
+
+.home-start-card p:not(.eyebrow) {
+  margin: 0 !important;
+}
+
+.home-start-card .button {
+  margin-top: auto !important;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (min-width: 860px) {
+  .important-week-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .header-shell-minimal {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 0.85rem 1rem 0.75rem;
+  }
+
+  .brand-minimal small {
+    display: none;
+  }
+
+  .header-actions-minimal {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+    gap: 0.45rem;
+    margin-top: 0.65rem;
+  }
+
+  .header-action,
+  .site-menu-minimal summary {
+    min-height: 42px;
+    padding: 0.48rem 0.55rem;
+    font-size: 0.76rem;
+    text-align: center;
+  }
+
+  .hero {
+    padding: 2.25rem 1rem 2.75rem !important;
+  }
+
+  .hero h1,
+  .hero-heading {
+    max-width: 8ch !important;
+    font-size: clamp(3rem, 14vw, 4rem) !important;
+  }
+
+  .hero p {
+    max-width: 31ch !important;
+    font-size: 1.18rem !important;
+  }
+
+  .hero-actions,
+  .hero .button-row {
+    display: grid !important;
+    gap: 0.7rem !important;
+  }
+
+  .hero .button {
+    width: 100% !important;
+  }
+}
+
+/* =========================================================
+   Final homepage corrections
+   ========================================================= */
+
+/* Important This Week stays neutral: no parish-colored card borders */
+.important-week-section .important-week-card,
+.important-week-section .important-week-card.important-week-schedule,
+.important-week-section .important-week-card.important-week-volunteer,
+.important-week-section .important-week-card.important-week-olph,
+.important-week-section .important-week-card.important-week-neutral {
+  border-left: 1px solid var(--border) !important;
+  border-top: 1px solid var(--border) !important;
+  border-right: 1px solid var(--border) !important;
+  border-bottom: 1px solid var(--border) !important;
+  background: var(--white) !important;
+}
+
+/* Important labels: neutral categories, not parish colors */
+.important-week-section .important-week-label,
+.important-week-section .important-week-context {
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--muted) !important;
+}
+
+/* Current Need gets a non-parish highlight */
+.important-week-section .important-week-label-need {
+  background: #edf3ee !important;
+  border-color: #c9d7cc !important;
+  color: #33483a !important;
+}
+
+/* Parish reference pills only: parish-colored where the notice names a parish */
+.important-week-section .parish-pill-olph {
+  background: rgba(13, 35, 58, 0.07) !important;
+  border: 1px solid rgba(13, 35, 58, 0.28) !important;
+  color: var(--navy) !important;
+}
+
+/* Parish cards: keep parish color coding consistent */
+.home-parish-grid .parish-card.parish-mother-of-sorrows,
+.home-parish-grid .parish-card.mother-of-sorrows,
+.home-parish-grid .parish-card.apache {
+  border-top-color: var(--gold) !important;
+}
+
+.home-parish-grid .parish-card.parish-st-ann,
+.home-parish-grid .parish-card.st-ann,
+.home-parish-grid .parish-card.elgin {
+  border-top-color: var(--maroon) !important;
+}
+
+.home-parish-grid .parish-card.parish-olph,
+.home-parish-grid .parish-card.olph,
+.home-parish-grid .parish-card.sterling {
+  border-top-color: var(--navy) !important;
+}
+
+/* Parish card titles should match their parish color system */
+.home-parish-grid .parish-card.parish-st-ann h3,
+.home-parish-grid .parish-card.st-ann h3,
+.home-parish-grid .parish-card.elgin h3 {
+  color: var(--maroon) !important;
+}
+
+.home-parish-grid .parish-card.parish-olph h3,
+.home-parish-grid .parish-card.olph h3,
+.home-parish-grid .parish-card.sterling h3 {
+  color: var(--navy) !important;
+}
+
+.home-parish-grid .parish-card.parish-mother-of-sorrows h3,
+.home-parish-grid .parish-card.mother-of-sorrows h3,
+.home-parish-grid .parish-card.apache h3 {
+  color: var(--navy) !important;
+}
+
+/* Parish card buttons: always stacked, never side-by-side */
+.home-parish-grid .parish-card .button-row {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 0.75rem !important;
+  align-items: stretch !important;
+}
+
+.home-parish-grid .parish-card .button {
+  width: 100% !important;
+  justify-content: center !important;
+  text-align: center !important;
+}

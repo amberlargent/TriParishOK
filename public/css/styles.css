@@ -4503,3 +4503,987 @@ img {
     padding-top: 0.25rem !important;
   }
 }
+
+/* Homepage cleanup pass */
+.home-bulletin-section {
+  background: var(--white);
+}
+
+.home-bulletin-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.home-bulletin-card > div,
+.home-bulletin-note {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.home-bulletin-card > div {
+  border-left: 10px solid var(--gold);
+}
+
+.home-bulletin-note {
+  background: var(--gold-tint);
+}
+
+.home-bulletin-note h3 {
+  margin-top: 0;
+}
+
+.bulletin-summary-list {
+  margin: 1rem 0 1.25rem;
+  padding-left: 1.25rem;
+}
+
+.bulletin-summary-list li + li {
+  margin-top: 0.4rem;
+}
+
+.home-start-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.home-start-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-start-card .button {
+  margin-top: auto;
+  width: fit-content;
+}
+
+@media (min-width: 860px) {
+  .home-bulletin-card {
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+  }
+
+  .home-start-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 859px) {
+  .home-start-card .button {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 820px) {
+  .home-bulletin-section,
+  .home-start-section,
+  .home-parishes-section,
+  .important-week-section,
+  .home-mass-section {
+    padding-top: 2.25rem !important;
+    padding-bottom: 2.25rem !important;
+  }
+
+  .home-bulletin-card > div,
+  .home-bulletin-note {
+    padding: 1.15rem !important;
+  }
+
+  .home-start-grid {
+    gap: 0.85rem;
+  }
+}
+
+/* Homepage hero repair: desktop + evangelism CTA */
+@media (min-width: 821px) {
+  .header-main-clean {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 1rem 1rem 0.75rem !important;
+    display: grid !important;
+    grid-template-columns: minmax(360px, 1fr) auto !important;
+    align-items: start !important;
+    gap: 2rem !important;
+  }
+
+  .brand-clean span {
+    font-size: 1.55rem !important;
+    line-height: 1.05 !important;
+  }
+
+  .brand-clean small {
+    display: block !important;
+    max-width: 620px !important;
+    font-size: 1rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .main-nav-clean {
+    justify-content: flex-end !important;
+    gap: 0.65rem !important;
+  }
+
+  .main-nav-clean a {
+    font-size: 0.95rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .utility-nav-clean {
+    max-width: 1200px !important;
+    padding: 0 1rem 1rem !important;
+    justify-content: flex-end !important;
+  }
+
+  .hero {
+    padding: 4rem 1rem 4.25rem !important;
+  }
+
+  .hero-inner {
+    max-width: 1120px !important;
+    margin: 0 auto !important;
+  }
+
+  .hero h1,
+  .hero-heading {
+    max-width: 980px !important;
+    font-size: clamp(4rem, 6vw, 5.9rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.035em !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .hero p {
+    max-width: 760px !important;
+    font-size: 1.24rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .hero-actions,
+  .hero .button-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.85rem !important;
+    max-width: none !important;
+    margin-top: 1.5rem !important;
+  }
+
+  .hero .button {
+    width: auto !important;
+    min-height: 48px !important;
+    justify-content: center !important;
+  }
+
+  .hero .button-secondary,
+  .hero .button-plan-visit {
+    display: inline-flex !important;
+  }
+}
+
+/* Mobile hero: show Mass Times + Plan First Visit */
+@media (max-width: 820px) {
+  .hero-actions,
+  .hero .button-row {
+    display: grid !important;
+    gap: 0.7rem !important;
+  }
+
+  .hero .button-plan-visit {
+    display: flex !important;
+    background: var(--white) !important;
+    color: var(--navy) !important;
+    border-color: var(--white) !important;
+  }
+
+  .hero .button {
+    width: 100% !important;
+  }
+
+  .hero {
+    padding-bottom: 2.75rem !important;
+  }
+}
+
+/* Desktop hero calm-down pass — keep mobile unchanged */
+@media (min-width: 821px) {
+  .hero {
+    padding-top: 3.35rem !important;
+    padding-bottom: 3.75rem !important;
+  }
+
+  .hero-inner {
+    max-width: 1040px !important;
+    margin: 0 auto !important;
+  }
+
+  .hero h1,
+  .hero-heading {
+    max-width: 820px !important;
+    font-size: clamp(3.45rem, 4.8vw, 4.85rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.025em !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .hero p {
+    max-width: 720px !important;
+    font-size: 1.08rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .hero .eyebrow {
+    font-size: 0.9rem !important;
+    letter-spacing: 0.12em !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .hero-actions,
+  .hero .button-row {
+    margin-top: 1.25rem !important;
+    gap: 0.75rem !important;
+  }
+
+  .hero .button {
+    min-height: 44px !important;
+    padding: 0.62rem 1.05rem !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero h1,
+  .hero-heading {
+    font-size: 4.65rem !important;
+  }
+}
+
+/* Desktop hero quiet pass — use the elegant short headline */
+@media (min-width: 821px) {
+  .hero-title-desktop {
+    display: none !important;
+  }
+
+  .hero-title-mobile {
+    display: inline !important;
+  }
+
+  .hero {
+    padding-top: 3rem !important;
+    padding-bottom: 3.25rem !important;
+  }
+
+  .hero-inner {
+    max-width: 1040px !important;
+    margin: 0 auto !important;
+  }
+
+  .hero h1,
+  .hero-heading {
+    max-width: 620px !important;
+    font-size: clamp(3.4rem, 4.4vw, 4.25rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .hero p {
+    max-width: 720px !important;
+    font-size: 1.08rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .hero .eyebrow {
+    font-size: 0.82rem !important;
+    letter-spacing: 0.14em !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .hero-actions,
+  .hero .button-row {
+    margin-top: 1.35rem !important;
+    gap: 0.75rem !important;
+  }
+
+  .hero .button {
+    min-height: 44px !important;
+    padding: 0.62rem 1.1rem !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+/* Extra-wide screens should still stay calm */
+@media (min-width: 1200px) {
+  .hero h1,
+  .hero-heading {
+    font-size: 4.15rem !important;
+  }
+}
+
+/* Desktop header brand calm-down */
+@media (min-width: 821px) {
+  .site-header-clean {
+    background: var(--navy) !important;
+  }
+
+  .header-main-clean {
+    padding-top: 0.65rem !important;
+    padding-bottom: 0.35rem !important;
+    grid-template-columns: minmax(260px, 0.75fr) minmax(520px, 1.25fr) !important;
+    align-items: start !important;
+  }
+
+  .brand-clean {
+    max-width: 430px !important;
+  }
+
+  .brand-clean span {
+    font-size: 1.05rem !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .brand-clean small {
+    max-width: 430px !important;
+    font-size: 0.78rem !important;
+    line-height: 1.15 !important;
+    font-weight: 650 !important;
+    color: rgba(255,255,255,0.72) !important;
+  }
+
+  .main-nav-clean a {
+    font-size: 0.82rem !important;
+  }
+
+  .utility-nav-clean {
+    padding-bottom: 0.65rem !important;
+  }
+
+  .utility-nav-clean a {
+    font-size: 0.78rem !important;
+    padding: 0.35rem 0.62rem !important;
+  }
+}
+
+/* Desktop header final polish: smaller brand, clearer links */
+@media (min-width: 821px) {
+  .site-header-clean {
+    border-bottom: 1px solid rgba(255,255,255,0.12) !important;
+  }
+
+  .header-main-clean {
+    max-width: 1200px !important;
+    padding: 0.55rem 1rem 0.35rem !important;
+    grid-template-columns: 330px minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+  }
+
+  .brand-clean {
+    max-width: 330px !important;
+    gap: 0.1rem !important;
+  }
+
+  .brand-clean span {
+    font-size: 0.92rem !important;
+    line-height: 1.05 !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .brand-clean small {
+    max-width: none !important;
+    font-size: 0.68rem !important;
+    line-height: 1.1 !important;
+    font-weight: 650 !important;
+    color: rgba(255,255,255,0.72) !important;
+    white-space: nowrap !important;
+  }
+
+  .main-nav-clean {
+    justify-content: flex-end !important;
+    gap: 0.4rem !important;
+  }
+
+  .main-nav-clean a {
+    display: inline-flex !important;
+    align-items: center !important;
+    min-height: 34px !important;
+    padding: 0.38rem 0.62rem !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255,255,255,0.22) !important;
+    background: rgba(255,255,255,0.055) !important;
+    color: var(--white) !important;
+    font-size: 0.78rem !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+  }
+
+  .main-nav-clean a:hover,
+  .main-nav-clean a:focus {
+    background: var(--gold) !important;
+    border-color: var(--gold) !important;
+    color: var(--navy) !important;
+  }
+
+  .utility-nav-clean {
+    max-width: 1200px !important;
+    padding: 0 1rem 0.55rem !important;
+    gap: 0.4rem !important;
+  }
+
+  .utility-nav-clean a {
+    min-height: 32px !important;
+    padding: 0.33rem 0.6rem !important;
+    font-size: 0.74rem !important;
+    line-height: 1 !important;
+  }
+}
+
+/* Minimal universal header */
+.site-header-minimal {
+  position: relative;
+  z-index: 50;
+  background: var(--navy);
+  color: var(--white);
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+
+.header-shell-minimal {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.brand-minimal {
+  color: var(--white);
+  text-decoration: none;
+  display: grid;
+  gap: 0.02rem;
+  line-height: 1;
+}
+
+.brand-main-minimal {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1.08rem;
+  letter-spacing: 0.01em;
+}
+
+.brand-sub-minimal {
+  font-family: var(--font-heading);
+  font-weight: 750;
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.92);
+}
+
+.brand-minimal small {
+  margin-top: 0.2rem;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.68);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.header-actions-minimal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.header-action,
+.site-menu-minimal summary {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.48rem 0.78rem;
+  border-radius: 999px;
+  font-weight: 850;
+  font-size: 0.86rem;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header-action-gold {
+  background: var(--gold);
+  color: var(--navy);
+  border: 1px solid var(--gold);
+}
+
+.header-action-light {
+  background: var(--white);
+  color: var(--navy);
+  border: 1px solid var(--white);
+}
+
+.header-action-outline,
+.site-menu-minimal summary {
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.32);
+  background: rgba(255,255,255,0.055);
+}
+
+.header-action:hover,
+.header-action:focus,
+.site-menu-minimal summary:hover,
+.site-menu-minimal summary:focus {
+  transform: translateY(-1px);
+}
+
+.site-menu-minimal {
+  position: relative;
+}
+
+.site-menu-minimal summary {
+  list-style: none;
+}
+
+.site-menu-minimal summary::-webkit-details-marker {
+  display: none;
+}
+
+.menu-lines-minimal,
+.menu-lines-minimal::before,
+.menu-lines-minimal::after {
+  display: block;
+  width: 17px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 999px;
+  content: "";
+}
+
+.menu-lines-minimal {
+  position: relative;
+}
+
+.menu-lines-minimal::before {
+  position: absolute;
+  top: -6px;
+  left: 0;
+}
+
+.menu-lines-minimal::after {
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+
+.menu-panel-minimal {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.55rem);
+  width: min(88vw, 360px);
+  z-index: 100;
+  padding: 0.65rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  gap: 0.25rem;
+}
+
+.menu-panel-minimal a {
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 850;
+  padding: 0.72rem 0.85rem;
+  border-radius: 0.75rem;
+}
+
+.menu-panel-minimal a:hover,
+.menu-panel-minimal a:focus {
+  background: var(--gold-tint);
+}
+
+@media (max-width: 760px) {
+  .header-shell-minimal {
+    padding: 0.85rem 1rem 0.75rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+
+  .brand-main-minimal {
+    font-size: 1.08rem;
+  }
+
+  .brand-sub-minimal {
+    font-size: 0.9rem;
+  }
+
+  .brand-minimal small {
+    display: none;
+  }
+
+  .header-actions-minimal {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+    gap: 0.45rem;
+    margin-top: 0.65rem;
+  }
+
+  .header-action,
+  .site-menu-minimal summary {
+    min-height: 42px;
+    padding: 0.48rem 0.55rem;
+    font-size: 0.82rem;
+    text-align: center;
+  }
+
+  .header-action-light {
+    display: none;
+  }
+
+  .header-actions-minimal {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+  }
+
+  .site-menu-minimal {
+    justify-self: end;
+  }
+
+  .menu-panel-minimal {
+    right: 0;
+    width: min(86vw, 340px);
+  }
+}
+
+@media (max-width: 390px) {
+  .header-action,
+  .site-menu-minimal summary {
+    font-size: 0.78rem;
+  }
+}
+
+/* Header action update: keep Bulletin, Parishes, Contact visible */
+@media (max-width: 760px) {
+  .header-action-light {
+    display: inline-flex !important;
+  }
+
+  .header-actions-minimal {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) auto !important;
+  }
+
+  .header-action,
+  .site-menu-minimal summary {
+    font-size: 0.76rem !important;
+  }
+}
+
+/* Schedule change */
+.important-week-schedule {
+  border-left-color: var(--gold) !important;
+  background: linear-gradient(180deg, var(--gold-tint), var(--white) 55%) !important;
+}
+
+.important-week-schedule .important-week-type {
+  background: var(--gold) !important;
+  border: 1px solid var(--gold) !important;
+  color: var(--navy) !important;
+}
+
+.important-week-schedule h3 {
+  color: var(--navy) !important;
+}
+
+/* General volunteer need */
+.important-week-volunteer {
+  border-left-color: var(--maroon) !important;
+}
+
+.important-week-volunteer .important-week-type {
+  background: rgba(139, 30, 46, 0.1) !important;
+  border: 1px solid rgba(139, 30, 46, 0.35) !important;
+  color: var(--maroon) !important;
+}
+
+/* OLPH-specific need */
+.important-week-olph {
+  border-left-color: var(--navy) !important;
+  background: linear-gradient(180deg, rgba(13, 35, 58, 0.055), var(--white) 58%) !important;
+}
+
+.important-week-olph .important-week-type {
+  background: rgba(13, 35, 58, 0.08) !important;
+  border: 1px solid rgba(13, 35, 58, 0.25) !important;
+  color: var(--navy) !important;
+}
+
+.important-week-card h3 {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 820px) {
+  .important-week-meta {
+    gap: 0.35rem;
+  }
+
+  .important-week-type,
+  .important-week-date {
+    font-size: 0.68rem !important;
+  }
+}
+
+/* Schedule change */
+.important-week-schedule {
+  border-left-color: var(--gold) !important;
+  background: linear-gradient(180deg, var(--gold-tint), var(--white) 58%) !important;
+}
+
+.important-week-schedule .important-week-label {
+  background: var(--gold) !important;
+  border: 1px solid var(--gold) !important;
+  color: var(--navy) !important;
+}
+
+/* Current need / volunteer */
+.important-week-volunteer {
+  border-left-color: var(--maroon) !important;
+  background: var(--white) !important;
+}
+
+.important-week-volunteer .important-week-label {
+  background: rgba(139, 30, 46, 0.1) !important;
+  border: 1px solid rgba(139, 30, 46, 0.35) !important;
+  color: var(--maroon) !important;
+}
+
+/* OLPH-specific */
+.important-week-olph {
+  border-left-color: var(--navy) !important;
+  background: linear-gradient(180deg, rgba(13, 35, 58, 0.055), var(--white) 58%) !important;
+}
+
+.important-week-olph .important-week-label {
+  background: rgba(13, 35, 58, 0.08) !important;
+  border: 1px solid rgba(13, 35, 58, 0.25) !important;
+  color: var(--navy) !important;
+}
+
+.important-week-olph .important-week-context {
+  color: var(--navy) !important;
+  border-color: rgba(13, 35, 58, 0.28) !important;
+}
+
+/* Mobile: keep labels aligned but let them stack cleanly if needed */
+@media (max-width: 520px) {
+  .important-week-section .important-week-card {
+    padding: 1.25rem !important;
+    gap: 0.9rem !important;
+  }
+
+  .important-week-card-header {
+    grid-template-columns: 1fr !important;
+    gap: 0.45rem !important;
+  }
+
+  .important-week-context {
+    justify-self: start !important;
+  }
+
+  .important-week-label,
+  .important-week-context {
+    font-size: 0.68rem !important;
+  }
+}
+
+/* Homepage bulletin: remove internal workflow box layout */
+.home-bulletin-card {
+  max-width: 1040px !important;
+  display: block !important;
+}
+
+.home-bulletin-card > div {
+  width: 100% !important;
+}
+
+.home-bulletin-note {
+  display: none !important;
+}
+
+/* Mass schedule note: make it an intentional callout */
+.home-mass-note {
+  max-width: 1200px !important;
+  margin: 1rem auto 1.15rem !important;
+  padding: 1rem 1.15rem !important;
+  background: var(--gold-tint) !important;
+  border: 1px solid var(--border) !important;
+  border-left: 10px solid var(--gold) !important;
+  border-radius: 1rem !important;
+  box-shadow: var(--shadow-soft) !important;
+  color: var(--navy) !important;
+  font-weight: 650 !important;
+}
+
+.home-mass-note::before {
+  content: "Schedule note";
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--maroon);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* St. Ann / Elgin */
+.home-parish-grid .parish-card.st-ann,
+.home-parish-grid .parish-card.parish-st-ann,
+.home-parish-grid .parish-card.elgin {
+  border-left-color: var(--maroon) !important;
+  background: linear-gradient(180deg, rgba(139, 30, 46, 0.045), var(--white) 42%) !important;
+}
+
+/* OLPH / Sterling */
+.home-parish-grid .parish-card.olph,
+.home-parish-grid .parish-card.parish-olph,
+.home-parish-grid .parish-card.sterling {
+  border-left-color: var(--gold) !important;
+  background: linear-gradient(180deg, var(--gold-tint), var(--white) 42%) !important;
+}
+
+/* Mother of Sorrows / Apache */
+.home-parish-grid .parish-card.mother-of-sorrows,
+.home-parish-grid .parish-card.parish-mother-of-sorrows,
+.home-parish-grid .parish-card.apache {
+  border-left-color: var(--navy) !important;
+  background: linear-gradient(180deg, rgba(13, 35, 58, 0.055), var(--white) 42%) !important;
+}
+
+.home-parish-grid .parish-card h3 {
+  margin-top: 0.25rem;
+}
+
+/* Homepage notices: calm, consistent card styling */
+.important-week-section {
+  background: var(--ivory);
+}
+
+.important-week-grid {
+  display: grid !important;
+  gap: 1rem !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+.important-week-card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem !important;
+  padding: 1.35rem !important;
+  border: 1px solid var(--border) !important;
+  border-top: 8px solid var(--gold) !important;
+  border-left: 1px solid var(--border) !important;
+  background: var(--white) !important;
+}
+
+.important-week-schedule {
+  border-top-color: var(--gold) !important;
+}
+
+.important-week-volunteer {
+  border-top-color: var(--maroon) !important;
+}
+
+.important-week-olph {
+  border-top-color: var(--navy) !important;
+}
+
+.important-week-card-header {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.45rem !important;
+  align-items: center !important;
+  min-height: auto !important;
+}
+
+.important-week-label,
+.important-week-context {
+  display: inline-flex !important;
+  width: fit-content !important;
+  margin: 0 !important;
+  padding: 0.3rem 0.58rem !important;
+  border-radius: 999px !important;
+  font-size: 0.68rem !important;
+  font-weight: 850 !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.052em !important;
+  white-space: nowrap !important;
+}
+
+.important-week-label {
+  background: var(--gold-tint) !important;
+  border: 1px solid var(--gold) !important;
+  color: var(--navy) !important;
+}
+
+.important-week-context {
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--muted) !important;
+}
+
+.important-week-card-body h3 {
+  margin: 0 0 0.65rem !important;
+  font-size: 1.15rem !important;
+  line-height: 1.25 !important;
+}
+
+.important-week-card-body p {
+  margin: 0 !important;
+}
+
+.important-week-link {
+  margin-top: auto !important;
+}
+
+@media (min-width: 860px) {
+  .important-week-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Mass schedule note: calm callout */
+.home-mass-note {
+  max-width: 1200px !important;
+  margin: 1rem auto 1.15rem !important;
+  padding: 0.9rem 1rem !important;
+  background: var(--gold-tint) !important;
+  border: 1px solid var(--border) !important;
+  border-left: 8px solid var(--gold) !important;
+  border-radius: 0.9rem !important;
+  box-shadow: none !important;
+  color: var(--navy) !important;
+  font-weight: 600 !important;
+}
+
+.home-mass-note::before {
+  content: "Schedule note";
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--maroon);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
