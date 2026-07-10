@@ -1490,3 +1490,91 @@ img {
     text-align: center;
   }
 }
+
+/* Sacraments page */
+.sacrament-feature-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+.sacrament-feature-card .button {
+  margin-top: auto;
+  width: fit-content;
+}
+
+.sacrament-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.sacrament-card {
+  display: flex;
+  flex-direction: column;
+  border-left: 8px solid var(--gold);
+}
+
+.sacrament-card:nth-child(3n + 1) {
+  border-left-color: var(--maroon);
+  background: linear-gradient(180deg, var(--st-ann-tint), var(--white) 38%);
+}
+
+.sacrament-card:nth-child(3n + 2) {
+  border-left-color: var(--navy);
+  background: linear-gradient(180deg, var(--olph-tint), var(--white) 38%);
+}
+
+.sacrament-card:nth-child(3n + 3) {
+  border-left-color: var(--gold);
+  background: linear-gradient(180deg, var(--gold-tint), var(--white) 38%);
+}
+
+.sacrament-card .button {
+  margin-top: auto;
+  width: fit-content;
+}
+
+@media (min-width: 760px) {
+  .sacrament-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .sacrament-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 759px) {
+  .sacrament-feature-card {
+    min-height: auto;
+  }
+
+  .sacrament-feature-card .button,
+  .sacrament-card .button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Center the final Sacrament card when the last row is incomplete */
+@media (min-width: 1100px) {
+  .sacrament-grid .sacrament-card:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+}
+
+@media (min-width: 760px) and (max-width: 1099px) {
+  .sacrament-grid .sacrament-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc((100% - 1rem) / 2);
+    justify-self: center;
+  }
+}
+
+/* Sacraments: Anointing of the Sick should use the blue/navy treatment */
+.sacrament-grid .sacrament-card:last-child {
+  border-left-color: var(--navy);
+  background: linear-gradient(180deg, var(--olph-tint), var(--white) 38%);
+}

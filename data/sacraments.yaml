@@ -1,0 +1,46 @@
+intro:
+  title: "The Sacraments"
+  summary: "The Sacraments are sacred signs instituted by Christ and entrusted to the Church. Through them, God gives grace, strengthens His people, and draws us more deeply into His life."
+
+sacraments:
+  - name: "Baptism"
+    eyebrow: "New Life in Christ"
+    summary: "Baptism is the first Sacrament and the doorway into the Christian life. Parents seeking Baptism for a child should contact the parish office for preparation and scheduling."
+    action_text: "Contact the Parish Office"
+    action_url: "/contact/"
+
+  - name: "Confirmation"
+    eyebrow: "Strengthened by the Holy Spirit"
+    summary: "Confirmation completes baptismal grace and strengthens Catholics to live and witness the faith. Contact the parish office for preparation information."
+    action_text: "Contact the Parish Office"
+    action_url: "/contact/"
+
+  - name: "Confession"
+    eyebrow: "Reconciliation"
+    summary: "In Confession, Christ forgives sins through the ministry of the priest. Catholics are encouraged to confess regularly, especially before receiving Holy Communion if conscious of mortal sin."
+    action_text: "View Confession Times"
+    action_url: "/mass-confession/"
+
+  - name: "Holy Eucharist"
+    eyebrow: "Source and Summit"
+    summary: "The Holy Eucharist is the Body, Blood, Soul, and Divinity of Jesus Christ. Preparation for First Holy Communion is arranged through the parish."
+    action_text: "View Mass Times"
+    action_url: "/mass-confession/"
+
+  - name: "Holy Orders"
+    eyebrow: "Priesthood and Diaconate"
+    summary: "Through Holy Orders, bishops, priests, and deacons are ordained for service to Christ and His Church. Men discerning a vocation are encouraged to speak with the pastor."
+    action_text: "Contact the Parish Office"
+    action_url: "/contact/"
+
+  - name: "Marriage"
+    eyebrow: "Holy Matrimony"
+    summary: "Catholic marriage is a covenant ordered toward the good of the spouses and the welcoming of children. Couples should contact the parish before setting a wedding date or making final plans."
+    action_text: "Contact the Parish Office"
+    action_url: "/contact/"
+
+  - name: "Anointing of the Sick"
+    eyebrow: "Healing and Strength"
+    summary: "The Anointing of the Sick is for Catholics facing serious illness, surgery, weakness from age, or danger of death. Please contact the parish office for assistance."
+    action_text: "Contact the Parish Office"
+    action_url: "/contact/"
