@@ -23,7 +23,7 @@
       <img class="parish-photo" src="{{ $location.image }}" alt="{{ $location.image_alt }}">
     {{ else }}
       <div class="parish-image-fallback">
-        <p>{{ .name }}</p>
+        <p>{{ $location.name }}</p>
       </div>
     {{ end }}
 
@@ -48,6 +48,10 @@
   <article class="card parish-detail-card {{ $location.parish_class }}">
     <p class="eyebrow">Mass Schedule</p>
     <h2>Mass at {{ $location.short_name }}</h2>
+    <p>
+      Regular Mass times are listed here. Please check the current bulletin for Holy Days,
+      funerals, weather changes, and special parish events.
+    </p>
 
     <div class="simple-list">
       {{ range where hugo.Data.schedule.mass "location" $location.name }}
@@ -58,7 +62,10 @@
       {{ end }}
     </div>
 
-    <a class="button button-secondary" href="/mass-confession/">View Full Schedule</a>
+    <div class="card-actions">
+      <a class="button button-primary" href="/mass-confession/">Full Schedule</a>
+      <a class="button button-secondary" href="/bulletins/">Current Bulletin</a>
+    </div>
   </article>
 </section>
 
@@ -66,6 +73,9 @@
   <div class="section-heading">
     <p class="eyebrow">Prayer & Sacraments</p>
     <h2>Confession, Adoration, and Rosary</h2>
+    <p>
+      These times are listed for {{ $location.short_name }} when they appear on the regular parish schedule.
+    </p>
   </div>
 
   <div class="three-column">
@@ -129,5 +139,20 @@
   </article>
 </section>
 {{ end }}
+
+<section class="section">
+  <article class="card before-you-go-card">
+    <p class="eyebrow">Before You Go</p>
+    <h2>Check the current bulletin.</h2>
+    <p>
+      The weekly bulletin is the source of truth for current parish notices and schedule changes.
+      If the website and bulletin do not match, please follow the bulletin.
+    </p>
+    <div class="card-actions">
+      <a class="button button-primary" href="/bulletins/">View Current Bulletin</a>
+      <a class="button button-secondary" href="/our-parishes/">All Parishes</a>
+    </div>
+  </article>
+</section>
 
 {{ end }}

@@ -12,33 +12,53 @@
 
 <section class="section parish-overview-section">
   <div class="parish-page-grid parish-page-grid-compact">
-    {{ range hugo.Data.locations }}
-      <article class="card parish-page-card parish-page-card-compact {{ .parish_class }}">
-        {{ if .image }}
-          <img class="parish-card-photo parish-card-photo-compact" src="{{ .image }}" alt="{{ .image_alt }}">
-        {{ end }}
+    {{ $orderedSlugs := slice "mother-of-sorrows" "st-ann" "olph" }}
 
-        <div class="parish-card-content">
-          <p class="eyebrow">{{ .city }}</p>
-          <h2>{{ .name }}</h2>
-
-          {{ with .established }}
-            <p class="established-chip">Established {{ . }}</p>
+    {{ range $orderedSlugs }}
+      {{ $slug := . }}
+      {{ range where hugo.Data.locations "slug" $slug }}
+        <article class="card parish-page-card parish-page-card-compact {{ .parish_class }}">
+          {{ if .image }}
+            <img class="parish-card-photo parish-card-photo-compact" src="{{ .image }}" alt="{{ .image_alt }}">
           {{ end }}
 
-          <div class="parish-address-box">
-            <strong>{{ .address }}</strong>
-            <p>{{ .address_line_2 }}</p>
-          </div>
+          <div class="parish-card-content">
+            <p class="eyebrow">{{ .city }}</p>
+            <h2>{{ .name }}</h2>
 
-          <div class="card-actions">
-            <a class="button button-primary" href="/our-parishes/{{ .slug }}/">View {{ .short_name | default .name }} details</a>
-            <a class="button button-secondary" href="{{ .map_url }}" target="_blank" rel="noopener noreferrer">Directions</a>
+            {{ with .established }}
+              <p class="established-chip">Established {{ . }}</p>
+            {{ end }}
+
+            <div class="parish-address-box">
+              <strong>{{ .address }}</strong>
+              <p>{{ .address_line_2 }}</p>
+            </div>
+
+            <div class="card-actions">
+              <a class="button button-primary" href="/our-parishes/{{ .slug }}/">View {{ .short_name | default .name }} details</a>
+              <a class="button button-secondary" href="{{ .map_url }}" target="_blank" rel="noopener noreferrer">Directions</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      {{ end }}
     {{ end }}
   </div>
+</section>
+
+<section class="section">
+  <article class="card before-you-go-card">
+    <p class="eyebrow">Worship With Us</p>
+    <h2>Looking for Mass times?</h2>
+    <p>
+      View the full tri-parish Mass, Confession, Adoration, and Rosary schedule.
+      Please check the current bulletin for schedule changes.
+    </p>
+    <div class="card-actions">
+      <a class="button button-primary" href="/mass-confession/">Mass & Confession Times</a>
+      <a class="button button-secondary" href="/bulletins/">Current Bulletin</a>
+    </div>
+  </article>
 </section>
 
 {{ end }}
