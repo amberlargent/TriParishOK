@@ -1,0 +1,208 @@
+/* =========================================================
+   Bulletins System
+   Accessible support around the existing PDF bulletin.
+   ========================================================= */
+
+.bulletins-hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 3rem 1rem 3.25rem;
+}
+
+.bulletins-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.bulletins-hero h1 {
+  color: var(--white);
+  max-width: 760px;
+  font-size: clamp(3rem, 5vw, 4.15rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.bulletins-hero p:not(.eyebrow) {
+  max-width: 760px;
+  color: rgba(255,255,255,0.9);
+  font-size: 1.15rem;
+  line-height: 1.55;
+}
+
+.bulletins-hero-actions {
+  margin-top: 1.4rem;
+}
+
+/* Current bulletin */
+
+.bulletins-current-section {
+  background: var(--white);
+}
+
+.bulletins-current-card {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.bulletins-current-card > div,
+.bulletins-accessibility-note {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+  padding: clamp(1.2rem, 3vw, 1.65rem);
+}
+
+.bulletins-current-card > div {
+  border-top: 8px solid var(--gold);
+}
+
+.bulletins-accessibility-note {
+  background: var(--ivory);
+}
+
+.bulletins-accessibility-note p:last-child {
+  margin-bottom: 0;
+}
+
+/* Summary */
+
+.bulletins-summary-section {
+  background: var(--ivory);
+}
+
+.bulletins-summary-grid {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.bulletins-summary-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+  padding: 1.2rem;
+}
+
+.bulletins-summary-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin-bottom: 0.85rem;
+}
+
+.bulletins-summary-label,
+.parish-pill {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0;
+  padding: 0.3rem 0.58rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 850;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.052em;
+  white-space: nowrap;
+}
+
+.bulletins-summary-label {
+  background: #edf3ee;
+  border: 1px solid #c9d7cc;
+  color: #33483a;
+}
+
+.bulletins-summary-card h3 {
+  margin: 0 0 0.65rem;
+  color: var(--navy);
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+
+.bulletins-summary-card p {
+  margin: 0;
+}
+
+/* Source note */
+
+.bulletins-source-section {
+  background: var(--white);
+}
+
+.bulletins-source-card {
+  max-width: 1040px;
+  margin: 0 auto;
+  background: var(--gold-tint);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+}
+
+.bulletins-source-card h2 {
+  margin-top: 0;
+}
+
+.bulletins-source-card p:last-child {
+  margin-bottom: 0;
+}
+
+.bulletins-source-actions {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.bulletins-source-actions .button {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Responsive */
+
+@media (min-width: 760px) {
+  .bulletins-current-card {
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+  }
+
+  .bulletins-summary-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .bulletins-source-card {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+  }
+}
+
+@media (max-width: 759px) {
+  .bulletins-hero {
+    padding: 2.35rem 1rem 2.75rem;
+  }
+
+  .bulletins-hero h1 {
+    font-size: clamp(2.8rem, 13vw, 3.7rem);
+  }
+
+  .bulletins-hero p:not(.eyebrow) {
+    font-size: 1.08rem;
+  }
+
+  .bulletins-hero-actions {
+    display: grid;
+  }
+
+  .bulletins-hero-actions .button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}

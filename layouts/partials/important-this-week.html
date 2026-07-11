@@ -1,37 +1,36 @@
 {{ with hugo.Data.important_this_week }}
   {{ if .enabled }}
-    <section class="section important-week-section" aria-labelledby="important-this-week-heading">
+    <section class="section important-week-section" aria-labelledby="important-week-heading">
       <div class="section-heading">
-        <p class="eyebrow">Parish Notices</p>
-        <h2 id="important-this-week-heading">{{ .heading }}</h2>
-        {{ with .intro }}<p>{{ . }}</p>{{ end }}
+        <p class="eyebrow">This Week</p>
+        <h2 id="important-week-heading">{{ .heading }}</h2>
+        {{ with .intro }}
+          <p>{{ . }}</p>
+        {{ end }}
       </div>
 
       <div class="important-week-grid">
         {{ range .items }}
           {{ $item := . }}
-          <article class="card important-week-card">
+          <article class="important-week-card">
             <header class="important-week-card-header">
               {{ with $item.label }}
                 <span class="important-week-label important-week-label-{{ $item.label_class | default "neutral" }}">{{ . }}</span>
               {{ end }}
 
-              {{ if $item.context }}
-                {{ if $item.context_parish_class }}
-                  <span class="parish-pill {{ $item.context_parish_class }}">{{ $item.context }}</span>
-                {{ else }}
-                  <span class="important-week-context">{{ $item.context }}</span>
-                {{ end }}
+              {{ with $item.context }}
+                <span class="parish-pill {{ $item.context_parish_class }}">{{ . }}</span>
               {{ end }}
             </header>
 
-            <div class="important-week-card-body">
-              <h3>{{ $item.title }}</h3>
-              <p>{{ $item.description }}</p>
-            </div>
+            <h3>{{ $item.title }}</h3>
+            <p>{{ $item.description }}</p>
 
-            {{ if and $item.link_text $item.link_url }}
-              <a class="text-link important-week-link" href="{{ $item.link_url }}">{{ $item.link_text }}</a>
+            {{ with $item.link_url }}
+              {{ $isPdf := in . ".pdf" }}
+              <a class="button button-secondary important-week-button" href="{{ . }}"{{ if $isPdf }} target="_blank" rel="noopener"{{ end }}>
+                {{ $item.link_text }}{{ if $isPdf }} — opens PDF in a new tab{{ end }}
+              </a>
             {{ end }}
           </article>
         {{ end }}

@@ -1,41 +1,68 @@
 {{ define "main" }}
 
-<section class="page-header">
-  <div>
-    <p class="eyebrow">Bulletins</p>
-    <h1>Weekly Bulletin</h1>
-    <p class="page-intro">
-      Read this week’s bulletin for parish schedules, announcements, events, and ministry updates.
+<section class="bulletins-hero">
+  <div class="bulletins-inner">
+    <p class="eyebrow">Bulletin</p>
+    <h1>{{ .Title }}</h1>
+    <p>
+      Read the current tri-parish bulletin and review key weekly notices in a
+      phone-friendly format.
     </p>
+
+    {{ with hugo.Data.bulletin.current }}
+      <div class="button-row bulletins-hero-actions">
+        <a class="button button-primary" href="{{ .file }}" target="_blank" rel="noopener">
+          Open current bulletin — PDF{{ with .pages }}, {{ . }}{{ end }}; opens in a new tab
+        </a>
+      </div>
+    {{ end }}
   </div>
 </section>
 
-<section class="section two-column">
-  <article class="card bulletin-feature-card">
-    <div class="card-title-row">
-      <div>
-        <p class="eyebrow">Current Bulletin</p>
-        <h2>{{ hugo.Data.bulletin.current.title }}</h2>
-      </div>
-      <p class="date-chip">{{ hugo.Data.bulletin.current.date }}</p>
+<section class="section bulletins-summary-section" aria-labelledby="bulletin-summary-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Key Notices</p>
+    <h2 id="bulletin-summary-heading">This week from the bulletin</h2>
+    <p>
+      The bulletin PDF remains the source of truth. Key notices are also listed
+      here as regular webpage text for easier reading on phones and screen readers.
+    </p>
+  </div>
+
+  {{ with hugo.Data.bulletin.current.summary }}
+    <div class="bulletins-summary-grid">
+      {{ range . }}
+        {{ $notice := . }}
+        <article class="bulletins-summary-card">
+          <header class="bulletins-summary-header">
+            <span class="bulletins-summary-label">{{ $notice.label }}</span>
+
+            {{ with $notice.parish }}
+              <span class="parish-pill {{ $notice.parish_class }}">{{ . }}</span>
+            {{ end }}
+          </header>
+
+          <h3>{{ $notice.title }}</h3>
+          <p>{{ $notice.detail }}</p>
+        </article>
+      {{ end }}
+    </div>
+  {{ end }}
+</section>
+
+<section class="section bulletins-source-section" aria-labelledby="bulletin-source-heading">
+  <div class="bulletins-source-card">
+    <div>
+      <p class="eyebrow">Schedule Note</p>
+      <h2 id="bulletin-source-heading">Check current parish notices before traveling.</h2>
+      <p>{{ hugo.Data.bulletin.source_note }}</p>
     </div>
 
-    <p>{{ hugo.Data.bulletin.current.note }}</p>
-
-    <a class="button button-primary" href="{{ hugo.Data.bulletin.current.file }}">
-      View Current Bulletin
-    </a>
-  </article>
-
-  <article class="card before-you-go-card">
-    <p class="eyebrow">Schedules</p>
-    <h2>Check Before You Go</h2>
-    <p>
-      Mass, Confession, Adoration, Rosary, Holy Day, funeral, and weather-related schedule changes
-      are checked against the current bulletin.
-    </p>
-    <a class="button button-secondary" href="/mass-confession/">View Mass & Confession Times</a>
-  </article>
+    <div class="bulletins-source-actions">
+      <a class="button button-primary" href="/mass-confession/">Mass & Confession Times</a>
+      <a class="button button-secondary" href="/contact/">Contact the Parish Office</a>
+    </div>
+  </div>
 </section>
 
 {{ end }}

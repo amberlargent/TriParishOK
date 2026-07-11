@@ -631,3 +631,27 @@
   justify-content: center !important;
   text-align: center !important;
 }
+
+/* Important This Week action buttons */
+.important-week-section .important-week-card {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.important-week-section .important-week-card p {
+  margin-bottom: 1rem;
+}
+
+.important-week-section .important-week-button {
+  margin-top: auto;
+  width: fit-content;
+  max-width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+@media (max-width: 759px) {
+  .important-week-section .important-week-button {
+    width: 100%;
+  }
+}

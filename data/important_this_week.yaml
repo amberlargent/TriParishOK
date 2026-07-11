@@ -8,9 +8,9 @@ items:
     context_parish_class: "parish-pill-st-ann"
     style: "neutral"
     title: "Archbishop Coakley, President of the USCCB, will celebrate Mass at St. Ann"
-    description: "This is a special honor for the whole tri-parish community. Archbishop Paul S. Coakley, Archbishop of Oklahoma City and President of the United States Conference of Catholic Bishops, will celebrate Mass with us on Sunday, August 2 at 10:30 AM at St. Ann in Elgin. Because this is one tri-parish celebration, the regular Sunday Mass schedule changes that day."
+    description: "This is a special honor for the whole tri-parish community. Archbishop Paul S. Coakley, Archbishop of Oklahoma City and President of the United States Conference of Catholic Bishops, will celebrate Mass with us on Sunday, August 2 at 10:30 AM at St. Ann in Elgin. A meal will follow Mass. Because this is one tri-parish celebration, the regular Sunday Mass schedule changes that day."
     link_text: "Read the bulletin details"
-    link_url: "/bulletins/current-bulletin.pdf"
+    link_url: "/bulletins/"
 
   - label: "Current Need"
     label_class: "need"
