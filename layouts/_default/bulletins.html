@@ -38,7 +38,11 @@
             <span class="bulletins-summary-label">{{ $notice.label }}</span>
 
             {{ with $notice.parish }}
-              <span class="parish-pill {{ $notice.parish_class }}">{{ . }}</span>
+              {{ $parishClass := "" }}
+              {{ if eq . "St. Ann" }}{{ $parishClass = "parish-pill-st-ann" }}{{ end }}
+              {{ if eq . "OLPH" }}{{ $parishClass = "parish-pill-olph" }}{{ end }}
+              {{ if eq . "Mother of Sorrows" }}{{ $parishClass = "parish-pill-mos" }}{{ end }}
+              <span class="parish-pill {{ $parishClass }}">{{ . }}</span>
             {{ end }}
           </header>
 

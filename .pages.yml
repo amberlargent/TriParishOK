@@ -92,22 +92,6 @@ content:
                     - name: Mother of Sorrows
                       label: Mother of Sorrows
 
-              - name: parish_class
-                label: Parish Color
-                type: select
-                required: false
-                description: "Match this to the parish above. Leave blank if no specific parish."
-                options:
-                  values:
-                    - name: ""
-                      label: No parish color
-                    - name: parish-pill-st-ann
-                      label: St. Ann
-                    - name: parish-pill-olph
-                      label: OLPH
-                    - name: parish-pill-mos
-                      label: Mother of Sorrows
-
           - name: accessibility_note
             label: Reading Note
             type: text
