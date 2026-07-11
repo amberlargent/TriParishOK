@@ -1,0 +1,28 @@
+groups:
+  - title: "Sacraments of Initiation"
+    intro: "These Sacraments bring us into the life of Christ and His Church."
+    items:
+      - title: "Baptism"
+        summary: "Baptism is the first Sacrament and the doorway into the Christian life. Parents seeking Baptism for a child contact the parish office for preparation and scheduling."
+      - title: "Confirmation"
+        summary: "Confirmation strengthens the baptized with the gift of the Holy Spirit and completes Christian initiation."
+      - title: "Holy Eucharist"
+        summary: "The Eucharist is the source and summit of the Christian life. Catholics receive Our Lord truly present: Body, Blood, Soul, and Divinity."
+
+  - title: "Sacraments of Healing"
+    intro: "Christ heals, forgives, strengthens, and restores His people through these Sacraments."
+    items:
+      - title: "Confession"
+        subtitle: "Reconciliation"
+        summary: "In Confession, Christ forgives sins through the ministry of the priest and restores the soul to grace."
+      - title: "Anointing of the Sick"
+        summary: "The Anointing of the Sick is for Catholics facing serious illness, surgery, advanced age, or danger of death. For urgent sacramental needs, call the parish office."
+
+  - title: "Sacraments of Service"
+    intro: "These Sacraments are ordered toward the service of God, the Church, and others."
+    items:
+      - title: "Marriage"
+        subtitle: "Holy Matrimony"
+        summary: "Catholic marriage is a covenant ordered toward the good of the spouses and the welcoming of children. Couples contact the parish before setting a wedding date or making final plans."
+      - title: "Holy Orders"
+        summary: "Through Holy Orders, bishops, priests, and deacons are ordained for sacred service. Men discerning a vocation can contact the pastor or the parish office."

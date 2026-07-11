@@ -1,98 +1,94 @@
 {{ define "main" }}
 
-<section class="page-header">
-  <div>
-    <p class="eyebrow">Sacraments</p>
-    <h1>{{ hugo.Data.sacraments.intro.title }}</h1>
-    <p class="page-intro">
-      {{ hugo.Data.sacraments.intro.summary }}
+<section class="sacraments-clean-hero">
+  <div class="sacraments-clean-inner">
+    <p class="eyebrow">The Sacramental Life</p>
+    <h1>{{ .Title }}</h1>
+    <p>
+      The Sacraments are outward signs instituted by Christ to give grace.
+      They are not merely parish milestones; they are encounters with the living Lord.
     </p>
+
+    <div class="button-row sacraments-clean-actions">
+      <a class="button button-primary" href="/contact/">Contact the Parish Office</a>
+      <a class="button button-secondary" href="/mass-confession/">See Confession Times</a>
+    </div>
   </div>
 </section>
 
-<section class="section sacrament-image-band-section">
-  <div class="sacrament-image-band">
+<section class="section sacrament-clean-image-section" aria-label="Sacramental images">
+  <div class="sacrament-clean-image-band">
     <figure>
       {{ with hugo.Data.site_images.sacraments.baptism }}
         <img src="{{ .src }}" alt="{{ .alt }}">
-        <figcaption>{{ .caption }}. {{ .credit }}.</figcaption>
       {{ end }}
+      <figcaption>Baptism</figcaption>
     </figure>
 
     <figure>
       {{ with hugo.Data.site_images.devotional.sacred_heart_statue }}
         <img src="{{ .src }}" alt="{{ .alt }}">
-        <figcaption>Confession and mercy. {{ .credit }}.</figcaption>
       {{ end }}
+      <figcaption>Confession and mercy</figcaption>
     </figure>
 
     <figure>
       {{ with hugo.Data.site_images.sacraments.eucharist }}
         <img src="{{ .src }}" alt="{{ .alt }}">
-        <figcaption>{{ .caption }}. {{ .credit }}.</figcaption>
       {{ end }}
+      <figcaption>The Holy Eucharist</figcaption>
     </figure>
   </div>
 </section>
 
-<section class="section two-column">
-  <article class="card sacrament-feature-card">
-    <p class="eyebrow">Start Here</p>
-    <h2>Need a Sacrament?</h2>
-    <p>
-      For Baptism, First Holy Communion, Confirmation, Marriage, Anointing of the Sick,
-      or other sacramental needs, please contact the parish office.
-    </p>
-    <p>
-      The parish office can help you understand the next step, preparation process, and any needed paperwork.
-    </p>
-    <a class="button button-primary" href="/contact/">Contact the Parish Office</a>
-  </article>
-
-  <article class="card sacrament-feature-card">
-    <p class="eyebrow">Confession</p>
-    <h2>Return to grace.</h2>
-    <p>
-      Confession is one of the great gifts of Christ to His Church. If it has been a long time,
-      you are welcome to come back. The priest can help you through it.
-    </p>
-    <a class="button button-secondary" href="/mass-confession/">View Confession Times</a>
-  </article>
-</section>
-
-<section class="section section-light">
+<section class="section sacrament-clean-groups-section" aria-labelledby="sacrament-groups-heading">
   <div class="section-heading">
     <p class="eyebrow">Seven Sacraments</p>
-    <h2>Grace for the whole Christian life</h2>
+    <h2 id="sacrament-groups-heading">One life of grace in Christ.</h2>
     <p>
-      Each Sacrament is a real encounter with Christ through His Church.
+      The Church traditionally speaks of the Sacraments as Sacraments of Initiation,
+      Healing, and Service.
     </p>
   </div>
 
-  <div class="sacrament-grid">
-    {{ range hugo.Data.sacraments.sacraments }}
-      <article class="card sacrament-card">
-        <p class="eyebrow">{{ .eyebrow }}</p>
-        <h2>{{ .name }}</h2>
-        <p>{{ .summary }}</p>
-        <a class="button button-secondary" href="{{ .action_url }}">{{ .action_text }}</a>
-      </article>
+  <div class="sacrament-clean-groups">
+    {{ range hugo.Data.sacrament_groups.groups }}
+      <section class="sacrament-clean-group" aria-labelledby="{{ .title | urlize }}">
+        <div class="sacrament-clean-group-heading">
+          <p class="sacrament-clean-group-label">{{ .title }}</p>
+          <p>{{ .intro }}</p>
+        </div>
+
+        <div class="sacrament-clean-card-grid">
+          {{ range .items }}
+            <article class="sacrament-clean-card">
+              <h3>{{ .title }}</h3>
+              {{ with .subtitle }}<p class="sacrament-clean-subtitle">{{ . }}</p>{{ end }}
+              <p>{{ .summary }}</p>
+            </article>
+          {{ end }}
+        </div>
+      </section>
     {{ end }}
   </div>
 </section>
 
-<section class="section">
-  <article class="card before-you-go-card">
-    <p class="eyebrow">Important</p>
-    <h2>Parish preparation details may vary.</h2>
-    <p>
-      Sacramental preparation, paperwork, sponsor requirements, records, and scheduling are confirmed directly with the parish office.
-    </p>
-    <p>
-      For urgent sacramental needs, especially danger of death, please contact the parish office as soon as possible.
-    </p>
-    <a class="button button-primary" href="/contact/">Contact the Parish Office</a>
-  </article>
+<section class="section sacrament-clean-contact-section" aria-labelledby="sacrament-contact-heading">
+  <div class="sacrament-clean-contact-card">
+    <div>
+      <p class="eyebrow">Next Step</p>
+      <h2 id="sacrament-contact-heading">Contact the parish office.</h2>
+      <p>
+        Sacramental preparation, paperwork, sponsor requirements, records,
+        and scheduling are confirmed directly with the parish office.
+      </p>
+    </div>
+
+    <div class="sacrament-clean-contact-actions">
+      <a class="button button-primary" href="/contact/">Contact the Parish Office</a>
+      <a class="button button-secondary" href="/faith-formation/">Faith Formation Information</a>
+    </div>
+  </div>
 </section>
 
 {{ end }}
