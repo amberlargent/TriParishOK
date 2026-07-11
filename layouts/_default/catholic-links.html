@@ -27,11 +27,12 @@
 
   <div class="catholic-links-grid">
     {{ range .links }}
+      {{ $isExternal := or (hasPrefix .url "http://") (hasPrefix .url "https://") }}
       <article class="card catholic-link-card">
         <h3>{{ .name }}</h3>
         <p>{{ .description }}</p>
-        <a class="button button-secondary" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
-          {{ if .title }}Visit {{ .title }}{{ else if .name }}Visit {{ .name }}{{ else }}Visit this resource{{ end }}
+        <a class="button button-secondary" href="{{ .url }}"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>
+          Open {{ .name }}
         </a>
       </article>
     {{ end }}

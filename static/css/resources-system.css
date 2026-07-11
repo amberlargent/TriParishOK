@@ -1,0 +1,227 @@
+/* =========================================================
+   Catholic Resources System
+   Preserves all links while improving layout and readability.
+   ========================================================= */
+
+.resources-hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 3rem 1rem 3.25rem;
+}
+
+.resources-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.resources-hero h1 {
+  color: var(--white);
+  max-width: 820px;
+  font-size: clamp(3rem, 5vw, 4.15rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.resources-hero p:not(.eyebrow) {
+  max-width: 800px;
+  color: rgba(255,255,255,0.9);
+  font-size: 1.15rem;
+  line-height: 1.55;
+}
+
+/* Jump links */
+
+.resource-jump-section {
+  background: var(--white);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.resource-jump-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.resource-jump-inner h2 {
+  margin-top: 0;
+  font-size: 1.45rem;
+}
+
+.resource-jump-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+.resource-jump-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.resource-jump-list a:hover,
+.resource-jump-list a:focus {
+  background: var(--gold-tint);
+}
+
+/* Main categories */
+
+.resources-main-section {
+  background: var(--ivory);
+}
+
+.resources-category-list {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.resources-category {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+  padding: clamp(1.15rem, 3vw, 1.6rem);
+  scroll-margin-top: 1rem;
+}
+
+.resources-category-heading {
+  margin-bottom: 1rem;
+}
+
+.resources-category-label {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0;
+  padding: 0.34rem 0.65rem;
+  border-radius: 999px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 850;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.055em;
+}
+
+.resources-card-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.resources-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.resources-card h3 {
+  margin: 0 0 0.45rem;
+  color: var(--navy);
+  font-size: 1.08rem;
+  line-height: 1.2;
+}
+
+.resources-card p {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.5;
+}
+
+.resources-card .text-link {
+  margin-top: auto;
+}
+
+/* Note */
+
+.resources-note-section {
+  background: var(--white);
+}
+
+.resources-note-card {
+  max-width: 1040px;
+  margin: 0 auto;
+  background: var(--gold-tint);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+}
+
+.resources-note-card h2 {
+  margin-top: 0;
+}
+
+.resources-note-card p:last-child {
+  margin-bottom: 0;
+}
+
+.resources-note-actions {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.resources-note-actions .button {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Responsive */
+
+@media (min-width: 760px) {
+  .resources-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .resources-note-card {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+  }
+}
+
+@media (min-width: 1080px) {
+  .resources-category:has(.resources-card:nth-child(3)) .resources-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 759px) {
+  .resources-hero {
+    padding: 2.35rem 1rem 2.75rem;
+  }
+
+  .resources-hero h1 {
+    font-size: clamp(2.8rem, 13vw, 3.7rem);
+  }
+
+  .resources-hero p:not(.eyebrow) {
+    font-size: 1.08rem;
+  }
+
+  .resource-jump-list {
+    display: grid;
+  }
+
+  .resource-jump-list a {
+    width: 100%;
+  }
+}
