@@ -39,8 +39,9 @@
       <p>{{ $location.address_line_2 }}</p>
     </div>
 
-    <div class="card-actions">
-      <a class="button button-primary" href="{{ $location.map_url }}" target="_blank" rel="noopener noreferrer">Get Directions</a>
+    <div class="card-actions parish-direction-actions">
+      <a class="button button-secondary" href="{{ $location.apple_map_url }}" target="_blank" rel="noopener noreferrer">Apple Maps</a>
+      <a class="button button-secondary" href="{{ $location.map_url }}" target="_blank" rel="noopener noreferrer">Google Maps</a>
       <a class="button button-secondary" href="/contact/">Contact the Office</a>
     </div>
   </article>

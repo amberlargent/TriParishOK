@@ -655,3 +655,16 @@
     width: 100%;
   }
 }
+
+/* Parish direction button groups */
+.parish-direction-actions {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 0.65rem !important;
+}
+
+.parish-direction-actions .button {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
