@@ -14,6 +14,7 @@
   <figure class="page-image-feature">
     {{ with hugo.Data.site_images.devotional.monstrance_adoration }}
       <img src="{{ .src }}" alt="{{ .alt }}">
+      <figcaption>{{ .caption }}. {{ .credit }}.</figcaption>
     {{ end }}
   </figure>
 </section>
@@ -26,19 +27,17 @@
   <div class="section-heading">
     <p class="eyebrow">Weekend Mass</p>
     <h2>Sunday Obligation</h2>
-    <p>
-      Weekend Mass times are shown first because they are the most-used schedule information.
-    </p>
+    <p>Weekend Mass times are shown first because they are the most-used information on the site.</p>
   </div>
 
   <div class="mass-card-grid">
     {{ range where hugo.Data.schedule.mass "section" "weekend" }}
-      <article class="mass-card {{ .parish_class }}">
-        <p class="mass-day">{{ .day }}</p>
-        <p class="mass-time">{{ .time }}</p>
-        <h3>{{ .location }}</h3>
-        <p>{{ .city }}</p>
-      </article>
+    <article class="mass-card {{ .parish_class }}">
+      <p class="mass-day">{{ .day }}</p>
+      <p class="mass-time">{{ .time }}</p>
+      <h3>{{ .location }}</h3>
+      <p>{{ .city }}</p>
+    </article>
     {{ end }}
   </div>
 </section>
@@ -47,18 +46,19 @@
   <div class="section-heading">
     <p class="eyebrow">Weekday Mass</p>
     <h2>Daily Mass Schedule</h2>
+    <p>Location colors match the parish shown on each row.</p>
   </div>
 
   <div class="daily-schedule">
     {{ range where hugo.Data.schedule.mass "section" "weekday" }}
-      <article class="daily-row {{ .parish_class }}">
-        <div class="daily-day">{{ .day }}</div>
-        <div class="daily-time">{{ .time }}</div>
-        <div class="daily-location">
-          <span class="location-dot"></span>
-          <span>{{ .location }} · {{ .city }}</span>
-        </div>
-      </article>
+    <article class="daily-row {{ .parish_class }}">
+      <div class="daily-day">{{ .day }}</div>
+      <div class="daily-time">{{ .time }}</div>
+      <div class="daily-location">
+        <span class="location-dot"></span>
+        <span>{{ .location }} · {{ .city }}</span>
+      </div>
+    </article>
     {{ end }}
   </div>
 </section>
@@ -67,9 +67,7 @@
   <div class="section-heading">
     <p class="eyebrow">Prayer & Sacraments</p>
     <h2>Confession, Adoration & Rosary</h2>
-    <p>
-      Come to the Lord in the Sacraments and in prayer. Current parish notices may affect these times.
-    </p>
+    <p>Parish colors mark the location for each time.</p>
   </div>
 
   <div class="three-column schedule-card-grid">
@@ -78,13 +76,13 @@
 
       <div class="schedule-mini-list">
         {{ range hugo.Data.schedule.confession }}
-          <div class="schedule-mini-row {{ .parish_class }}">
-            <div>
-              <strong>{{ .day }}</strong>
-              <span>{{ .time }}</span>
-            </div>
-            <p>{{ .location }}</p>
+        <div class="schedule-mini-row {{ .parish_class }}">
+          <div>
+            <strong>{{ .day }}</strong>
+            <span>{{ .time }}</span>
           </div>
+          <p>{{ .location }}</p>
+        </div>
         {{ end }}
       </div>
     </article>
@@ -94,13 +92,13 @@
 
       <div class="schedule-mini-list">
         {{ range hugo.Data.schedule.adoration }}
-          <div class="schedule-mini-row {{ .parish_class }}">
-            <div>
-              <strong>{{ .day }}</strong>
-              <span>{{ .time }}</span>
-            </div>
-            <p>{{ .location }}</p>
+        <div class="schedule-mini-row {{ .parish_class }}">
+          <div>
+            <strong>{{ .day }}</strong>
+            <span>{{ .time }}</span>
           </div>
+          <p>{{ .location }}</p>
+        </div>
         {{ end }}
       </div>
     </article>
@@ -110,13 +108,13 @@
 
       <div class="schedule-mini-list">
         {{ range hugo.Data.schedule.rosary }}
-          <div class="schedule-mini-row {{ .parish_class }}">
-            <div>
-              <strong>{{ .day }}</strong>
-              <span>{{ .time }}</span>
-            </div>
-            <p>{{ .location }}</p>
+        <div class="schedule-mini-row {{ .parish_class }}">
+          <div>
+            <strong>{{ .day }}</strong>
+            <span>{{ .time }}</span>
           </div>
+          <p>{{ .location }}</p>
+        </div>
         {{ end }}
       </div>
     </article>
@@ -125,16 +123,12 @@
 
 <section class="section">
   <article class="card before-you-go-card">
-    <p class="eyebrow">Before You Go</p>
-    <h2>Check the current bulletin.</h2>
+    <h2>Before You Go</h2>
     <p>
-      Holy Days, funerals, weather, and special parish events may change the regular schedule.
-      The weekly bulletin is the source of truth for current parish notices.
+      Schedules may change for Holy Days of Obligation, funerals, weather, or special parish events.
+      Please check the current bulletin or contact the parish office when needed.
     </p>
-    <div class="card-actions">
-      <a class="button button-primary" href="/bulletins/">View Current Bulletin</a>
-      <a class="button button-secondary" href="/contact/">Contact the Parish Office</a>
-    </div>
+    <a class="button button-primary" href="/bulletins/">View Current Bulletin</a>
   </article>
 </section>
 
