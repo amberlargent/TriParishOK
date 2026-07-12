@@ -220,7 +220,7 @@ content:
                 readonly: true
 
           - name: source_note
-            label: Schedule Source Note
+            label: Travel Reminder
             type: text
             required: true
             readonly: true
