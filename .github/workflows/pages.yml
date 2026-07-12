@@ -15,13 +15,9 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
-defaults:
-  run:
-    shell: bash
-
 env:
   HUGO_VERSION: 0.164.0
-  HUGO_BASEURL: https://amberlargent.github.io/TriParishOK/
+  HUGO_BASEURL: https://amberlargent.me/TriParishOK/
   GITHUB_PAGES_PREFIX: /TriParishOK
 
 jobs:
@@ -44,37 +40,65 @@ jobs:
         run: |
           hugo --gc --minify --baseURL "${HUGO_BASEURL}"
 
-      - name: Rewrite root-relative links for GitHub Pages project path
+      - name: Rewrite root-relative paths for GitHub Pages
         run: |
           python3 <<'PY'
           from pathlib import Path
-          import re
           import os
+          import re
 
-          public = Path("public")
           prefix = os.environ["GITHUB_PAGES_PREFIX"].rstrip("/")
+          public = Path("public")
+          exts = {".html", ".xml", ".css", ".js", ".json", ".webmanifest"}
 
-          file_types = {".html", ".xml", ".css", ".js", ".json", ".webmanifest"}
+          def should_rewrite(url):
+              return (
+                  url.startswith("/")
+                  and not url.startswith("//")
+                  and not url.startswith(prefix + "/")
+              )
+
+          def rewrite_quoted_attr(match):
+              attr, quote, url = match.groups()
+              if should_rewrite(url):
+                  url = prefix + url
+              return f"{attr}{quote}{url}{quote}"
+
+          def rewrite_unquoted_attr(match):
+              attr, url = match.groups()
+              if should_rewrite(url):
+                  url = prefix + url
+              return f"{attr}{url}"
+
+          def rewrite_css_url(match):
+              quote, url = match.groups()
+              if should_rewrite(url):
+                  url = prefix + url
+              return f"url({quote}{url}{quote})"
 
           for path in public.rglob("*"):
-              if not path.is_file() or path.suffix.lower() not in file_types:
+              if not path.is_file() or path.suffix.lower() not in exts:
                   continue
 
               text = path.read_text(errors="ignore")
               original = text
 
-              # HTML attributes: href="/...", src="/...", action="/..."
               text = re.sub(
-                  r'(\b(?:href|src|action)=["\'])/(?!TriParishOK/|/)',
-                  lambda m: m.group(1) + prefix + "/",
-                  text
+                  r'(\b(?:href|src|action)=)(["\'])(/(?!/)[^"\']*)\2',
+                  rewrite_quoted_attr,
+                  text,
               )
 
-              # CSS url(/...), url("/..."), url('/...')
               text = re.sub(
-                  r'(url\(["\']?)/(?!TriParishOK/|/)',
-                  lambda m: m.group(1) + prefix + "/",
-                  text
+                  r'(\b(?:href|src|action)=)(/(?!/)[^\s>]+)',
+                  rewrite_unquoted_attr,
+                  text,
+              )
+
+              text = re.sub(
+                  r'url\((["\']?)(/(?!/)[^)\'"]+)\1\)',
+                  rewrite_css_url,
+                  text,
               )
 
               if text != original:
