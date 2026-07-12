@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+  schedule:
+    # Rebuild daily so notices with end dates expire without a manual edit.
+    # 12:15 UTC is 7:15 AM CDT or 6:15 AM CST.
+    - cron: "15 12 * * *"
   workflow_dispatch:
 
 permissions:
