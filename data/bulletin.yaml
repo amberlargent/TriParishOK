@@ -29,6 +29,7 @@ current:
       parish: "OLPH"
 
   homily:
+    enabled: true
     title: "The Parable of the Sower"
     intro: "In this Sunday’s Gospel, Jesus tells the familiar Parable of the Sower."
     paragraphs:

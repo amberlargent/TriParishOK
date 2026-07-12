@@ -113,6 +113,13 @@ content:
             label: Father's Homily Note
             type: object
             fields:
+              - name: enabled
+                label: Show Homily Note This Week
+                type: boolean
+                required: false
+                default: true
+                description: "Turn this off if there is no homily note for the current bulletin."
+
               - name: title
                 label: Title
                 type: string
