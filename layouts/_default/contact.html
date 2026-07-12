@@ -18,7 +18,7 @@
     <div class="contact-list">
       <p>
         <strong>Phone:</strong>
-        <a href="tel:{{ replace hugo.Data.contact.office.phone "-" "" }}">{{ hugo.Data.contact.office.phone }}</a>
+        <a href="tel:{{ replaceRE "[^0-9+]" "" hugo.Data.contact.office.phone }}">{{ hugo.Data.contact.office.phone }}</a>
       </p>
 
       <p>
@@ -33,7 +33,7 @@
     </div>
 
     <div class="card-actions">
-      <a class="button button-primary" href="tel:{{ replace hugo.Data.contact.office.phone "-" "" }}">Call the Office</a>
+      <a class="button button-primary" href="tel:{{ replaceRE "[^0-9+]" "" hugo.Data.contact.office.phone }}">Call the Office</a>
       <a class="button button-secondary" href="mailto:{{ hugo.Data.contact.office.email }}">Email the Office</a>
     </div>
   </article>
@@ -43,9 +43,8 @@
     <h2>Send mail to the parish office</h2>
 
     <address class="mailing-address">
-      {{ range hugo.Data.contact.office.mailing_address }}
-        {{ . }}<br>
-      {{ end }}
+      {{ hugo.Data.contact.office.mailing_line_1 }}<br>
+      {{ hugo.Data.contact.office.mailing_line_2 }}
     </address>
 
     <div class="office-note contact-note">
@@ -112,15 +111,18 @@
 
               <div class="contact-ministry-contact-list">
                 {{ range .contacts }}
-                  {{ $parishClass := "" }}
-                  {{ if eq .parish "St. Ann" }}{{ $parishClass = "parish-pill-st-ann" }}{{ end }}
-                  {{ if eq .parish "OLPH" }}{{ $parishClass = "parish-pill-olph" }}{{ end }}
-                  {{ if eq .parish "Mother of Sorrows" }}{{ $parishClass = "parish-pill-mos" }}{{ end }}
-                  {{ if eq .parish "Tri-Parish" }}{{ $parishClass = "parish-pill-neutral" }}{{ end }}
+                  {{ $parishClass := "parish-pill-neutral" }}
+                  {{ $parishLabel := "Tri-Parish" }}
+
+                  {{ if ne .parish "tri-parish" }}
+                    {{ $parish := partial "location-by-slug.html" .parish }}
+                    {{ $parishClass = replace $parish.parish_class "parish-" "parish-pill-" }}
+                    {{ $parishLabel = $parish.short_name }}
+                  {{ end }}
 
                   <p class="contact-ministry-contact">
-                    <span class="parish-pill {{ $parishClass }}">{{ .parish }}</span>
-                    <span>{{ .detail }}</span>
+                    <span class="parish-pill {{ $parishClass }}">{{ $parishLabel }}</span>
+                    <span>{{ .name }}{{ with .note }} — {{ . }}{{ end }}</span>
                   </p>
                 {{ end }}
               </div>
@@ -134,21 +136,30 @@
       <h3>Religious Education, Confirmation & OCIA</h3>
 
       <div class="contact-ministry-list">
-        {{ range hugo.Data.formation_programs.programs }}
-          {{ if ne .enabled false }}
-            {{ $host := partial "location-by-slug.html" .host_parish }}
-            <div class="contact-ministry-row">
-              <strong>{{ .program }}</strong>
-              <p class="contact-ministry-contact">
-                <span class="parish-pill {{ replace $host.parish_class "parish-" "parish-pill-" }}">
-                  {{ if eq .serves "tri-parish" }}Tri-Parish{{ else }}{{ $host.short_name }}{{ end }}
-                </span>
-                <span>
-                  {{ .when }} at {{ $host.short_name }} — Contact {{ .contact_name }}
-                </span>
-              </p>
+        {{ range slice "Religious Education" "Confirmation" "OCIA" }}
+          {{ $programName := . }}
+          {{ $programs := where hugo.Data.formation_programs.programs "program" $programName }}
+
+          <div class="contact-ministry-row">
+            <strong>{{ $programName }}</strong>
+
+            <div class="contact-ministry-contact-list">
+              {{ range $programs }}
+                {{ if ne .enabled false }}
+                  {{ $host := partial "location-by-slug.html" .host_parish }}
+
+                  <p class="contact-ministry-contact">
+                    <span class="parish-pill {{ if eq .serves "tri-parish" }}parish-pill-neutral{{ else }}{{ replace $host.parish_class "parish-" "parish-pill-" }}{{ end }}">
+                      {{ if eq .serves "tri-parish" }}Tri-Parish{{ else }}{{ $host.short_name }}{{ end }}
+                    </span>
+                    <span>
+                      {{ .when }}{{ if eq .serves "tri-parish" }} at {{ $host.short_name }}{{ end }} — {{ .contact_name }}
+                    </span>
+                  </p>
+                {{ end }}
+              {{ end }}
             </div>
-          {{ end }}
+          </div>
         {{ end }}
       </div>
     </article>
@@ -246,7 +257,7 @@
       For urgent sacramental needs, especially danger of death, please contact the parish office as soon as possible.
       Staff will route the request appropriately.
     </p>
-    <a class="button button-primary" href="tel:{{ replace hugo.Data.contact.office.phone "-" "" }}">Call the Parish Office</a>
+    <a class="button button-primary" href="tel:{{ replaceRE "[^0-9+]" "" hugo.Data.contact.office.phone }}">Call the Parish Office</a>
   </article>
 </section>
 

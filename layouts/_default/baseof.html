@@ -89,7 +89,7 @@
       <section>
         <h3>Parish Office</h3>
         <p>
-          <strong>Phone:</strong> <a href="tel:{{ replace hugo.Data.contact.office.phone "-" "" }}">{{ hugo.Data.contact.office.phone }}</a><br>
+          <strong>Phone:</strong> <a href="tel:{{ replaceRE "[^0-9+]" "" hugo.Data.contact.office.phone }}">{{ hugo.Data.contact.office.phone }}</a><br>
           <strong>Email:</strong> <a href="mailto:{{ hugo.Data.contact.office.email }}">{{ hugo.Data.contact.office.email }}</a><br>
           <strong>Hours:</strong> {{ hugo.Data.contact.office.office_hours }}
         </p>

@@ -483,3 +483,169 @@ content:
                 type: text
                 required: true
                 description: "Briefly explain the purpose of the program."
+
+  - name: parish-contacts
+    label: Parish Contacts — Rare Changes
+    type: group
+    items:
+      - name: office-clergy
+        label: Parish Office, Clergy & Staff
+        type: file
+        path: data/contact.yaml
+        format: yaml
+        fields:
+          - name: pastor
+            label: Pastor
+            type: object
+            fields:
+              - name: name
+                label: Name
+                type: string
+                required: true
+              - name: title
+                label: Title
+                type: string
+                required: true
+              - name: email
+                label: Email
+                type: string
+                required: true
+
+          - name: deacon
+            label: Deacon
+            type: object
+            fields:
+              - name: name
+                label: Name
+                type: string
+                required: true
+              - name: title
+                label: Title
+                type: string
+                required: true
+              - name: email
+                label: Email
+                type: string
+                required: true
+
+          - name: secretary
+            label: Secretary
+            type: object
+            fields:
+              - name: name
+                label: Name
+                type: string
+                required: true
+              - name: title
+                label: Title
+                type: string
+                required: true
+
+          - name: office
+            label: Parish Office
+            type: object
+            fields:
+              - name: phone
+                label: Phone Number
+                type: string
+                required: true
+                description: "Enter the number normally, such as 580-492-5914."
+
+              - name: email
+                label: Office Email
+                type: string
+                required: true
+
+              - name: mailing_line_1
+                label: Mailing Address — Line 1
+                type: string
+                required: true
+
+              - name: mailing_line_2
+                label: Mailing Address — Line 2
+                type: string
+                required: true
+
+              - name: office_hours
+                label: Office Hours
+                type: string
+                required: true
+
+              - name: bulletin_deadline
+                label: Bulletin Deadline
+                type: string
+                required: true
+
+      - name: ministry-contacts
+        label: Ministry & Organization Contacts
+        type: file
+        path: data/ministry_contacts.yaml
+        format: yaml
+        fields:
+          - name: groups
+            label: Contact Groups
+            type: object
+            description: "Names are shown publicly. Visitors are directed through the parish office rather than private phone numbers or email addresses."
+            list:
+              min: 1
+              max: 10
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Group Name
+                type: string
+                required: true
+
+              - name: items
+                label: Ministries or Organizations
+                type: object
+                list:
+                  min: 1
+                  max: 20
+                  collapsible:
+                    collapsed: true
+                    summary: "{label}"
+                fields:
+                  - name: label
+                    label: Ministry or Organization
+                    type: string
+                    required: true
+
+                  - name: contacts
+                    label: Contacts
+                    type: object
+                    list:
+                      min: 1
+                      max: 10
+                      collapsible:
+                        collapsed: true
+                        summary: "{name}"
+                    fields:
+                      - name: parish
+                        label: Parish
+                        type: select
+                        required: true
+                        options:
+                          placeholder: "Choose the parish"
+                          values:
+                            - name: tri-parish
+                              label: All Three Parishes
+                            - name: mother-of-sorrows
+                              label: Mother of Sorrows — Apache
+                            - name: st-ann
+                              label: St. Ann — Elgin
+                            - name: olph
+                              label: Our Lady of Perpetual Help — Sterling
+
+                      - name: name
+                        label: Contact Name
+                        type: string
+                        required: true
+
+                      - name: note
+                        label: Optional Note
+                        type: string
+                        required: false
+                        description: "Use only for a short explanation, such as 'For requesting prayers.'"
