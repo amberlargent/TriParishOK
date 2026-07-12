@@ -878,25 +878,20 @@
   }
 }
 
-/* ---------- Homepage worship schedule groups ---------- */
+/* ---------- Compact Confession note inside Mass cards ---------- */
 
-.home-schedule-group {
-  max-width: 1200px;
-  margin: 0 auto;
+.home-mass-confession {
+  margin: 0.85rem 0 0 !important;
+  padding: 0.45rem 0.65rem !important;
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0.6rem !important;
+  color: var(--navy) !important;
+  font-size: 0.86rem !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
 }
 
-.home-schedule-group + .home-schedule-group {
-  margin-top: 2rem;
-}
-
-.home-schedule-subheading {
-  margin: 0 0 0.9rem;
-  color: var(--navy);
-  font-family: var(--font-heading);
-  font-size: clamp(1.25rem, 2vw, 1.55rem);
-  line-height: 1.2;
-}
-
-.home-confession-card {
-  background: var(--ivory);
+.home-mass-confession strong {
+  font-weight: 900 !important;
 }
