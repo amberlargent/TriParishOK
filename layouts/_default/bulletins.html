@@ -65,7 +65,11 @@
     {{ end }}
 
     {{ range .paragraphs }}
-      <p>{{ . }}</p>
+      {{ if reflect.IsMap . }}
+        {{ with index . "text" }}<p>{{ . }}</p>{{ end }}
+      {{ else }}
+        <p>{{ . }}</p>
+      {{ end }}
     {{ end }}
   </article>
 </section>

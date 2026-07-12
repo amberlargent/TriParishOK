@@ -1,11 +1,11 @@
 media:
-  - name: bulletin_pdf
-    label: Bulletin PDFs
+  - name: bulletin_files
+    label: Bulletin Files
     input: static/bulletins
     output: /bulletins
-    extensions: [pdf]
+    extensions: [png, jpg, jpeg, pdf]
     rename: safe
-    categories: [document]
+    categories: [image, document]
 
 content:
   - name: bulletin
@@ -24,21 +24,37 @@ content:
             required: true
             description: "Example: July 12, 2026"
 
-          - name: file
-            label: Bulletin PDF
-            type: file
-            required: true
-            description: "Upload the current bulletin PDF here."
-            options:
-              media: bulletin_pdf
-              extensions: [pdf]
-              rename: safe
-
           - name: pages
             label: Number of Pages
             type: string
             required: true
             description: "Example: 2 pages"
+
+          - name: page_images
+            label: Bulletin Page Images
+            type: object
+            list:
+              min: 1
+              max: 8
+              collapsible:
+                collapsed: false
+                summary: "{alt}"
+            fields:
+              - name: src
+                label: Page Image or PDF
+                type: file
+                required: true
+                description: "Upload page 1 first, then page 2, etc. PNG or JPG is best for page images."
+                options:
+                  media: bulletin_files
+                  extensions: [png, jpg, jpeg, pdf]
+                  rename: safe
+
+              - name: alt
+                label: Alt Text
+                type: string
+                required: true
+                description: "Example: Page 1 of the July 12, 2026 tri-parish bulletin"
 
           - name: summary
             label: Key Notices
@@ -58,6 +74,7 @@ content:
                   values:
                     - Schedule Change
                     - Current Need
+                    - Special Mass
                     - Parish Event
                     - Faith Formation
                     - Office Notice
@@ -91,6 +108,37 @@ content:
                       label: OLPH
                     - name: Mother of Sorrows
                       label: Mother of Sorrows
+
+          - name: homily
+            label: Father's Homily Note
+            type: object
+            fields:
+              - name: title
+                label: Title
+                type: string
+                required: false
+                description: "Leave blank if there is no homily note this week."
+
+              - name: intro
+                label: Intro
+                type: text
+                required: false
+
+              - name: paragraphs
+                label: Paragraphs
+                type: object
+                required: false
+                list:
+                  min: 0
+                  max: 8
+                  collapsible:
+                    collapsed: false
+                    summary: "{text}"
+                fields:
+                  - name: text
+                    label: Paragraph Text
+                    type: text
+                    required: false
 
           - name: accessibility_note
             label: Reading Note
