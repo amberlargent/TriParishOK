@@ -1,41 +1,29 @@
-{{ with hugo.Data.bulletin.current }}
-  {{ if .summary }}
-    <section class="section important-week-section" aria-labelledby="important-week-heading">
-      <div class="section-heading">
-        <p class="eyebrow">This Week</p>
-        <h2 id="important-week-heading">Important This Week</h2>
-        <p>
-          Key parish notices from the current bulletin are listed here for quick reading.
-        </p>
-      </div>
+{{ $activeNotices := partial "active-notices.html" . }}
 
-      <div class="important-week-grid">
-        {{ range first 4 .summary }}
-          {{ $item := . }}
-          <article class="important-week-card">
-            <header class="important-week-card-header">
-              {{ with $item.label }}
-                <span class="important-week-label important-week-label-neutral">{{ . }}</span>
-              {{ end }}
+{{ if gt (len $activeNotices) 0 }}
+  <section class="section important-week-section" aria-labelledby="important-week-heading">
+    <div class="section-heading">
+      <p class="eyebrow">Current Notices</p>
+      <h2 id="important-week-heading">Important This Week</h2>
+      <p>
+        Current schedule changes, parish needs, and upcoming events are listed here for quick reading.
+      </p>
+    </div>
 
-              {{ with $item.parish }}
-                {{ $parishClass := "" }}
-                {{ if eq . "St. Ann" }}{{ $parishClass = "parish-pill-st-ann" }}{{ end }}
-                {{ if eq . "OLPH" }}{{ $parishClass = "parish-pill-olph" }}{{ end }}
-                {{ if eq . "Mother of Sorrows" }}{{ $parishClass = "parish-pill-mos" }}{{ end }}
-                <span class="parish-pill {{ $parishClass }}">{{ . }}</span>
-              {{ end }}
-            </header>
+    <div class="important-week-grid">
+      {{ range first 4 $activeNotices }}
+        <article class="important-week-card">
+          <header class="important-week-card-header">
+            <span class="important-week-label important-week-label-neutral">{{ .label }}</span>
+            {{ partial "notice-parish-pills.html" . }}
+          </header>
 
-            <h3>{{ $item.title }}</h3>
-            <p>{{ $item.detail }}</p>
+          <h3>{{ .title }}</h3>
+          <p>{{ .detail }}</p>
 
-            <a class="button button-secondary important-week-button" href="/bulletins/">
-              Read the bulletin details
-            </a>
-          </article>
-        {{ end }}
-      </div>
-    </section>
-  {{ end }}
+          {{ partial "notice-action.html" . }}
+        </article>
+      {{ end }}
+    </div>
+  </section>
 {{ end }}

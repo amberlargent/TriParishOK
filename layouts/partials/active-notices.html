@@ -1,0 +1,15 @@
+{{- $today := now.Format "2006-01-02" -}}
+{{- $active := slice -}}
+
+{{- range hugo.Data.notices.items -}}
+  {{- $startDate := .start_date | default "" -}}
+  {{- $endDate := .end_date | default "" -}}
+  {{- $hasStarted := or (eq $startDate "") (le $startDate $today) -}}
+  {{- $hasNotEnded := or (eq $endDate "") (ge $endDate $today) -}}
+
+  {{- if and (ne .enabled false) $hasStarted $hasNotEnded -}}
+    {{- $active = $active | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $active -}}

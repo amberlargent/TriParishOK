@@ -1,0 +1,21 @@
+{{- $action := .action | default "none" -}}
+
+{{- if eq $action "email-office" -}}
+  <a class="button button-secondary important-week-button"
+     href="mailto:{{ hugo.Data.contact.office.email }}?subject={{ .title | urlquery }}">
+    Email the Parish Office
+  </a>
+{{- else if eq $action "call-office" -}}
+  <a class="button button-secondary important-week-button"
+     href="tel:{{ replace hugo.Data.contact.office.phone "-" "" }}">
+    Call the Parish Office
+  </a>
+{{- else if eq $action "contact-page" -}}
+  <a class="button button-secondary important-week-button" href="/contact/">
+    Contact the Parish Office
+  </a>
+{{- else if eq $action "bulletin" -}}
+  <a class="button button-secondary important-week-button" href="/bulletins/">
+    View the Current Bulletin
+  </a>
+{{- end -}}

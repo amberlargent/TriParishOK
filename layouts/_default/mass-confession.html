@@ -1,5 +1,8 @@
 {{ define "main" }}
 
+{{ $activeNotices := partial "active-notices.html" . }}
+{{ $scheduleNotices := where $activeNotices "affects_schedule" true }}
+
 <section class="page-header">
   <div>
     <p class="eyebrow">Worship With Us</p>
@@ -17,6 +20,31 @@
     {{ end }}
   </figure>
 </section>
+
+{{ if gt (len $scheduleNotices) 0 }}
+<section class="section important-week-section" aria-labelledby="current-schedule-changes-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Before You Travel</p>
+    <h2 id="current-schedule-changes-heading">Current Schedule Changes</h2>
+    <p>These active notices temporarily change or replace the regular schedule shown below.</p>
+  </div>
+
+  <div class="important-week-grid">
+    {{ range $scheduleNotices }}
+      <article class="important-week-card">
+        <header class="important-week-card-header">
+          <span class="important-week-label important-week-label-neutral">{{ .label }}</span>
+          {{ partial "notice-parish-pills.html" . }}
+        </header>
+
+        <h3>{{ .title }}</h3>
+        <p>{{ .detail }}</p>
+        {{ partial "notice-action.html" . }}
+      </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
 
 <section class="section">
   <div class="source-note">

@@ -1,5 +1,7 @@
 {{ define "main" }}
 
+{{ $activeNotices := partial "active-notices.html" . }}
+
 <section class="page-header">
   <div>
     <p class="eyebrow">Weekly Bulletin</p>
@@ -16,35 +18,29 @@
   </div>
 </section>
 
-{{ with hugo.Data.bulletin.current.summary }}
+
+{{ if gt (len $activeNotices) 0 }}
 <section class="section bulletins-summary-section" aria-labelledby="bulletin-summary-heading">
   <div class="section-heading">
-    <p class="eyebrow">From the Bulletin</p>
-    <h2 id="bulletin-summary-heading">This Week from the Bulletin</h2>
+    <p class="eyebrow">Current Notices</p>
+    <h2 id="bulletin-summary-heading">Current Notices & Bulletin Highlights</h2>
     <p>
-      Key notices are listed here as readable text for phones, quick reference,
+      Essential notices are listed here as readable text for phones, quick reference,
       and accessibility.
     </p>
   </div>
 
   <div class="bulletins-summary-grid">
-    {{ range . }}
-      {{ $notice := . }}
-      {{ $parishClass := "" }}
-      {{ if eq $notice.parish "St. Ann" }}{{ $parishClass = "parish-pill-st-ann" }}{{ end }}
-      {{ if eq $notice.parish "OLPH" }}{{ $parishClass = "parish-pill-olph" }}{{ end }}
-      {{ if eq $notice.parish "Mother of Sorrows" }}{{ $parishClass = "parish-pill-mos" }}{{ end }}
-
+    {{ range $activeNotices }}
       <article class="bulletins-summary-card">
         <header class="bulletins-summary-header">
-          <span class="bulletins-summary-label">{{ $notice.label }}</span>
-          {{ with $notice.parish }}
-            <span class="parish-pill {{ $parishClass }}">{{ . }}</span>
-          {{ end }}
+          <span class="bulletins-summary-label">{{ .label }}</span>
+          {{ partial "notice-parish-pills.html" . }}
         </header>
 
-        <h3>{{ $notice.title }}</h3>
-        <p>{{ $notice.detail }}</p>
+        <h3>{{ .title }}</h3>
+        <p>{{ .detail }}</p>
+        {{ partial "notice-action.html" . }}
       </article>
     {{ end }}
   </div>

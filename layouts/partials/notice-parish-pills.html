@@ -1,0 +1,9 @@
+{{- range .parishes -}}
+  {{- if eq . "tri-parish" -}}
+    <span class="parish-pill">Tri-Parish</span>
+  {{- else -}}
+    {{- $parish := partial "location-by-slug.html" . -}}
+    {{- $pillClass := replace $parish.parish_class "parish-" "parish-pill-" -}}
+    <span class="parish-pill {{ $pillClass }}">{{ $parish.short_name }}</span>
+  {{- end -}}
+{{- end -}}

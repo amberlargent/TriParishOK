@@ -12,6 +12,121 @@ content:
     label: Weekly Updates
     type: group
     items:
+      - name: notices
+        label: Current Notices & Events
+        type: file
+        path: data/notices.yaml
+        format: yaml
+        fields:
+          - name: items
+            label: Notices Shown on the Website
+            type: object
+            description: "Enter each notice once. The site will reuse it wherever it belongs."
+            list:
+              min: 0
+              max: 20
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: enabled
+                label: Show This Notice
+                type: boolean
+                required: false
+                default: true
+                description: "Turn this off to hide the notice without deleting it."
+
+              - name: label
+                label: Notice Type
+                type: select
+                required: true
+                options:
+                  placeholder: "Choose the notice type"
+                  values:
+                    - Schedule Change
+                    - Current Need
+                    - Special Mass
+                    - Parish Event
+                    - Faith Formation
+                    - Office Notice
+                    - Sacrament Notice
+                    - Community Meal
+
+              - name: title
+                label: Notice Title
+                type: string
+                required: true
+                description: "Use a short, clear headline."
+
+              - name: detail
+                label: Notice Details
+                type: text
+                required: true
+                description: "Write one or two clear sentences with the essential information."
+
+              - name: parishes
+                label: Who Is This Notice For?
+                type: select
+                required: true
+                description: "Choose Tri-Parish by itself, or choose one or more specific parishes."
+                options:
+                  multiple: true
+                  min: 1
+                  max: 3
+                  placeholder: "Choose the parish or parishes"
+                  values:
+                    - name: tri-parish
+                      label: All Three Parishes
+                    - name: mother-of-sorrows
+                      label: Mother of Sorrows — Apache
+                    - name: st-ann
+                      label: St. Ann — Elgin
+                    - name: olph
+                      label: Our Lady of Perpetual Help — Sterling
+
+              - name: start_date
+                label: First Day to Show
+                type: date
+                required: true
+                description: "The notice will not appear before this date."
+                options:
+                  format: yyyy-MM-dd
+
+              - name: end_date
+                label: Last Day to Show
+                type: date
+                required: false
+                default: ""
+                description: "Leave blank for an ongoing need. Dated notices stop showing after this date."
+                options:
+                  format: yyyy-MM-dd
+
+              - name: affects_schedule
+                label: Does This Change Mass or Confession?
+                type: boolean
+                required: false
+                default: false
+                description: "Turn this on for cancellations, special Masses, or other schedule changes. The notice will also appear above the regular schedule."
+
+              - name: action
+                label: Button
+                type: select
+                required: true
+                default: none
+                description: "Choose the safest next step for the visitor."
+                options:
+                  values:
+                    - name: none
+                      label: No Button
+                    - name: email-office
+                      label: Email the Parish Office
+                    - name: call-office
+                      label: Call the Parish Office
+                    - name: contact-page
+                      label: Open the Contact Page
+                    - name: bulletin
+                      label: Open the Current Bulletin
+
       - name: bulletin
         label: Weekly Bulletin
         type: file
@@ -59,59 +174,6 @@ content:
                     type: string
                     required: true
                     description: "Example: Page 1 of the July 12, 2026 tri-parish bulletin"
-
-              - name: summary
-                label: Key Notices
-                type: object
-                list:
-                  min: 1
-                  max: 6
-                  collapsible:
-                    collapsed: false
-                    summary: "{title}"
-                fields:
-                  - name: label
-                    label: Notice Type
-                    type: select
-                    required: true
-                    options:
-                      values:
-                        - Schedule Change
-                        - Current Need
-                        - Special Mass
-                        - Parish Event
-                        - Faith Formation
-                        - Office Notice
-                        - Sacrament Notice
-                        - Community Meal
-
-                  - name: title
-                    label: Notice Title
-                    type: string
-                    required: true
-                    description: "Short headline. Example: Religious Education volunteers needed"
-
-                  - name: detail
-                    label: Notice Details
-                    type: text
-                    required: true
-                    description: "One or two clear sentences from the bulletin."
-
-                  - name: parish
-                    label: Parish
-                    type: select
-                    required: false
-                    description: "Use only if the notice belongs to one parish."
-                    options:
-                      values:
-                        - name: ""
-                          label: No specific parish
-                        - name: St. Ann
-                          label: St. Ann
-                        - name: OLPH
-                          label: OLPH
-                        - name: Mother of Sorrows
-                          label: Mother of Sorrows
 
               - name: homily
                 label: Father's Homily Note
