@@ -61,12 +61,50 @@
 
   <div class="mass-card-grid">
     {{ range where hugo.Data.schedule.mass "section" "weekend" }}
+      {{ $mass := . }}
       {{ $parish := partial "location-by-slug.html" .parish }}
+      {{ $rosaryTime := "" }}
+      {{ $confessionTime := "" }}
+
+      {{ range where hugo.Data.schedule.rosary "parish" $mass.parish }}
+        {{ $rosaryTime = .time }}
+      {{ end }}
+
+      {{ range where hugo.Data.schedule.confession "parish" $mass.parish }}
+        {{ if ne .day "First Friday" }}
+          {{ $confessionTime = .time }}
+        {{ end }}
+      {{ end }}
+
       <article class="mass-card {{ $parish.parish_class }}">
         <p class="mass-day">{{ .day }}</p>
         <p class="mass-time">{{ .time }}</p>
         <h3>{{ $parish.name }}</h3>
         <p>{{ $parish.city }}</p>
+
+        {{ if or $rosaryTime $confessionTime }}
+          <div class="mass-card-prayer-times" aria-label="Prayer and Confession before or after this Mass">
+            {{ if and $rosaryTime $confessionTime (eq $rosaryTime $confessionTime) }}
+              <p class="mass-card-prayer-line">
+                <strong>Rosary & Confession</strong>
+                <span>{{ $rosaryTime }}</span>
+              </p>
+            {{ else }}
+              {{ with $rosaryTime }}
+                <p class="mass-card-prayer-line">
+                  <strong>Rosary</strong>
+                  <span>{{ . }}</span>
+                </p>
+              {{ end }}
+              {{ with $confessionTime }}
+                <p class="mass-card-prayer-line">
+                  <strong>Confession</strong>
+                  <span>{{ . }}</span>
+                </p>
+              {{ end }}
+            {{ end }}
+          </div>
+        {{ end }}
       </article>
     {{ end }}
   </div>
@@ -93,21 +131,22 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section mass-prayer-section">
   <div class="section-heading">
     <p class="eyebrow">Prayer & Sacraments</p>
-    <h2>Confession, Adoration & Rosary</h2>
+    <h2>Adoration & First Friday Confession</h2>
     <p>
-      Come to the Lord in the Sacraments and in prayer. Current parish notices may affect these times.
+      Weekend Rosary and Confession times are shown with the Mass cards above.
+      These additional regular prayer and sacramental times are listed here.
     </p>
   </div>
 
-  <div class="three-column schedule-card-grid">
+  <div class="mass-prayer-grid">
     <article class="card schedule-detail-card clean-schedule-card">
-      <h3>Confession</h3>
+      <h3>First Friday Confession</h3>
 
       <div class="schedule-mini-list">
-        {{ range hugo.Data.schedule.confession }}
+        {{ range where hugo.Data.schedule.confession "day" "First Friday" }}
           {{ $parish := partial "location-by-slug.html" .parish }}
           <div class="schedule-mini-row {{ $parish.parish_class }}">
             <div>
@@ -125,23 +164,6 @@
 
       <div class="schedule-mini-list">
         {{ range hugo.Data.schedule.adoration }}
-          {{ $parish := partial "location-by-slug.html" .parish }}
-          <div class="schedule-mini-row {{ $parish.parish_class }}">
-            <div>
-              <strong>{{ .day }}</strong>
-              <span>{{ .time }}</span>
-            </div>
-            <p>{{ $parish.name }}</p>
-          </div>
-        {{ end }}
-      </div>
-    </article>
-
-    <article class="card schedule-detail-card clean-schedule-card">
-      <h3>Rosary</h3>
-
-      <div class="schedule-mini-list">
-        {{ range hugo.Data.schedule.rosary }}
           {{ $parish := partial "location-by-slug.html" .parish }}
           <div class="schedule-mini-row {{ $parish.parish_class }}">
             <div>

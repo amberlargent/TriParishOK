@@ -81,19 +81,47 @@
     {{ range where hugo.Data.schedule.mass "section" "weekend" }}
       {{ $mass := . }}
       {{ $parish := partial "location-by-slug.html" .parish }}
+      {{ $rosaryTime := "" }}
+      {{ $confessionTime := "" }}
+
+      {{ range where hugo.Data.schedule.rosary "parish" $mass.parish }}
+        {{ $rosaryTime = .time }}
+      {{ end }}
+
+      {{ range where hugo.Data.schedule.confession "parish" $mass.parish }}
+        {{ if ne .day "First Friday" }}
+          {{ $confessionTime = .time }}
+        {{ end }}
+      {{ end }}
+
       <article class="home-mass-card {{ $parish.parish_class }}">
         <p class="home-mass-day">{{ .day }}</p>
         <p class="home-mass-time">{{ .time }}</p>
         <p class="home-mass-parish">{{ $parish.name }}</p>
         <p class="home-mass-city">{{ $parish.city }}</p>
 
-        {{ range where hugo.Data.schedule.confession "parish" $mass.parish }}
-          {{ if ne .day "First Friday" }}
-            <p class="home-mass-confession">
-              <strong>Confession:</strong>
-              {{ if eq .time "After Mass" }}after Mass{{ else }}30 min before Mass{{ end }}
-            </p>
-          {{ end }}
+        {{ if or $rosaryTime $confessionTime }}
+          <div class="mass-card-prayer-times" aria-label="Prayer and Confession before or after this Mass">
+            {{ if and $rosaryTime $confessionTime (eq $rosaryTime $confessionTime) }}
+              <p class="mass-card-prayer-line">
+                <strong>Rosary & Confession</strong>
+                <span>{{ $rosaryTime }}</span>
+              </p>
+            {{ else }}
+              {{ with $rosaryTime }}
+                <p class="mass-card-prayer-line">
+                  <strong>Rosary</strong>
+                  <span>{{ . }}</span>
+                </p>
+              {{ end }}
+              {{ with $confessionTime }}
+                <p class="mass-card-prayer-line">
+                  <strong>Confession</strong>
+                  <span>{{ . }}</span>
+                </p>
+              {{ end }}
+            {{ end }}
+          </div>
         {{ end }}
       </article>
     {{ end }}

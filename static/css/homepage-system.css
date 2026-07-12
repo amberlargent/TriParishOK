@@ -700,10 +700,10 @@
   color: var(--navy);
 }
 
-/* Important This Week: show four notices in one row on desktop */
+/* Important This Week: cards expand to use the available row */
 .important-week-section .important-week-grid {
   max-width: 1180px !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)) !important;
   gap: 0.9rem !important;
 }
 
@@ -719,13 +719,6 @@
 .important-week-section .important-week-card p {
   font-size: 0.94rem !important;
   line-height: 1.45 !important;
-}
-
-/* Two per row on tablet */
-@media (max-width: 1050px) {
-  .important-week-section .important-week-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
 }
 
 /* One per row on phone */
@@ -894,4 +887,70 @@
 
 .home-mass-confession strong {
   font-weight: 900 !important;
+}
+/* ---------- Mass page: compact weekend prayer details ---------- */
+
+.mass-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mass-card-prayer-times {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border);
+}
+
+.mass-card-prayer-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin: 0 !important;
+  padding: 0.5rem 0.65rem;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--border);
+  border-radius: 0.65rem;
+  color: var(--navy) !important;
+  font-size: 0.88rem;
+  line-height: 1.25;
+}
+
+.mass-card-prayer-line strong,
+.mass-card-prayer-line span {
+  color: var(--navy);
+  font-weight: 850;
+}
+
+.mass-card-prayer-line span {
+  text-align: right;
+}
+
+.mass-prayer-grid {
+  display: grid;
+  gap: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@media (min-width: 760px) {
+  .mass-prayer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 420px) {
+  .mass-card-prayer-line {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .mass-card-prayer-line span {
+    text-align: left;
+  }
 }
