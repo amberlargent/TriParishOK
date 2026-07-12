@@ -39,11 +39,7 @@
       <p>{{ $location.address_line_2 }}</p>
     </div>
 
-    <div class="card-actions parish-direction-actions">
-      <a class="button button-secondary" href="{{ $location.apple_map_url }}" target="_blank" rel="noopener noreferrer">Apple Maps</a>
-      <a class="button button-secondary" href="{{ $location.map_url }}" target="_blank" rel="noopener noreferrer">Google Maps</a>
-      <a class="button button-secondary" href="/contact/">Contact the Office</a>
-    </div>
+    {{ partial "parish-map-actions.html" (dict "location" $location "thirdLabel" "Contact the Office" "thirdHref" "/contact/") }}
   </article>
 
   <article class="card parish-detail-card {{ $location.parish_class }}">

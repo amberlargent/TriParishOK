@@ -1,0 +1,12 @@
+{{ $location := .location }}
+{{ $shortName := $location.short_name | default $location.name }}
+{{ $thirdLabel := .thirdLabel | default (printf "View %s Details" $shortName) }}
+{{ $thirdHref := .thirdHref | default (printf "/our-parishes/%s/" $location.slug) }}
+{{ $thirdStyle := .thirdStyle | default "primary" }}
+{{ $extraClass := .extraClass | default "" }}
+
+<div class="card-actions parish-direction-actions {{ $extraClass }}">
+  <a class="button button-secondary" href="{{ $location.apple_map_url }}" target="_blank" rel="noopener noreferrer">Apple Maps</a>
+  <a class="button button-secondary" href="{{ $location.map_url }}" target="_blank" rel="noopener noreferrer">Google Maps</a>
+  <a class="button button-{{ $thirdStyle }}" href="{{ $thirdHref }}">{{ $thirdLabel }}</a>
+</div>
