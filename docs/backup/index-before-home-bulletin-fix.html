@@ -50,22 +50,30 @@
 {{ partial "important-this-week.html" . }}
 
 <section class="section home-bulletin-section" aria-labelledby="current-bulletin-heading">
-  <article class="card home-bulletin-card">
-    <p class="eyebrow">Bulletin</p>
-    <h2 id="current-bulletin-heading">Current parish bulletin</h2>
-    <p>
-      The bulletin includes parish notices, schedule changes, events, prayer intentions,
-      and ministry needs. Key notices are also summarized above for quick reading.
-    </p>
+  <div class="home-bulletin-card">
+    <div>
+      <p class="eyebrow">Bulletin</p>
+      <h2 id="current-bulletin-heading">Current parish bulletin</h2>
+      {{ with hugo.Data.bulletin.current }}
+        <p>
+          The bulletin includes parish notices, schedule changes, events, prayer intentions,
+          and ministry needs.
+        </p>
 
-    {{ with hugo.Data.bulletin.current }}
-      <a class="button button-primary" href="/bulletins/">
-        View the {{ .date }} bulletin
-      </a>
-    {{ else }}
-      <a class="button button-primary" href="/bulletins/">View current bulletin</a>
-    {{ end }}
-  </article>
+        {{ with .summary }}
+          <ul class="bulletin-summary-list">
+            {{ range . }}
+              <li>{{ . }}</li>
+            {{ end }}
+          </ul>
+        {{ end }}
+
+        <a class="button button-primary" href="{{ .file }}">
+          Read the {{ .date }} bulletin — PDF{{ with .pages }}, {{ . }}{{ end }}
+        </a>
+      {{ end }}
+    </div>
+  </div>
 </section>
 
 <section class="section section-light home-parishes-section" aria-labelledby="home-parishes-heading">
