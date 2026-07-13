@@ -31,7 +31,11 @@
       <p>
         Use this if you or your household could use meals or practical support during a difficult season.
       </p>
-      <a class="button button-primary" href="{{ hugo.Data.forms.meal_support.request_link }}">Request Support</a>
+      {{ with hugo.Data.forms.meal_support.request_link }}
+        <a class="button button-primary" href="{{ . }}">Request Support</a>
+      {{ else }}
+        <a class="button button-primary" href="/contact/">Contact Us to Request Support</a>
+      {{ end }}
     </article>
 
     <article class="card meal-action-card">
@@ -40,7 +44,11 @@
       <p>
         Use this if you know a parishioner or family who may need help. We will contact them before sharing anything.
       </p>
-      <a class="button button-secondary" href="{{ hugo.Data.forms.meal_support.nominate_link }}">Nominate Someone</a>
+      {{ with hugo.Data.forms.meal_support.nominate_link }}
+        <a class="button button-secondary" href="{{ . }}">Nominate Someone</a>
+      {{ else }}
+        <a class="button button-secondary" href="/contact/">Contact Us to Nominate Someone</a>
+      {{ end }}
     </article>
 
     <article class="card meal-action-card">
@@ -49,7 +57,11 @@
       <p>
         Sign up to bring meals, provide freezer meals, send delivery, help with errands, or pray for families in need.
       </p>
-      <a class="button button-secondary" href="{{ hugo.Data.forms.meal_support.volunteer_link }}">Volunteer to Help</a>
+      {{ with hugo.Data.forms.meal_support.volunteer_link }}
+        <a class="button button-secondary" href="{{ . }}">Volunteer to Help</a>
+      {{ else }}
+        <a class="button button-secondary" href="/contact/">Contact Us to Volunteer</a>
+      {{ end }}
     </article>
   </div>
 </section>

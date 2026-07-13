@@ -2,7 +2,6 @@
 title: "Photo & Privacy Notice"
 ---
 
-# Photo & Privacy Notice
 
 You are welcome at St. Ann, Our Lady of Perpetual Help, and Mother of Sorrows.
 
