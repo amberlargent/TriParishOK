@@ -160,13 +160,13 @@ content:
                     summary: "{alt}"
                 fields:
                   - name: src
-                    label: Page Image or PDF
+                    label: Page Image
                     type: file
                     required: true
-                    description: "Upload page 1 first, then page 2, etc. PNG or JPG is best for page images."
+                    description: "Upload one image for each bulletin page, in order. Use PNG or JPG."
                     options:
                       media: bulletin_files
-                      extensions: [png, jpg, jpeg, pdf]
+                      extensions: [png, jpg, jpeg]
                       rename: safe
 
                   - name: alt
