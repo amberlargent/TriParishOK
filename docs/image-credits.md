@@ -11,9 +11,9 @@ These images are used as Catholic devotional and sacramental accent images. Keep
 
 ## Sacramental Images
 
-- **Baptism** — Photo by Julia Michelle on Unsplash: https://unsplash.com/photos/a-baby-is-being-fed-a-glass-of-wine-FCr7829S7tE
+- **Baptism at St. Ann** — Photo courtesy of the Largent family. Used with permission.
 - **The Holy Eucharist** — Photo by Thays Orrico on Unsplash: https://unsplash.com/photos/a-close-up-of-a-person-holding-a-bowl-rYvS1C615rA
 
 ## Usage Note
 
-Use these images as general Catholic visual accents, not as photos representing a specific parish location. Parish-specific pages should use parish-approved local photos whenever possible.
+Unsplash images are used as general Catholic visual accents and do not represent a specific parish location. The Baptism photograph is a parish-approved local image taken at St. Ann Catholic Church.
