@@ -18,6 +18,7 @@ class PageInspector(HTMLParser):
         self.title_parts: list[str] = []
         self.meta: dict[str, list[str]] = {}
         self.canonicals: list[str] = []
+        self.internal_candidates: list[str] = []
         self.in_json_ld = False
         self.json_ld_parts: list[str] = []
         self.json_ld_blocks: list[str] = []
@@ -43,6 +44,12 @@ class PageInspector(HTMLParser):
             }
             if "canonical" in rel_tokens:
                 self.canonicals.append(attrs.get("href", "").strip())
+
+        attribute = "href" if tag in {"a", "link"} else "src"
+        if tag in {"a", "link", "img", "script", "iframe", "source"}:
+            value = attrs.get(attribute, "").strip()
+            if value:
+                self.internal_candidates.append(value)
 
         if tag == "script" and attrs.get("type", "").lower() == "application/ld+json":
             self.in_json_ld = True
@@ -99,6 +106,8 @@ def main() -> int:
     args = parse_args()
     root = args.public_dir.resolve()
     expected_base = args.expected_base.rstrip("/") + "/"
+    expected_parts = urlparse(expected_base)
+    expected_path = expected_parts.path or "/"
     expect_noindex = args.expect_noindex == "yes"
 
     errors: list[str] = []
@@ -123,6 +132,29 @@ def main() -> int:
 
             inspector = PageInspector()
             inspector.feed(text)
+
+            for candidate in inspector.internal_candidates:
+                if candidate.startswith(("#", "mailto:", "tel:", "data:")):
+                    continue
+
+                parsed_candidate = urlparse(candidate)
+
+                if candidate.startswith("/") and not candidate.startswith("//"):
+                    if expected_path != "/" and not candidate.startswith(expected_path):
+                        errors.append(
+                            f"{path}: root-relative URL drops the expected base path: "
+                            f"{candidate}"
+                        )
+                    continue
+
+                if (
+                    parsed_candidate.scheme in ("http", "https")
+                    and parsed_candidate.netloc == expected_parts.netloc
+                    and not candidate.startswith(expected_base)
+                ):
+                    errors.append(
+                        f"{path}: same-site URL is outside expected base: {candidate}"
+                    )
 
             if not inspector.title:
                 errors.append(f"{path}: missing title")

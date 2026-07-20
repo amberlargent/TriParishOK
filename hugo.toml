@@ -1,4 +1,5 @@
 baseURL = "https://triparishok.org/"
+canonifyURLs = true
 locale = "en-US"
 title = "Tri-Parish Catholic Community"
 enableRobotsTXT = true
