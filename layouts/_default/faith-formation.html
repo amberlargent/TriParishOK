@@ -10,8 +10,8 @@
     </p>
 
     <div class="button-row faith-formation-actions">
-      <a class="button button-primary" href="/contact/">Contact the Parish Office</a>
-      <a class="button button-secondary" href="/sacraments/">View Sacraments</a>
+      <a class="button button-primary" href="{{ "contact/" | relURL }}">Contact the Parish Office</a>
+      <a class="button button-secondary" href="{{ "sacraments/" | relURL }}">View Sacraments</a>
     </div>
   </div>
 </section>
@@ -19,7 +19,7 @@
 <section class="section faith-formation-image-section" aria-label="Faith formation image">
   <figure class="faith-formation-image-card">
     {{ with hugo.Data.site_images.devotional.rosary_bible }}
-      <img src="{{ .src }}" alt="{{ .alt }}">
+      <img src="{{ .src | relURL }}" alt="{{ .alt }}">
     {{ end }}
     <figcaption>Formation begins with prayer, Scripture, the Sacraments, and life in the Church.</figcaption>
   </figure>
@@ -41,7 +41,7 @@
         <p class="faith-formation-label">{{ .label }}</p>
         <h3>{{ .title }}</h3>
         <p>{{ .summary }}</p>
-        <div class="card-actions"><a class="button button-secondary" href="{{ .link_url }}">{{ .link_text }}</a></div>
+        <div class="card-actions"><a class="button button-secondary" href="{{ partial "safe-url.html" .link_url }}">{{ .link_text }}</a></div>
       </article>
     {{ end }}
   </div>
@@ -120,8 +120,8 @@
     </div>
 
     <div class="faith-formation-contact-actions">
-      <a class="button button-primary" href="/contact/">Contact the Parish Office</a>
-      <a class="button button-secondary" href="/bulletins/">Read the Bulletin</a>
+      <a class="button button-primary" href="{{ "contact/" | relURL }}">Contact the Parish Office</a>
+      <a class="button button-secondary" href="{{ "bulletins/" | relURL }}">Read the Bulletin</a>
     </div>
   </div>
 </section>
@@ -136,8 +136,8 @@
       The parish office can help confirm what is needed for the current year.
     </p>
     <div class="card-actions">
-      <a class="button button-primary" href="/forms/#religious-education-youth-forms">View Religious Education / Youth Forms</a>
-      <a class="button button-secondary" href="/contact/">Contact the Parish Office</a>
+      <a class="button button-primary" href="{{ "forms/#religious-education-youth-forms" | relURL }}">View Religious Education / Youth Forms</a>
+      <a class="button button-secondary" href="{{ "contact/" | relURL }}">Contact the Parish Office</a>
     </div>
   </article>
 </section>

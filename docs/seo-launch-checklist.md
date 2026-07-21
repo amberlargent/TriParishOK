@@ -28,9 +28,9 @@ rm -rf public
 
 HUGO_BASEURL="https://triparishok.github.io/TriParishOK/" HUGO_PARAMS_NOINDEX=true hugo --gc --config hugo.toml
 
-GITHUB_PAGES_PREFIX=/TriParishOK   python3 scripts/rewrite-gh-pages-paths.py public
-
 python3 scripts/audit-seo.py public   --expected-base "https://triparishok.github.io/TriParishOK/"   --expect-noindex yes
+
+python3 scripts/audit-internal-links.py public   --expected-base "https://triparishok.github.io/TriParishOK/"
 ```
 
 ## Formal-domain preflight without deploying
@@ -61,7 +61,7 @@ This confirms that the future live build:
 5. Add the custom domain through GitHub Pages.
 6. Change the deployment workflow to the formal-domain base URL.
 7. Change `HUGO_PARAMS_NOINDEX` from `true` to `false`.
-8. Remove the GitHub project-path rewrite step from the live deployment.
+8. Confirm the internal-link audit passes with the formal-domain base URL.
 9. Add and verify the GitHub Pages CNAME configuration.
 10. Make the required DNS changes using current GitHub Pages documentation.
 11. Wait for the HTTPS certificate and enforce HTTPS.

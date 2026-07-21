@@ -1,0 +1,6 @@
+{{- $url := strings.TrimSpace (. | default "") -}}
+{{- $result := $url -}}
+{{- if not (or (hasPrefix $url "https://") (hasPrefix $url "http://") (hasPrefix $url "mailto:") (hasPrefix $url "tel:") (hasPrefix $url "#")) -}}
+  {{- $result = strings.TrimPrefix "/" $url | relURL -}}
+{{- end -}}
+{{- return $result -}}

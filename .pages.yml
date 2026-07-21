@@ -194,8 +194,13 @@ content:
 
                   - name: intro
                     label: Intro
-                    type: text
+                    type: rich-text
                     required: false
+                    description: "Use the toolbar for italics, bold text, and links."
+                    options:
+                      format: markdown
+                      switcher: false
+                      media: false
 
                   - name: paragraphs
                     label: Paragraphs
@@ -210,8 +215,13 @@ content:
                     fields:
                       - name: text
                         label: Paragraph Text
-                        type: text
+                        type: rich-text
                         required: false
+                        description: "Use the toolbar for italics, bold text, and links."
+                        options:
+                          format: markdown
+                          switcher: false
+                          media: false
 
               - name: accessibility_note
                 label: Reading Note

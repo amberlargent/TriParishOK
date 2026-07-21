@@ -25,16 +25,16 @@
 
   <header class="site-header-minimal">
   <div class="header-shell-minimal">
-    <a class="brand-minimal" href="/" aria-label="Tri-Parish Catholic Community home">
+    <a class="brand-minimal" href="{{ "" | relURL }}" aria-label="Tri-Parish Catholic Community home">
       <span class="brand-main-minimal">Tri-Parish</span>
       <span class="brand-sub-minimal">Catholic Community</span>
       <small>St. Ann • OLPH • Mother of Sorrows</small>
     </a>
 
     <div class="header-actions-minimal">
-      <a class="header-action header-action-gold" href="/bulletins/">Bulletin</a>
-      <a class="header-action header-action-light" href="/our-parishes/">Our Parishes</a>
-      <a class="header-action header-action-outline" href="/contact/">Contact</a>
+      <a class="header-action header-action-gold" href="{{ "bulletins/" | relURL }}">Bulletin</a>
+      <a class="header-action header-action-light" href="{{ "our-parishes/" | relURL }}">Our Parishes</a>
+      <a class="header-action header-action-outline" href="{{ "contact/" | relURL }}">Contact</a>
 
       <details class="site-menu-minimal">
         <summary aria-label="Open navigation menu">
@@ -45,32 +45,32 @@
         <nav class="menu-panel-minimal menu-panel-grouped" aria-label="Site navigation">
             <div class="menu-group">
               <p class="menu-group-title">Start Here</p>
-              <a href="/">Home</a>
-              <a href="/bulletins/">Current Bulletin</a>
-              <a href="/our-parishes/">Our Parishes</a>
-              <a href="/contact/">Contact</a>
+              <a href="{{ "" | relURL }}">Home</a>
+              <a href="{{ "bulletins/" | relURL }}">Current Bulletin</a>
+              <a href="{{ "our-parishes/" | relURL }}">Our Parishes</a>
+              <a href="{{ "contact/" | relURL }}">Contact</a>
             </div>
 
             <div class="menu-group">
               <p class="menu-group-title">Worship & Formation</p>
-              <a href="/mass-confession/">Mass & Confession</a>
-              <a href="/sacraments/">Sacraments</a>
-              <a href="/faith-formation/">Faith Formation</a>
-              <a href="/becoming-catholic/">Becoming Catholic</a>
+              <a href="{{ "mass-confession/" | relURL }}">Mass & Confession</a>
+              <a href="{{ "sacraments/" | relURL }}">Sacraments</a>
+              <a href="{{ "faith-formation/" | relURL }}">Faith Formation</a>
+              <a href="{{ "becoming-catholic/" | relURL }}">Becoming Catholic</a>
             </div>
 
             <div class="menu-group">
               <p class="menu-group-title">Parish Life</p>
-              <a href="/parish-life/">Parish Life</a>
+              <a href="{{ "parish-life/" | relURL }}">Parish Life</a>
               <a href="{{ "giving/" | relURL }}">Giving & Stewardship</a>
-              <a href="/forms/">Forms</a>
-              <a href="/catholic-links/">Catholic Resources</a>
+              <a href="{{ "forms/" | relURL }}">Forms</a>
+              <a href="{{ "catholic-links/" | relURL }}">Catholic Resources</a>
             </div>
 
             <div class="menu-group">
               <p class="menu-group-title">Safety & Notices</p>
-              <a href="/contact/#safe-environment-reporting">Safe Environment & Reporting</a>
-              <a href="/photo-privacy-notice/">Photo & Privacy Notice</a>
+              <a href="{{ "contact/#safe-environment-reporting" | relURL }}">Safe Environment & Reporting</a>
+              <a href="{{ "photo-privacy-notice/" | relURL }}">Photo & Privacy Notice</a>
             </div>
           </nav>
       </details>
@@ -103,21 +103,22 @@
       <section>
         <h3>Quick Links</h3>
         <ul class="footer-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/mass-confession/">Mass & Confession</a></li>
-          <li><a href="/bulletins/">Bulletin</a></li>
+          <li><a href="{{ "" | relURL }}">Home</a></li>
+          <li><a href="{{ "mass-confession/" | relURL }}">Mass & Confession</a></li>
+          <li><a href="{{ "bulletins/" | relURL }}">Bulletin</a></li>
           <li><a href="{{ "giving/" | relURL }}">Giving & Stewardship</a></li>
-          <li><a href="/contact/">Contact the Office</a></li>
+          <li><a href="{{ "catholic-links/#st-ann-social-media" | relURL }}">Official Social Media</a></li>
+          <li><a href="{{ "contact/" | relURL }}">Contact the Office</a></li>
         </ul>
       </section>
 
       <section>
         <h3>Safety & Notices</h3>
         <ul class="footer-links">
-          <li><a href="/contact/#safe-environment-reporting">Safe Environment & Reporting Abuse</a></li>
+          <li><a href="{{ "contact/#safe-environment-reporting" | relURL }}">Safe Environment & Reporting Abuse</a></li>
           <li><a href="{{ hugo.Data.safe_environment.urls.safe_environment }}" target="_blank" rel="noopener noreferrer">Archdiocese Safe Environment</a></li>
-          <li><a href="/photo-privacy-notice/">Photo & Privacy Notice</a></li>
-          <li><a href="/image-credits/">Image Credits</a></li>
+          <li><a href="{{ "photo-privacy-notice/" | relURL }}">Photo & Privacy Notice</a></li>
+          <li><a href="{{ "image-credits/" | relURL }}">Image Credits</a></li>
         </ul>
       </section>
     </div>

@@ -10,8 +10,8 @@
     </p>
 
     <div class="button-row sacraments-clean-actions">
-      <a class="button button-primary" href="/contact/">Contact the Parish Office</a>
-      <a class="button button-secondary" href="/mass-confession/">See Confession Times</a>
+      <a class="button button-primary" href="{{ "contact/" | relURL }}">Contact the Parish Office</a>
+      <a class="button button-secondary" href="{{ "mass-confession/" | relURL }}">See Confession Times</a>
     </div>
   </div>
 </section>
@@ -20,21 +20,21 @@
   <div class="sacrament-clean-image-band">
     <figure>
       {{ with hugo.Data.site_images.sacraments.baptism }}
-        <img src="{{ .src }}" alt="{{ .alt }}">
+        <img src="{{ .src | relURL }}" alt="{{ .alt }}">
       {{ end }}
       <figcaption>Baptism</figcaption>
     </figure>
 
     <figure>
       {{ with hugo.Data.site_images.devotional.sacred_heart_statue }}
-        <img src="{{ .src }}" alt="{{ .alt }}">
+        <img src="{{ .src | relURL }}" alt="{{ .alt }}">
       {{ end }}
       <figcaption>Confession and mercy</figcaption>
     </figure>
 
     <figure>
       {{ with hugo.Data.site_images.sacraments.eucharist }}
-        <img src="{{ .src }}" alt="{{ .alt }}">
+        <img src="{{ .src | relURL }}" alt="{{ .alt }}">
       {{ end }}
       <figcaption>The Holy Eucharist</figcaption>
     </figure>
@@ -85,8 +85,8 @@
     </div>
 
     <div class="sacrament-clean-contact-actions">
-      <a class="button button-primary" href="/contact/">Contact the Parish Office</a>
-      <a class="button button-secondary" href="/faith-formation/">Faith Formation Information</a>
+      <a class="button button-primary" href="{{ "contact/" | relURL }}">Contact the Parish Office</a>
+      <a class="button button-secondary" href="{{ "faith-formation/" | relURL }}">Faith Formation Information</a>
     </div>
   </div>
 </section>
@@ -101,8 +101,8 @@
       Please contact the parish office with questions about preparation or required documents.
     </p>
     <div class="card-actions">
-      <a class="button button-primary" href="/forms/#sacrament-forms">View Sacrament Forms</a>
-      <a class="button button-secondary" href="/contact/">Contact the Parish Office</a>
+      <a class="button button-primary" href="{{ "forms/#sacrament-forms" | relURL }}">View Sacrament Forms</a>
+      <a class="button button-secondary" href="{{ "contact/" | relURL }}">Contact the Parish Office</a>
     </div>
   </article>
 </section>

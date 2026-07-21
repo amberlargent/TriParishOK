@@ -64,8 +64,9 @@
   image: "/images/parishes/mother-of-sorrows.jpg"
   image_alt: "Mother of Sorrows Catholic Church in Apache, Oklahoma"
   visitor_access:
-    family_seating: "Families and children are welcome to sit together throughout Mass."
-    access_questions: "Please contact the parish office with questions about parking, entrances, restrooms, or accessibility at Mother of Sorrows."
+    parking_entrance: "Parking is available near the church. The main entrance has a ramp with railings, and there are no steps that prevent access to worship."
+    family_seating: "Families are welcome to sit together throughout Mass. Mother of Sorrows does not have a separate cry room."
+    restrooms: "Restrooms are available in the parish hall. Changing tables are not currently available."
   history:
     - "The Catholic history of Mother of Sorrows begins with Rev. Urban de Hasque, a young Belgian priest who first visited Apache on October 9, 1901. The first Catholic service in Apache was held on November 27, 1901, in George Rose’s building."
     - "The congregation organized quickly, and a committee secured land for a church. During the next few years, the community built the church, working through financial challenges and questions about the best location."

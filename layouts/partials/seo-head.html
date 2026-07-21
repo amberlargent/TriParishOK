@@ -27,9 +27,13 @@
 {{- end -}}
 
 {{- $image := hugo.Data.seo.default_image -}}
+{{- $imageAlt := hugo.Data.seo.default_image_alt | default $title -}}
 {{- with $pageSEO -}}
   {{- with .image -}}
     {{- $image = . -}}
+  {{- end -}}
+  {{- with .image_alt -}}
+    {{- $imageAlt = . -}}
   {{- end -}}
 {{- end -}}
 {{- $imagePath := strings.TrimPrefix "/" $image -}}
@@ -52,11 +56,15 @@
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:image" content="{{ $imageURL }}">
+<meta property="og:image:alt" content="{{ $imageAlt }}">
+<meta property="og:image:width" content="{{ hugo.Data.seo.default_image_width }}">
+<meta property="og:image:height" content="{{ hugo.Data.seo.default_image_height }}">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:image" content="{{ $imageURL }}">
+<meta name="twitter:image:alt" content="{{ $imageAlt }}">
 
 {{ partial "structured-data.html" (dict
   "page" .

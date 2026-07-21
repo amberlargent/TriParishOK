@@ -28,7 +28,7 @@
 <section class="section two-column">
   <article class="card parish-detail-card {{ $location.parish_class }}">
     {{ if $location.image }}
-      <img class="parish-photo" src="{{ $location.image }}" alt="{{ $location.image_alt }}">
+      <img class="parish-photo" src="{{ $location.image | relURL }}" alt="{{ $location.image_alt }}">
     {{ else }}
       <div class="parish-image-fallback">
         <p>{{ $location.name }}</p>
@@ -79,8 +79,8 @@
     </div>
 
     <div class="card-actions">
-      <a class="button button-primary" href="/mass-confession/">Full Schedule</a>
-      <a class="button button-secondary" href="/bulletins/">Current Bulletin</a>
+      <a class="button button-primary" href="{{ "mass-confession/" | relURL }}">Full Schedule</a>
+      <a class="button button-secondary" href="{{ "bulletins/" | relURL }}">Current Bulletin</a>
     </div>
   </article>
 </section>
@@ -151,7 +151,7 @@
             <p>This program serves all three parishes and is hosted here at {{ $location.short_name }}.</p>
           {{ end }}
           <div class="card-actions">
-            <a class="button button-secondary" href="/faith-formation/">Faith Formation Details</a>
+            <a class="button button-secondary" href="{{ "faith-formation/" | relURL }}">Faith Formation Details</a>
           </div>
         </article>
       {{ end }}
@@ -237,9 +237,9 @@
       Contact the parish office when a schedule detail is unclear.
     </p>
     <div class="card-actions">
-      <a class="button button-primary" href="/bulletins/">View Current Bulletin</a>
-      <a class="button button-secondary" href="/our-parishes/">All Parishes</a>
-      <a class="button button-secondary" href="/forms/#parish-registration-forms">Registration Forms</a>
+      <a class="button button-primary" href="{{ "bulletins/" | relURL }}">View Current Bulletin</a>
+      <a class="button button-secondary" href="{{ "our-parishes/" | relURL }}">All Parishes</a>
+      <a class="button button-secondary" href="{{ "forms/#parish-registration-forms" | relURL }}">Registration Forms</a>
     </div>
   </article>
 </section>

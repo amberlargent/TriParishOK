@@ -14,12 +14,6 @@ featured:
     action_text: "Read the Bulletin"
     action_url: "/bulletins/"
 
-  - title: "Meal Support Ministry"
-    eyebrow: "Parish Care"
-    summary: "Help coordinate meals and practical support for parishioners during illness, grief, childbirth, recovery, or a heavy season."
-    action_text: "Meal Support"
-    action_url: "/meal-support/"
-
   - title: "Catholic Links"
     eyebrow: "Resources"
     summary: "Find links to the Archdiocese, vocations, Catholic Charities, Oklahoma Catholic, and available parish social media."

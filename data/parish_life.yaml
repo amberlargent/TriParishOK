@@ -9,12 +9,6 @@ sections:
     action_text: "Contact the Parish Office"
     action_url: "/contact/"
 
-  - title: "Meal Support Ministry"
-    eyebrow: "Parish Care"
-    summary: "Help provide meals and practical support for parishioners walking through illness, grief, childbirth, recovery, or a heavy season."
-    action_text: "Meal Support"
-    action_url: "/meal-support/"
-
   - title: "Events & Announcements"
     eyebrow: "Stay Connected"
     summary: "Find parish events, bulletin updates, ministry announcements, and current schedule notes."
@@ -31,4 +25,3 @@ sections:
     summary: "Find links to the Archdiocese, Blessed Stanley Rother Shrine, vocations, Catholic Charities, Oklahoma Catholic, and available parish social media."
     action_text: "View Catholic Links"
     action_url: "/catholic-links/"
-

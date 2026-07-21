@@ -13,8 +13,8 @@
     </p>
 
     <div class="hero-actions button-row">
-      <a class="button button-primary" href="/mass-confession/">View Mass Times</a>
-      <a class="button button-secondary button-plan-visit" href="/new-here/">Plan Your First Visit</a>
+      <a class="button button-primary" href="{{ "mass-confession/" | relURL }}">View Mass Times</a>
+      <a class="button button-secondary button-plan-visit" href="{{ "new-here/" | relURL }}">Plan Your First Visit</a>
     </div>
   </div>
 </section>
@@ -34,7 +34,7 @@
         Visiting, new to the area, or unsure what to expect? You are welcome
         to come, pray, listen, and learn.
       </p>
-      <a class="button button-primary" href="/new-here/">Plan Your First Visit</a>
+      <a class="button button-primary" href="{{ "new-here/" | relURL }}">Plan Your First Visit</a>
     </article>
 
     <article class="card home-start-card">
@@ -44,7 +44,7 @@
         If you have been away from the Church, the parish can help you take
         the next faithful step with peace and clarity.
       </p>
-      <a class="button button-secondary" href="/new-here/">Returning to Church</a>
+      <a class="button button-secondary" href="{{ "new-here/" | relURL }}">Returning to Church</a>
     </article>
 
     <article class="card home-start-card">
@@ -54,7 +54,7 @@
         Adults who want to learn about the Catholic faith can ask about OCIA
         and preparation for the Sacraments.
       </p>
-      <a class="button button-secondary" href="/becoming-catholic/">Becoming Catholic</a>
+      <a class="button button-secondary" href="{{ "becoming-catholic/" | relURL }}">Becoming Catholic</a>
     </article>
 
     <article class="card home-start-card">
@@ -64,7 +64,7 @@
         Learn about Religious Education, sacramental preparation, and next
         steps for children and families.
       </p>
-      <a class="button button-secondary" href="/faith-formation/">Faith Formation Information</a>
+      <a class="button button-secondary" href="{{ "faith-formation/" | relURL }}">Faith Formation Information</a>
     </article>
   </div>
 </section>
@@ -133,7 +133,7 @@
   </p>
 
   <div class="home-mass-actions" aria-label="Mass schedule and daily Scripture">
-    <a class="button button-primary home-mass-button" href="/mass-confession/">
+    <a class="button button-primary home-mass-button" href="{{ "mass-confession/" | relURL }}">
       See Full Mass, Confession & Adoration Schedule
     </a>
     <a class="button button-secondary" href="https://bible.usccb.org/daily-bible-reading">
@@ -154,11 +154,11 @@
     </p>
 
     {{ with hugo.Data.bulletin.current }}
-      <a class="button button-primary" href="/bulletins/">
+      <a class="button button-primary" href="{{ "bulletins/" | relURL }}">
         View the {{ .date }} bulletin
       </a>
     {{ else }}
-      <a class="button button-primary" href="/bulletins/">View current bulletin</a>
+      <a class="button button-primary" href="{{ "bulletins/" | relURL }}">View current bulletin</a>
     {{ end }}
   </article>
 </section>

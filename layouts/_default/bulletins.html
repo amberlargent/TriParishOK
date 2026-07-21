@@ -13,7 +13,7 @@
 
     <div class="button-row">
       <a class="button button-primary" href="#current-bulletin-pages">View Bulletin Pages</a>
-      <a class="button button-secondary" href="/contact/">Contact the Parish Office</a>
+      <a class="button button-secondary" href="{{ "contact/" | relURL }}">Contact the Parish Office</a>
     </div>
   </div>
 </section>
@@ -61,7 +61,7 @@
     {{ end }}
 
     {{ with .intro }}
-      <p class="bulletin-homily-intro">{{ . }}</p>
+      <div class="bulletin-homily-intro">{{ . | markdownify }}</div>
     {{ end }}
 
     {{ with .paragraphs }}
@@ -69,10 +69,10 @@
         {{ range . }}
           {{ if reflect.IsMap . }}
             {{ with index . "text" }}
-              <p>{{ . }}</p>
+              {{ . | markdownify }}
             {{ end }}
           {{ else }}
-            <p>{{ . }}</p>
+            {{ . | markdownify }}
           {{ end }}
         {{ end }}
       </div>
@@ -98,12 +98,12 @@
         <figure class="bulletin-page-frame">
           <a
             class="bulletin-page-image-link"
-            href="{{ $page.src }}"
+            href="{{ $page.src | relURL }}"
             target="_blank"
             rel="noopener"
             aria-label="Open bulletin page {{ $pageNumber }} full size"
           >
-            <img src="{{ $page.src }}" alt="{{ $page.alt }}" loading="lazy">
+            <img src="{{ $page.src | relURL }}" alt="{{ $page.alt }}" loading="lazy">
           </a>
 
           <figcaption class="bulletin-page-actions">
@@ -111,7 +111,7 @@
             <div class="card-actions">
               <a
                 class="button button-primary"
-                href="{{ $page.src }}"
+                href="{{ $page.src | relURL }}"
                 target="_blank"
                 rel="noopener"
               >
@@ -119,7 +119,7 @@
               </a>
               <a
                 class="button button-secondary"
-                href="{{ $page.src }}"
+                href="{{ $page.src | relURL }}"
                 download
               >
                 Download Page {{ $pageNumber }} Image
@@ -147,8 +147,8 @@
     <h2>Check current notices before traveling.</h2>
     <p>{{ hugo.Data.bulletin.source_note }}</p>
     <div class="card-actions">
-      <a class="button button-primary" href="/mass-confession/">Mass & Confession Schedule</a>
-      <a class="button button-secondary" href="/contact/">Contact the Parish Office</a>
+      <a class="button button-primary" href="{{ "mass-confession/" | relURL }}">Mass & Confession Schedule</a>
+      <a class="button button-secondary" href="{{ "contact/" | relURL }}">Contact the Parish Office</a>
     </div>
   </article>
 </section>

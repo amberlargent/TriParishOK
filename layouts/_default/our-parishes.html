@@ -19,7 +19,7 @@
       {{ range where hugo.Data.locations "slug" $slug }}
         <article class="card parish-page-card parish-page-card-compact {{ .parish_class }}">
           {{ if .image }}
-            <img class="parish-card-photo parish-card-photo-compact" src="{{ .image }}" alt="{{ .image_alt }}">
+            <img class="parish-card-photo parish-card-photo-compact" src="{{ .image | relURL }}" alt="{{ .image_alt }}">
           {{ end }}
 
           <div class="parish-card-content">
@@ -60,8 +60,8 @@
       Regular schedules and active changes are available on the Mass & Confession page.
     </p>
     <div class="card-actions">
-      <a class="button button-primary" href="/mass-confession/">Mass & Confession Times</a>
-      <a class="button button-secondary" href="/bulletins/">Current Bulletin</a>
+      <a class="button button-primary" href="{{ "mass-confession/" | relURL }}">Mass & Confession Times</a>
+      <a class="button button-secondary" href="{{ "bulletins/" | relURL }}">Current Bulletin</a>
     </div>
   </article>
 </section>

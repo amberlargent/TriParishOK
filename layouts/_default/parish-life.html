@@ -30,8 +30,8 @@
         then check the bulletin for Holy Days and weekly changes.
       </p>
       <div class="card-actions">
-        <a class="button button-primary" href="/mass-confession/">Mass & Confession</a>
-        <a class="button button-secondary" href="/bulletins/">Current Bulletin</a>
+        <a class="button button-primary" href="{{ "mass-confession/" | relURL }}">Mass & Confession</a>
+        <a class="button button-secondary" href="{{ "bulletins/" | relURL }}">Current Bulletin</a>
       </div>
     </article>
 
@@ -43,9 +43,9 @@
         adults, and families learn the faith with clarity and reverence.
       </p>
       <div class="card-actions">
-        <a class="button button-primary" href="/faith-formation/">Faith Formation</a>
-        <a class="button button-secondary" href="/catholic-links/">Catholic Resources</a>
-        <a class="button button-secondary" href="/forms/">Forms</a>
+        <a class="button button-primary" href="{{ "faith-formation/" | relURL }}">Faith Formation</a>
+        <a class="button button-secondary" href="{{ "catholic-links/" | relURL }}">Catholic Resources</a>
+        <a class="button button-secondary" href="{{ "forms/" | relURL }}">Forms</a>
       </div>
     </article>
 
@@ -57,8 +57,8 @@
         Religious Education helpers, parish organizations, and practical service.
       </p>
       <div class="card-actions">
-        <a class="button button-primary" href="/contact/">Ministry Contacts</a>
-        <a class="button button-secondary" href="/contact/#safe-environment-reporting">Safe Environment</a>
+        <a class="button button-primary" href="{{ "contact/" | relURL }}">Ministry Contacts</a>
+        <a class="button button-secondary" href="{{ "contact/#safe-environment-reporting" | relURL }}">Safe Environment</a>
       </div>
     </article>
 
@@ -70,8 +70,8 @@
         for recurring events and practical parish-specific information.
       </p>
       <div class="card-actions">
-        <a class="button button-primary" href="/our-parishes/">Our Parishes</a>
-        <a class="button button-secondary" href="/contact/">Contact the Office</a>
+        <a class="button button-primary" href="{{ "our-parishes/" | relURL }}">Our Parishes</a>
+        <a class="button button-secondary" href="{{ "contact/" | relURL }}">Contact the Office</a>
       </div>
     </article>
   </div>
@@ -97,7 +97,7 @@
             <h3>{{ .name }}</h3>
             <p>{{ .summary }}</p>
             <div class="card-actions">
-              <a class="button button-secondary" href="/our-parishes/{{ .slug }}/">View {{ .name }}</a>
+              <a class="button button-secondary" href="{{ printf "our-parishes/%s/" .slug | relURL }}">View {{ .name }}</a>
             </div>
           </article>
         {{ end }}
@@ -115,8 +115,8 @@
       web text, while the latest bulletin includes the fuller weekly parish update.
     </p>
     <div class="card-actions">
-      <a class="button button-primary" href="/bulletins/">View Current Bulletin</a>
-      <a class="button button-secondary" href="/contact/">Contact the Parish Office</a>
+      <a class="button button-primary" href="{{ "bulletins/" | relURL }}">View Current Bulletin</a>
+      <a class="button button-secondary" href="{{ "contact/" | relURL }}">Contact the Parish Office</a>
     </div>
   </article>
 </section>

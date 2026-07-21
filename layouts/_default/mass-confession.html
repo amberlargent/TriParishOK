@@ -16,7 +16,7 @@
 <section class="section page-image-feature-section">
   <figure class="page-image-feature">
     {{ with hugo.Data.site_images.devotional.monstrance_adoration }}
-      <img src="{{ .src }}" alt="{{ .alt }}">
+      <img src="{{ .src | relURL }}" alt="{{ .alt }}">
     {{ end }}
   </figure>
 </section>
@@ -187,7 +187,7 @@
       {{ end }}
     </ul>
 
-    <a class="button button-secondary" href="/contact/">Questions? Contact the Parish Office</a>
+    <a class="button button-secondary" href="{{ "contact/" | relURL }}">Questions? Contact the Parish Office</a>
   </article>
 </section>
 
@@ -197,8 +197,8 @@
     <h2>Current notices appear above.</h2>
     <p>Holy Days, funerals, weather, and special parish events may change the regular schedule.</p>
     <div class="card-actions">
-      <a class="button button-primary" href="/bulletins/">View Current Bulletin</a>
-      <a class="button button-secondary" href="/contact/">Contact the Parish Office</a>
+      <a class="button button-primary" href="{{ "bulletins/" | relURL }}">View Current Bulletin</a>
+      <a class="button button-secondary" href="{{ "contact/" | relURL }}">Contact the Parish Office</a>
     </div>
   </article>
 </section>

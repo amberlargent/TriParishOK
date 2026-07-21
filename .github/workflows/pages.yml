@@ -49,15 +49,16 @@ jobs:
         run: |
           HUGO_PARAMS_NOINDEX=true hugo --gc --config hugo.toml --baseURL "${HUGO_BASEURL}"
 
-      - name: Rewrite root-relative paths for GitHub Pages project preview
-        run: |
-          python3 scripts/rewrite-gh-pages-paths.py public
-
       - name: Validate review SEO metadata
         run: |
           python3 scripts/audit-seo.py public \
             --expected-base "${HUGO_BASEURL}" \
             --expect-noindex yes
+
+      - name: Validate internal links, assets, and path casing
+        run: |
+          python3 scripts/audit-internal-links.py public \
+            --expected-base "${HUGO_BASEURL}"
 
       - name: Upload artifact
         if: github.event_name != 'pull_request'

@@ -11,11 +11,11 @@
     Call the Parish Office
   </a>
 {{- else if eq $action "contact-page" -}}
-  <a class="button button-secondary important-week-button" href="/contact/">
+  <a class="button button-secondary important-week-button" href="{{ "contact/" | relURL }}">
     Contact the Parish Office
   </a>
 {{- else if eq $action "bulletin" -}}
-  <a class="button button-secondary important-week-button" href="/bulletins/">
+  <a class="button button-secondary important-week-button" href="{{ "bulletins/" | relURL }}">
     View the Current Bulletin
   </a>
 {{- end -}}

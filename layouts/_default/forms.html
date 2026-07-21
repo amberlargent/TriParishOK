@@ -16,8 +16,8 @@
     <p>{{ hugo.Data.forms.intro }}</p>
     <p><strong>{{ hugo.Data.forms.note }}</strong></p>
     <div class="card-actions">
-      <a class="button button-primary" href="/contact/">Contact the Parish Office</a>
-      <a class="button button-secondary" href="/bulletins/">Current Bulletin</a>
+      <a class="button button-primary" href="{{ "contact/" | relURL }}">Contact the Parish Office</a>
+      <a class="button button-secondary" href="{{ "bulletins/" | relURL }}">Current Bulletin</a>
     </div>
   </article>
 </section>
@@ -71,7 +71,7 @@
       additional documents or parish approval. When in doubt, contact the office before submitting.
     </p>
     <div class="card-actions">
-      <a class="button button-primary" href="/contact/">Contact the Parish Office</a>
+      <a class="button button-primary" href="{{ "contact/" | relURL }}">Contact the Parish Office</a>
     </div>
   </article>
 </section>

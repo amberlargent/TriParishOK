@@ -30,10 +30,6 @@ categories:
   - title: "Serve"
     intro: "Parish life grows through quiet, faithful service: caring for neighbors, supporting families, and helping the parish function well."
     items:
-      - title: "Meal Support Ministry"
-        summary: "A consent-first way to coordinate meals and practical help for parishioners during illness, recovery, grief, or major family needs."
-        link_text: "Meal Support Ministry"
-        link_url: "/meal-support/"
       - title: "Volunteer Needs"
         summary: "Current volunteer needs are shared through the weekly bulletin, parish notices, and the parish office."
         link_text: "Read the bulletin"
