@@ -958,6 +958,120 @@
 
 /* ---------- Homepage parish-life photo gallery ---------- */
 
+/* ---------- Homepage Gospel invitation ---------- */
+
+.home-gospel-section {
+  background: linear-gradient(135deg, #0d2d49 0%, #173f60 100%);
+}
+
+.home-gospel-card {
+  display: grid;
+  gap: 1.4rem;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 2.8rem);
+  border: 1px solid rgba(208, 178, 122, 0.55);
+  border-radius: 1.15rem;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: var(--shadow-soft);
+}
+
+.home-gospel-copy {
+  max-width: 760px;
+}
+
+.home-gospel-intro,
+.home-gospel-excerpt {
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.home-gospel-intro p,
+.home-gospel-excerpt p {
+  margin: 0 0 0.8rem;
+}
+
+.home-gospel-excerpt {
+  position: relative;
+  max-height: 8.5em;
+  overflow: hidden;
+}
+
+.home-gospel-excerpt::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2.2rem;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+}
+
+.home-gospel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: flex-start;
+}
+
+.home-gospel-actions .button {
+  margin: 0;
+}
+
+/* ---------- Homepage connection paths ---------- */
+
+.home-connect-grid {
+  display: grid;
+  gap: 1rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.home-connect-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-connect-card .button,
+.home-connect-card-actions {
+  margin-top: auto;
+}
+
+.home-connect-card-actions {
+  display: grid;
+  gap: 0.55rem;
+}
+
+@media (min-width: 820px) {
+  .home-gospel-card {
+    grid-template-columns: minmax(0, 1fr) 250px;
+    align-items: center;
+  }
+
+  .home-gospel-actions {
+    display: grid;
+  }
+
+  .home-connect-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .home-gospel-actions,
+  .home-connect-card-actions {
+    display: grid;
+  }
+
+  .home-gospel-actions .button,
+  .home-connect-card .button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 .home-parish-life-section {
   background: var(--white);
 }

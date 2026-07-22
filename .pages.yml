@@ -249,13 +249,13 @@ content:
                     type: boolean
                     required: false
                     default: true
-                    description: "Turn this off if there is no homily note for the current bulletin."
+                    description: "Turn this off if there is no homily note for the current bulletin. When on, this reflection also appears on the homepage."
 
                   - name: title
                     label: Title
                     type: string
                     required: false
-                    description: "Leave blank if there is no homily note this week."
+                    description: "This title appears on both the Bulletin page and the homepage. Leave blank if there is no homily note this week."
 
                   - name: intro
                     label: Intro

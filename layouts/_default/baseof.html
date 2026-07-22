@@ -21,6 +21,9 @@
   <link rel="stylesheet" href="{{ printf "%s?v=%s" ("css/faith-formation-system.css" | relURL) $faithFormationVersion }}">
   <link rel="stylesheet" href="{{ printf "%s?v=%s" ("css/bulletins-system.css" | relURL) $bulletinsVersion }}">
   <link rel="stylesheet" href="{{ printf "%s?v=%s" ("css/contact-system.css" | relURL) $contactVersion }}">
+  {{ if or hugo.Data.ministry_platform.login.enabled hugo.Data.ministry_platform.events.enabled hugo.Data.ministry_platform.prayer_support.enabled hugo.Data.ministry_platform.subscriptions.enabled hugo.Data.ministry_platform.giving.enabled }}
+    <script id="MPWidgets" src="{{ hugo.Data.ministry_platform.script_url }}" defer></script>
+  {{ end }}
 </head>
 
 <body>
@@ -64,6 +67,7 @@
 
             <div class="menu-group">
               <p class="menu-group-title">Parish Life</p>
+              <a href="{{ "events/" | relURL }}">Events & Updates</a>
               <a href="{{ "parish-life/" | relURL }}">Parish Life</a>
               <a href="{{ "giving/" | relURL }}">Giving & Stewardship</a>
               <a href="{{ "forms/" | relURL }}">Forms</a>
@@ -77,6 +81,11 @@
             </div>
           </nav>
       </details>
+      {{ if hugo.Data.ministry_platform.login.enabled }}
+        <div class="ministry-platform-login" aria-label="Parish account login">
+          <mpp-user-login></mpp-user-login>
+        </div>
+      {{ end }}
     </div>
   </div>
 </header>
@@ -109,6 +118,7 @@
           <li><a href="{{ "" | relURL }}">Home</a></li>
           <li><a href="{{ "mass-confession/" | relURL }}">Mass & Confession</a></li>
           <li><a href="{{ "bulletins/" | relURL }}">Bulletin</a></li>
+          <li><a href="{{ "events/" | relURL }}">Events & Updates</a></li>
           <li><a href="{{ "giving/" | relURL }}">Giving & Stewardship</a></li>
           <li><a href="{{ "catholic-links/#st-ann-social-media" | relURL }}">Official Social Media</a></li>
           <li><a href="{{ "contact/" | relURL }}">Contact the Office</a></li>

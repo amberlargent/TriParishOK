@@ -1,0 +1,19 @@
+# MinistryPlatform widget settings.
+# Keep each widget disabled until the Archdiocese supplies and verifies its exact configuration.
+# The templates provide useful parish fallbacks whenever a widget is disabled.
+script_url: "https://mp.archokc.org/widgets/dist/MPWidgets.js"
+
+login:
+  enabled: false
+
+events:
+  enabled: false
+
+prayer_support:
+  enabled: false
+
+subscriptions:
+  enabled: false
+
+giving:
+  enabled: false

@@ -10,7 +10,30 @@
   </div>
 </section>
 
-<section class="section two-column">
+<section class="section events-widget-section" aria-labelledby="upcoming-events-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Gather With Us</p>
+    <h2 id="upcoming-events-heading">Upcoming Events</h2>
+    <p>Parish gatherings, formation opportunities, and important community dates.</p>
+  </div>
+
+  {{ if hugo.Data.ministry_platform.events.enabled }}
+    <div class="ministry-platform-widget ministry-platform-events">
+      <!-- Angela's approved Event Finder widget configuration belongs here. -->
+    </div>
+  {{ else }}
+    <article class="card events-fallback-card">
+      <h3>See what is happening now</h3>
+      <p>Current events and announcements are published in the bulletin and in the parish notices on this website.</p>
+      <div class="button-row">
+        <a class="button button-primary" href="{{ "bulletins/" | relURL }}">Read the Current Bulletin</a>
+        <a class="button button-secondary" href="{{ "#current-parish-updates" }}">Current Parish Updates</a>
+      </div>
+    </article>
+  {{ end }}
+</section>
+
+<section id="current-parish-updates" class="section two-column">
   <article class="card events-feature-card">
     <p class="eyebrow">Calendar</p>
     <h2>{{ hugo.Data.events.calendar.title }}</h2>
@@ -30,6 +53,39 @@
     </p>
     <a class="button button-secondary" href="{{ "mass-confession/" | relURL }}">Mass & Confession Times</a>
   </article>
+</section>
+
+<section class="section section-light events-connect-section" aria-labelledby="events-connect-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Prayer, Support & Updates</p>
+    <h2 id="events-connect-heading">Stay connected to your parish family.</h2>
+  </div>
+  <div class="events-grid">
+    <article class="card events-card">
+      <p class="eyebrow">Prayer & Support</p>
+      <h3>Tell us how we can help.</h3>
+      {{ if hugo.Data.ministry_platform.prayer_support.enabled }}
+        <div class="ministry-platform-widget ministry-platform-prayer-support">
+          <!-- Angela's approved Prayer & Feedback widget configuration belongs here. -->
+        </div>
+      {{ else }}
+        <p>For prayer, pastoral support, or help finding the right parish resource, contact the parish office.</p>
+        <a class="button button-secondary" href="{{ "contact/" | relURL }}">Contact the Parish</a>
+      {{ end }}
+    </article>
+    <article class="card events-card">
+      <p class="eyebrow">Parish Updates</p>
+      <h3>Keep in touch.</h3>
+      {{ if hugo.Data.ministry_platform.subscriptions.enabled }}
+        <div class="ministry-platform-widget ministry-platform-subscriptions">
+          <!-- Angela's approved Subscribe to Publication widget configuration belongs here. -->
+        </div>
+      {{ else }}
+        <p>Read the weekly bulletin and follow the official parish social-media page for current news.</p>
+        <a class="button button-secondary" href="{{ "bulletins/" | relURL }}">Read the Bulletin</a>
+      {{ end }}
+    </article>
+  </div>
 </section>
 
 <section class="section section-light">

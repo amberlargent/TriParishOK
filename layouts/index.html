@@ -144,6 +144,34 @@
 
 {{ partial "important-this-week.html" . }}
 
+{{ with hugo.Data.bulletin.current.homily }}
+  {{ if and (ne .enabled false) (or .title .intro .paragraphs) }}
+    <section class="section home-gospel-section" aria-labelledby="home-gospel-heading">
+      <article class="home-gospel-card">
+        <div class="home-gospel-copy">
+          <p class="eyebrow">This Week in the Gospel</p>
+          <h2 id="home-gospel-heading">{{ .title | default "Father’s Reflection" }}</h2>
+          {{ with .intro }}<div class="home-gospel-intro">{{ . | markdownify }}</div>{{ end }}
+          {{ with .paragraphs }}
+            {{ if gt (len .) 0 }}
+              {{ with index . 0 }}
+                {{ if reflect.IsMap . }}
+                  {{ with index . "text" }}<div class="home-gospel-excerpt">{{ . | markdownify }}</div>{{ end }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </div>
+        <div class="home-gospel-actions" aria-label="Gospel reflection and worship links">
+          <a class="button button-primary" href="{{ "bulletins/#fathers-reflection" | relURL }}">Read Father’s Full Reflection</a>
+          <a class="button button-secondary" href="https://bible.usccb.org/daily-bible-reading">Read the Mass Readings</a>
+          <a class="button button-secondary" href="{{ "mass-confession/" | relURL }}">Join Us for Mass</a>
+        </div>
+      </article>
+    </section>
+  {{ end }}
+{{ end }}
+
 <section class="section home-bulletin-section" aria-labelledby="current-bulletin-heading">
   <article class="card home-bulletin-card">
     <p class="eyebrow">Bulletin</p>
@@ -161,6 +189,37 @@
       <a class="button button-primary" href="{{ "bulletins/" | relURL }}">View current bulletin</a>
     {{ end }}
   </article>
+</section>
+
+<section class="section section-light home-connect-section" aria-labelledby="home-connect-heading">
+  <div class="section-heading">
+    <p class="eyebrow">Pray, Gather & Stay Connected</p>
+    <h2 id="home-connect-heading">There is a place for you here.</h2>
+    <p>Find parish events, ask for prayer or support, and stay close to the life of our Catholic community.</p>
+  </div>
+  <div class="home-connect-grid">
+    <article class="card home-connect-card">
+      <p class="eyebrow">Gather</p>
+      <h3>Events & Parish Updates</h3>
+      <p>See current announcements, schedule changes, and ways to take part in parish life.</p>
+      <a class="button button-primary" href="{{ "events/" | relURL }}">See Events & Updates</a>
+    </article>
+    <article class="card home-connect-card">
+      <p class="eyebrow">Prayer & Support</p>
+      <h3>How can we pray for you?</h3>
+      <p>Reach the parish when you need prayer, pastoral support, or help finding the right next step.</p>
+      <a class="button button-secondary" href="{{ "contact/" | relURL }}">Contact the Parish</a>
+    </article>
+    <article class="card home-connect-card">
+      <p class="eyebrow">Stay Connected</p>
+      <h3>Keep up with parish life.</h3>
+      <p>Read the latest bulletin and follow our official parish updates.</p>
+      <div class="home-connect-card-actions">
+        <a class="button button-secondary" href="{{ "bulletins/" | relURL }}">Current Bulletin</a>
+        <a class="button button-secondary" href="{{ "catholic-links/#st-ann-social-media" | relURL }}">Official Social Media</a>
+      </div>
+    </article>
+  </div>
 </section>
 
 <section class="section section-light home-giving-section" aria-labelledby="home-giving-heading">
