@@ -711,16 +711,9 @@
 
 .important-week-section .important-week-button {
   margin-top: auto;
-  width: fit-content;
-  max-width: 100%;
+  width: 100%;
   text-align: center;
   justify-content: center;
-}
-
-@media (max-width: 759px) {
-  .important-week-section .important-week-button {
-    width: 100%;
-  }
 }
 
 /* Parish direction button groups */
