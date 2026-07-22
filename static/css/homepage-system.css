@@ -1256,24 +1256,27 @@
 /* ---------- Automatic calendar actions ---------- */
 
 .notice-calendar-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.55rem;
   margin-top: 0.65rem;
 }
 
 .notice-calendar-actions .button {
+  width: 100%;
   margin: 0;
+  justify-content: center;
+  text-align: center;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 420px) {
   .notice-calendar-actions {
-    display: grid;
+    gap: 0.45rem;
   }
 
   .notice-calendar-actions .button {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
+    padding-right: 0.55rem;
+    padding-left: 0.55rem;
+    font-size: 0.86rem;
   }
 }
