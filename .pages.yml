@@ -173,6 +173,47 @@ content:
                 default: false
                 description: "Turn this on for cancellations, special Masses, or other schedule changes. The notice will also appear above the regular schedule."
 
+              - name: calendar
+                label: Add to Calendar — Dated Events Only
+                type: object
+                required: false
+                description: "Use this only for an event with a definite date and start time. Leave the entire section blank for announcements, volunteer needs, and ongoing requests."
+                fields:
+                  - name: enabled
+                    label: Show Add to Calendar Buttons
+                    type: boolean
+                    required: false
+                    default: false
+                    description: "Turn this on after the event date, time, and location below are complete."
+
+                  - name: start
+                    label: Event Start
+                    type: date
+                    required: false
+                    default: ""
+                    description: "Choose the actual event date and starting time—not the day the notice begins appearing."
+                    options:
+                      time: true
+                      step: 300
+                      format: yyyy-MM-dd'T'HH:mm:ssXXX
+
+                  - name: end
+                    label: Event End
+                    type: date
+                    required: false
+                    default: ""
+                    description: "Optional. If left blank, the calendar entry will last one hour."
+                    options:
+                      time: true
+                      step: 300
+                      format: yyyy-MM-dd'T'HH:mm:ssXXX
+
+                  - name: location
+                    label: Event Location
+                    type: string
+                    required: false
+                    description: "Include the building, street address, city, state, and ZIP code."
+
               - name: action
                 label: Button
                 type: select

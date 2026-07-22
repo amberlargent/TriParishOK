@@ -11,6 +11,11 @@ items:
     start_date: 2026-07-12
     end_date: 2026-08-02
     affects_schedule: true
+    calendar:
+      enabled: true
+      start: 2026-08-02T10:30:00-05:00
+      end: ""
+      location: St. Ann Catholic Church, 8492 State HWY 17, Elgin, OK 73538
     action: bulletin
   - enabled: true
     label: Faith Formation

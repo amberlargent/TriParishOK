@@ -1252,3 +1252,28 @@
     text-align: left;
   }
 }
+
+/* ---------- Automatic calendar actions ---------- */
+
+.notice-calendar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.65rem;
+}
+
+.notice-calendar-actions .button {
+  margin: 0;
+}
+
+@media (max-width: 560px) {
+  .notice-calendar-actions {
+    display: grid;
+  }
+
+  .notice-calendar-actions .button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}

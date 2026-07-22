@@ -1,0 +1,39 @@
+{{- with .calendar -}}
+  {{- if and .enabled .start -}}
+    {{- $notice := $ -}}
+    {{- $start := time.AsTime .start -}}
+    {{- $end := $start.Add (time.ParseDuration "1h") -}}
+    {{- with .end -}}
+      {{- $end = time.AsTime . -}}
+    {{- end -}}
+    {{- $startUTC := $start.UTC.Format "20060102T150405Z" -}}
+    {{- $endUTC := $end.UTC.Format "20060102T150405Z" -}}
+    {{- $description := $notice.detail | markdownify | plainify -}}
+    {{- $location := .location | default "" -}}
+    {{- $googleQuery := querify
+      "action" "TEMPLATE"
+      "text" $notice.title
+      "dates" (printf "%s/%s" $startUTC $endUTC)
+      "details" $description
+      "location" $location
+    -}}
+
+    <div class="notice-calendar-actions" aria-label="Add this event to a calendar">
+      <a class="button button-secondary important-week-button"
+         href="https://calendar.google.com/calendar/render?{{ $googleQuery | safeURL }}"
+         target="_blank"
+         rel="noopener noreferrer">
+        Add to Google Calendar
+      </a>
+      <button class="button button-secondary important-week-button calendar-download-button"
+              type="button"
+              data-calendar-title="{{ $notice.title }}"
+              data-calendar-description="{{ $description }}"
+              data-calendar-location="{{ $location }}"
+              data-calendar-start="{{ $start.Format "2006-01-02T15:04:05Z07:00" }}"
+              data-calendar-end="{{ $end.Format "2006-01-02T15:04:05Z07:00" }}">
+        Add to Apple or Outlook
+      </button>
+    </div>
+  {{- end -}}
+{{- end -}}

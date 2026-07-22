@@ -1,6 +1,7 @@
 baseURL = "https://triparishok.org/"
 canonifyURLs = true
 locale = "en-US"
+timeZone = "America/Chicago"
 title = "Tri-Parish Catholic Community"
 enableRobotsTXT = true
 disableKinds = ["taxonomy", "term"]
