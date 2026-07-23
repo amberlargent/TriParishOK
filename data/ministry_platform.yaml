@@ -9,6 +9,12 @@ login:
 events:
   enabled: false
 
+event_details:
+  enabled: false
+
+event_checkout:
+  enabled: false
+
 prayer_support:
   enabled: false
 

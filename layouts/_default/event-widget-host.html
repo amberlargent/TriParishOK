@@ -1,0 +1,51 @@
+{{ define "main" }}
+
+<section class="page-header page-header-with-image" style="{{ printf "--page-header-image: url('%s');" (partial "page-header-image-style.html" "events") | safeCSS }}">
+  <div>
+    <p class="eyebrow">{{ .Params.eyebrow }}</p>
+    <h1>{{ .Params.heading }}</h1>
+    <p class="page-intro">{{ .Params.intro }}</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="event-widget-heading">
+  <div class="event-widget-host">
+    {{ if eq .Params.widget "details" }}
+      {{ if hugo.Data.ministry_platform.event_details.enabled }}
+        <div
+          id="ministry-platform-event-details"
+          class="ministry-platform-widget ministry-platform-event-details"
+          aria-label="Event details and registration"
+        >
+          <!-- Angela's approved Event Details widget configuration belongs here. -->
+        </div>
+      {{ else }}
+        <article class="card before-you-go-card">
+          <p class="eyebrow">Event Details</p>
+          <h2 id="event-widget-heading">{{ .Params.fallback_title }}</h2>
+          <p>{{ .Params.fallback_text }}</p>
+          <a class="button button-primary" href="{{ "events/" | relURL }}">View All Events</a>
+        </article>
+      {{ end }}
+    {{ else if eq .Params.widget "checkout" }}
+      {{ if hugo.Data.ministry_platform.event_checkout.enabled }}
+        <div
+          id="ministry-platform-event-checkout"
+          class="ministry-platform-widget ministry-platform-event-checkout"
+          aria-label="Event registration checkout"
+        >
+          <!-- Angela's approved Event Checkout widget configuration belongs here. -->
+        </div>
+      {{ else }}
+        <article class="card before-you-go-card">
+          <p class="eyebrow">Event Registration</p>
+          <h2 id="event-widget-heading">{{ .Params.fallback_title }}</h2>
+          <p>{{ .Params.fallback_text }}</p>
+          <a class="button button-primary" href="{{ "events/" | relURL }}">View All Events</a>
+        </article>
+      {{ end }}
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

@@ -58,6 +58,14 @@ pages:
     title: "Catholic Parish Events | Elgin, Sterling & Apache, OK"
     description: "Find upcoming Catholic parish events and community activities for St. Ann, Our Lady of Perpetual Help, and Mother of Sorrows."
 
+  "/event-details/":
+    title: "Event Details & Registration | Tri-Parish Catholic Community"
+    description: "View details and registration information for a Tri-Parish Catholic Community event."
+
+  "/event-checkout/":
+    title: "Event Registration Checkout | Tri-Parish Catholic Community"
+    description: "Complete registration for a Tri-Parish Catholic Community event."
+
   "/forms/":
     title: "Parish & Sacrament Forms | Tri-Parish Catholic Community"
     description: "Find current parish, faith formation, and Sacrament forms for the Tri-Parish Catholic Community in southwest Oklahoma."

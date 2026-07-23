@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="{{ printf "%s?v=%s" ("css/faith-formation-system.css" | relURL) $faithFormationVersion }}">
   <link rel="stylesheet" href="{{ printf "%s?v=%s" ("css/bulletins-system.css" | relURL) $bulletinsVersion }}">
   <link rel="stylesheet" href="{{ printf "%s?v=%s" ("css/contact-system.css" | relURL) $contactVersion }}">
-  {{ if or hugo.Data.ministry_platform.login.enabled hugo.Data.ministry_platform.events.enabled hugo.Data.ministry_platform.prayer_support.enabled hugo.Data.ministry_platform.subscriptions.enabled hugo.Data.ministry_platform.giving.enabled }}
+  {{ if or hugo.Data.ministry_platform.login.enabled hugo.Data.ministry_platform.events.enabled hugo.Data.ministry_platform.event_details.enabled hugo.Data.ministry_platform.event_checkout.enabled hugo.Data.ministry_platform.prayer_support.enabled hugo.Data.ministry_platform.subscriptions.enabled hugo.Data.ministry_platform.giving.enabled }}
     <script id="MPWidgets" src="{{ hugo.Data.ministry_platform.script_url }}" defer></script>
   {{ end }}
   {{ $calendarVersion := substr (crypto.SHA256 (os.ReadFile "static/js/calendar-download.js")) 0 12 }}

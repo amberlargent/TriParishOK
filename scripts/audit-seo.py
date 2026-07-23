@@ -10,6 +10,11 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 from urllib.parse import urlparse
 
+LIVE_NOINDEX_PATHS = {
+    "/event-details/",
+    "/event-checkout/",
+}
+
 
 class PageInspector(HTMLParser):
     def __init__(self) -> None:
@@ -275,8 +280,11 @@ def main() -> int:
             if expect_noindex and not has_noindex:
                 errors.append(f"{path}: review build is missing noindex")
 
-            if not expect_noindex and has_noindex:
-                errors.append(f"{path}: live build still contains noindex")
+            if not expect_noindex:
+                if path in LIVE_NOINDEX_PATHS and not has_noindex:
+                    errors.append(f"{path}: utility page is missing noindex")
+                if path not in LIVE_NOINDEX_PATHS and has_noindex:
+                    errors.append(f"{path}: live build still contains noindex")
 
             types: set[str] = set()
 
