@@ -1,0 +1,5 @@
+{{- $header := index hugo.Data.page_headers . -}}
+{{- $imageURL := partial "page-header-image-style.html" . -}}
+{{- $mobilePosition := $header.mobile_position | default "64% center" -}}
+{{- $mobileSize := $header.mobile_size | default "cover" -}}
+{{- return (printf "--page-header-image: url('%s'); --page-header-mobile-position: %s; --page-header-mobile-size: %s;" $imageURL $mobilePosition $mobileSize) -}}

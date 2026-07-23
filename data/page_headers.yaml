@@ -1,43 +1,77 @@
 becoming-catholic:
   src: "/images/page-headers/becoming-catholic.webp"
   description: "AI-generated devotional still life with Bible, rosary, candle, and crucifix"
+  mobile_position: "70% center"
+  mobile_size: "cover"
 
 bulletins:
   src: "/images/page-headers/bulletins.webp"
   description: "AI-generated parish bulletin and rosary still life"
+  mobile_position: "68% center"
+  mobile_size: "cover"
 
 contact:
   src: "/images/page-headers/contact.webp"
   description: "AI-generated parish office desk with telephone and crucifix"
+  mobile_position: "70% center"
+  mobile_size: "cover"
 
 events:
   src: "/images/page-headers/events.webp"
   description: "AI-generated calendar, invitations, pen, and rosary still life"
+  mobile_position: "68% center"
+  mobile_size: "cover"
 
 forms:
   src: "/images/page-headers/forms.webp"
   description: "AI-generated blank parish form, pen, and rosary still life"
+  mobile_position: "66% center"
+  mobile_size: "cover"
 
 giving:
   src: "/images/page-headers/giving.webp"
   description: "AI-generated offering envelope and basket scene"
+  mobile_position: "68% center"
+  mobile_size: "cover"
 
 parish-life:
   src: "/images/page-headers/parish-life.webp"
   description: "AI-generated parish fellowship table preparation scene"
+  mobile_position: "68% center"
+  mobile_size: "cover"
 
 catholic-links:
   src: "/images/page-headers/catholic-links.webp"
   description: "AI-generated tablet, Bible, notebook, and rosary still life"
+  mobile_position: "68% center"
+  mobile_size: "cover"
 
 mass-confession:
   src: "/images/page-headers/mass-confession.webp"
   description: "AI-generated green Ordinary Time stole, Roman Missal, crucifix, and unlit sanctuary lamp still life"
+  mobile_position: "68% center"
+  mobile_size: "cover"
 
 sacraments:
   src: "/images/page-headers/sacraments.webp"
   description: "AI-generated sacramental still life with baptismal water, white garment, rings, sacred oil, rosary, and crucifix"
+  mobile_position: "66% center"
+  mobile_size: "cover"
 
 faith-formation:
   src: "/images/page-headers/st-ann-confirmation-decor-2025.jpg"
   description: "Confirmation decorations prepared for St. Ann Religious Education on May 10, 2025"
+  mobile_position: "left center"
+  mobile_size: "cover"
+
+our-parishes:
+  src: "/images/new-here/welcoming-catholic-church-interior.webp"
+  description: "AI-generated welcoming Catholic church interior"
+  mobile_position: "58% center"
+  mobile_size: "cover"
+
+photo-privacy:
+  src: "/images/home/st-ann-sanctuary-hero.jpg"
+  description: "The sanctuary and altar at St. Ann Catholic Church"
+  mobile_position: "center center"
+  mobile_size: "cover"

@@ -1,0 +1,72 @@
+/* =========================================================
+   Shared page-header rhythm
+   Desktop only. Mobile retains its purpose-built layouts.
+   ========================================================= */
+
+@media (min-width: 900px) {
+  :is(
+    .hero.home-hero,
+    .page-header,
+    .faith-formation-hero,
+    .sacraments-clean-hero,
+    .new-here-page-header
+  ) {
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    width: 100% !important;
+    height: 20rem !important;
+    min-height: 20rem !important;
+    padding: 2rem 1rem !important;
+  }
+
+  :is(
+    .hero.home-hero .hero-inner,
+    .page-header > div,
+    .faith-formation-hero .faith-formation-inner,
+    .sacraments-clean-hero .sacraments-clean-inner,
+    .new-here-page-header > div
+  ) {
+    width: 100% !important;
+    max-width: 1180px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  :is(
+    .hero.home-hero h1,
+    .page-header h1,
+    .faith-formation-hero h1,
+    .sacraments-clean-hero h1,
+    .new-here-page-header h1
+  ) {
+    max-width: 1120px !important;
+    margin: 0 0 1rem !important;
+    font-size: clamp(3.1rem, 4vw, 4rem) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.03em !important;
+    text-wrap: balance;
+  }
+
+  :is(
+    .hero.home-hero p:not(.eyebrow),
+    .page-header .page-intro,
+    .faith-formation-hero p:not(.eyebrow),
+    .sacraments-clean-hero p:not(.eyebrow),
+    .new-here-page-header .page-intro
+  ) {
+    max-width: 800px !important;
+    margin-bottom: 0 !important;
+    font-size: 1.05rem !important;
+    line-height: 1.55 !important;
+  }
+
+  :is(
+    .hero.home-hero .button-row,
+    .page-header .button-row,
+    .faith-formation-hero .faith-formation-actions,
+    .sacraments-clean-hero .sacraments-clean-actions
+  ) {
+    margin-top: 1.15rem !important;
+  }
+}

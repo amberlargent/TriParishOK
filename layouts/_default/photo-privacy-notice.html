@@ -1,0 +1,17 @@
+{{ define "main" }}
+
+<section class="page-header page-header-with-image" style="{{ partial "page-header-style.html" "photo-privacy" | safeCSS }}">
+  <div>
+    <p class="eyebrow">Safety & Notices</p>
+    <h1>{{ .Title }}</h1>
+    <p class="page-intro">
+      How the Tri-Parish Catholic Community approaches parish photography, media use, and personal privacy.
+    </p>
+  </div>
+</section>
+
+<article class="page-content">
+  {{ .Content }}
+</article>
+
+{{ end }}
