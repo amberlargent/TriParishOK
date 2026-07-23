@@ -6,7 +6,7 @@ groups:
         description: "News, offices, ministries, and resources from the Archdiocese of Oklahoma City."
 
       - name: "Blessed Stanley Rother Shrine"
-        url: "http://www.rothershrine.org/"
+        url: "https://www.rothershrine.org/"
         description: "Information about the shrine, Mass times, pilgrimages, and devotion to Blessed Stanley Rother."
 
       - name: "Oklahoma Catholic"
@@ -98,7 +98,3 @@ groups:
       - name: "Catholic Kids"
         url: "https://www.catholic-kids.com/"
         description: "Traditional Catholic prayers, Rosary resources, quizzes, and faith resources for children."
-
-      - name: "My Friend Magazine"
-        url: "http://www.myfriendmagazine.com/"
-        description: "Catholic children’s faith resources and activities."

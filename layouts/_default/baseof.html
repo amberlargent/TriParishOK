@@ -7,6 +7,23 @@
   <link rel="icon" href="{{ "favicon-32x32.png" | relURL }}" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}" sizes="180x180">
   {{ partial "seo-head.html" . }}
+  {{- $preloadImage := "" -}}
+  {{- if .IsHome -}}
+    {{- $preloadImage = hugo.Data.site_images.home.st_ann_sanctuary.src -}}
+  {{- else if eq .Layout "new-here" -}}
+    {{- $preloadImage = hugo.Data.site_images.new_here.new_here_church_interior.src -}}
+  {{- else -}}
+    {{- $headerKey := .Layout -}}
+    {{- if eq $headerKey "event-widget-host" -}}
+      {{- $headerKey = "events" -}}
+    {{- end -}}
+    {{- with index hugo.Data.page_headers $headerKey -}}
+      {{- $preloadImage = .src -}}
+    {{- end -}}
+  {{- end -}}
+  {{- with $preloadImage -}}
+    <link rel="preload" as="image" href="{{ strings.TrimPrefix "/" . | relURL }}" fetchpriority="high">
+  {{- end }}
   {{ $stylesVersion := substr (crypto.SHA256 (os.ReadFile "static/css/styles.css")) 0 12 }}
   {{ $homepageVersion := substr (crypto.SHA256 (os.ReadFile "static/css/homepage-system.css")) 0 12 }}
   {{ $sacramentsVersion := substr (crypto.SHA256 (os.ReadFile "static/css/sacraments-system.css")) 0 12 }}
