@@ -69,33 +69,7 @@
   </div>
 </section>
 
-<section class="section home-parish-life-section" aria-labelledby="home-parish-life-heading">
-  <div class="section-heading home-parish-life-heading">
-    <p class="eyebrow">Life in Our Parishes</p>
-    <h2 id="home-parish-life-heading">Rooted in worship. Growing in community.</h2>
-    <p>
-      See parish life, formation updates, community news, and current announcements
-      through our official parish resources.
-    </p>
-  </div>
-
-  <div class="home-parish-life-gallery">
-    {{ range $index, $photo := hugo.Data.homepage_gallery.items }}
-      <figure class="home-life-photo{{ if eq $index 0 }} home-life-photo-featured{{ end }}">
-        {{ partial "static-image.html" (dict "src" $photo.image "alt" $photo.alt "class" "home-life-image") }}
-        <figcaption>{{ $photo.caption }}</figcaption>
-      </figure>
-    {{ end }}
-  </div>
-
-  <div class="home-parish-life-actions">
-    <a class="button button-primary" href="https://www.facebook.com/profile.php?id=61580669036506" target="_blank" rel="noopener noreferrer">
-      Follow St. Ann on Facebook
-    </a>
-    <a class="button button-secondary" href="{{ "parish-life/" | relURL }}">Explore Parish Life</a>
-  </div>
-</section>
-
+{{ partial "important-this-week.html" . }}
 
 <section class="section section-light home-mass-section" aria-labelledby="weekend-mass-heading">
   <div class="section-heading">
@@ -169,8 +143,6 @@
   </div>
 </section>
 
-{{ partial "important-this-week.html" . }}
-
 {{ with hugo.Data.bulletin.current.homily }}
   {{ if and (ne .enabled false) (or .title .intro .paragraphs) }}
     <section class="section home-gospel-section" aria-labelledby="home-gospel-heading">
@@ -199,30 +171,38 @@
   {{ end }}
 {{ end }}
 
-<section class="section home-bulletin-section" aria-labelledby="current-bulletin-heading">
-  <article class="card home-bulletin-card">
-    <p class="eyebrow">Bulletin</p>
-    <h2 id="current-bulletin-heading">Current Parish Bulletin</h2>
+<section class="section home-parish-life-section" aria-labelledby="home-parish-life-heading">
+  <div class="section-heading home-parish-life-heading">
+    <p class="eyebrow">Life in Our Parishes</p>
+    <h2 id="home-parish-life-heading">Rooted in worship. Growing in community.</h2>
     <p>
-      The bulletin includes parish notices, schedule changes, events, prayer intentions,
-      and ministry needs. Key notices are also summarized above for quick reading.
+      See parish life, formation updates, community news, and current announcements
+      through our official parish resources.
     </p>
+  </div>
 
-    {{ with hugo.Data.bulletin.current }}
-      <a class="button button-primary" href="{{ "bulletins/" | relURL }}">
-        View the {{ .date }} bulletin
-      </a>
-    {{ else }}
-      <a class="button button-primary" href="{{ "bulletins/" | relURL }}">View current bulletin</a>
+  <div class="home-parish-life-gallery">
+    {{ range $index, $photo := hugo.Data.homepage_gallery.items }}
+      <figure class="home-life-photo{{ if eq $index 0 }} home-life-photo-featured{{ end }}">
+        {{ partial "static-image.html" (dict "src" $photo.image "alt" $photo.alt "class" "home-life-image") }}
+        <figcaption>{{ $photo.caption }}</figcaption>
+      </figure>
     {{ end }}
-  </article>
+  </div>
+
+  <div class="home-parish-life-actions">
+    <a class="button button-primary" href="https://www.facebook.com/profile.php?id=61580669036506" target="_blank" rel="noopener noreferrer">
+      Follow St. Ann on Facebook
+    </a>
+    <a class="button button-secondary" href="{{ "parish-life/" | relURL }}">Explore Parish Life</a>
+  </div>
 </section>
 
 <section class="section section-light home-connect-section" aria-labelledby="home-connect-heading">
   <div class="section-heading">
-    <p class="eyebrow">Pray, Gather & Stay Connected</p>
-    <h2 id="home-connect-heading">There is a place for you here.</h2>
-    <p>Find parish events, ask for prayer or support, and stay close to the life of our Catholic community.</p>
+    <p class="eyebrow">Stay Connected</p>
+    <h2 id="home-connect-heading">Keep up with parish life.</h2>
+    <p>Find the bulletin, parish events, prayer support, and official community updates.</p>
   </div>
   <div class="home-connect-grid">
     <article class="card home-connect-card">
@@ -238,11 +218,15 @@
       <a class="button button-secondary" href="{{ "contact/" | relURL }}">Contact the Parish</a>
     </article>
     <article class="card home-connect-card">
-      <p class="eyebrow">Stay Connected</p>
-      <h3>Keep up with parish life.</h3>
-      <p>Read the latest bulletin and follow our official parish updates.</p>
+      <p class="eyebrow">Bulletin & Social Media</p>
+      <h3>Read the latest parish news.</h3>
+      <p>Find weekly announcements, schedule changes, ministry needs, and official parish updates.</p>
       <div class="home-connect-card-actions">
-        <a class="button button-secondary" href="{{ "bulletins/" | relURL }}">Current Bulletin</a>
+        {{ with hugo.Data.bulletin.current }}
+          <a class="button button-secondary" href="{{ "bulletins/" | relURL }}">{{ .date }} Bulletin</a>
+        {{ else }}
+          <a class="button button-secondary" href="{{ "bulletins/" | relURL }}">Current Bulletin</a>
+        {{ end }}
         <a class="button button-secondary" href="{{ "catholic-links/#st-ann-social-media" | relURL }}">Official Social Media</a>
       </div>
     </article>

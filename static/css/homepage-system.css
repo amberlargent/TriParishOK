@@ -1273,3 +1273,19 @@
     font-size: 0.86rem;
   }
 }
+
+/* One neutral card treatment across the homepage. Parish-specific cards keep
+   their existing colored identity accents. */
+.home-start-card,
+.important-week-card,
+.home-connect-card,
+.home-giving-card {
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+}
+
+.home-gospel-card {
+  border: 0 !important;
+  box-shadow: none !important;
+}

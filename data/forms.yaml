@@ -48,11 +48,6 @@ groups:
         file: "/forms/st-ann-re-enrollment-packet-2026-2027.pdf"
         parish: "st-ann"
 
-      - title: "Archdiocesan Annual Permission Form A-1 — Blank"
-        description: "The current Archdiocesan consent and general release form for a minor participating in regular Religious Formation activities."
-        link: "https://share.google/6yruSglZA5NVpysFm"
-        link_text: "Open Current Form A-1 — PDF"
-
       - title: "Safe Environment & Reporting"
         description: "For abuse reporting and Safe Environment information, use the parish reporting section."
         link: "/contact/#safe-environment-reporting"
