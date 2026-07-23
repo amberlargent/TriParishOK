@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-<section class="faith-formation-hero page-header-with-image" style="{{ printf "--page-header-image: url('%s');" (partial "page-header-image-style.html" "faith-formation") | safeCSS }}">
+<section class="faith-formation-hero page-header-with-image" style="{{ partial "page-header-style.html" "faith-formation" | safeCSS }}">
   <div class="faith-formation-inner">
     <p class="eyebrow">Faith Formation</p>
     <h1>{{ .Title }}</h1>

@@ -1,5 +1,6 @@
 ---
 title: "Photo & Privacy Notice"
+layout: "photo-privacy-notice"
 ---
 
 

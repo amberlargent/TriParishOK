@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-<section class="sacraments-clean-hero page-header-with-image" style="{{ printf "--page-header-image: url('%s');" (partial "page-header-image-style.html" "sacraments") | safeCSS }}">
+<section class="sacraments-clean-hero page-header-with-image" style="{{ partial "page-header-style.html" "sacraments" | safeCSS }}">
   <div class="sacraments-clean-inner">
     <p class="eyebrow">The Sacramental Life</p>
     <h1>{{ .Title }}</h1>

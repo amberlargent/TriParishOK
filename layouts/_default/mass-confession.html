@@ -3,7 +3,7 @@
 {{ $activeNotices := partial "active-notices.html" . }}
 {{ $scheduleNotices := where $activeNotices "affects_schedule" true }}
 
-<section class="page-header page-header-with-image" style="{{ printf "--page-header-image: url('%s');" (partial "page-header-image-style.html" "mass-confession") | safeCSS }}">
+<section class="page-header page-header-with-image" style="{{ partial "page-header-style.html" "mass-confession" | safeCSS }}">
   <div>
     <p class="eyebrow">Worship With Us</p>
     <h1>Mass & Confession</h1>

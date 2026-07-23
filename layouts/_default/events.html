@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-<section class="page-header page-header-with-image" style="{{ printf "--page-header-image: url('%s');" (partial "page-header-image-style.html" "events") | safeCSS }}">
+<section class="page-header page-header-with-image" style="{{ partial "page-header-style.html" "events" | safeCSS }}">
   <div>
     <p class="eyebrow">Events</p>
     <h1>{{ hugo.Data.events.intro.title }}</h1>
@@ -12,7 +12,7 @@
 
 <section class="section events-widget-section" aria-labelledby="upcoming-events-heading">
   <div class="section-heading">
-    <p class="eyebrow">Gather With Us</p>
+    <p class="eyebrow">Parish Calendar</p>
     <h2 id="upcoming-events-heading">Upcoming Events</h2>
     <p>Parish gatherings, formation opportunities, and important community dates.</p>
   </div>

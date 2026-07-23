@@ -31,6 +31,7 @@
   {{ $faithFormationVersion := substr (crypto.SHA256 (os.ReadFile "static/css/faith-formation-system.css")) 0 12 }}
   {{ $bulletinsVersion := substr (crypto.SHA256 (os.ReadFile "static/css/bulletins-system.css")) 0 12 }}
   {{ $contactVersion := substr (crypto.SHA256 (os.ReadFile "static/css/contact-system.css")) 0 12 }}
+  {{ $headerVersion := substr (crypto.SHA256 (os.ReadFile "static/css/header-system.css")) 0 12 }}
   <link rel="stylesheet" href="{{ printf "%s?v=%s" ("css/styles.css" | relURL) $stylesVersion }}">
   <link rel="stylesheet" href="{{ printf "%s?v=%s" ("css/homepage-system.css" | relURL) $homepageVersion }}">
   <link rel="stylesheet" href="{{ printf "%s?v=%s" ("css/sacraments-system.css" | relURL) $sacramentsVersion }}">
@@ -38,6 +39,7 @@
   <link rel="stylesheet" href="{{ printf "%s?v=%s" ("css/faith-formation-system.css" | relURL) $faithFormationVersion }}">
   <link rel="stylesheet" href="{{ printf "%s?v=%s" ("css/bulletins-system.css" | relURL) $bulletinsVersion }}">
   <link rel="stylesheet" href="{{ printf "%s?v=%s" ("css/contact-system.css" | relURL) $contactVersion }}">
+  <link rel="stylesheet" href="{{ printf "%s?v=%s" ("css/header-system.css" | relURL) $headerVersion }}">
   {{ if or hugo.Data.ministry_platform.login.enabled hugo.Data.ministry_platform.events.enabled hugo.Data.ministry_platform.event_details.enabled hugo.Data.ministry_platform.event_checkout.enabled hugo.Data.ministry_platform.prayer_support.enabled hugo.Data.ministry_platform.subscriptions.enabled hugo.Data.ministry_platform.giving.enabled }}
     <script id="MPWidgets" src="{{ hugo.Data.ministry_platform.script_url }}" defer></script>
   {{ end }}
